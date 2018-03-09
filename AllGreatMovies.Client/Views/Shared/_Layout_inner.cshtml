@@ -1,0 +1,425 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="~/Assets/IMAGES/favicon.ico">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - All Great Films</title>
+
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Assets/NewTemplate/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Plugins -->
+    <link href="~/Assets/NewTemplate/css/simpletextrotator.css" rel="stylesheet">
+    <link href="~/Assets/NewTemplate/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Assets/NewTemplate/css/et-line-font.css" rel="stylesheet">
+    <link href="~/Assets/NewTemplate/fonts/Icon-font-7-stroke-PIXEDEN-v-1.2.0/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="~/Assets/CSS/toastr.min.css" rel="stylesheet" />
+    <link href="~/Assets/CSS/toastr.css" rel="stylesheet" />
+    <link href="~/Assets/NewTemplate/css/magnific-popup.css" rel="stylesheet">
+    <link href="~/Assets/NewTemplate/css/flexslider.css" rel="stylesheet">
+    <link href="~/Assets/NewTemplate/css/animate.css" rel="stylesheet">
+    <link href="~/Assets/CSS/reveal.css" rel="stylesheet" type="text/css" />
+    <link href="~/Assets/CSS/toastr.min.css" rel="stylesheet" />
+    <link href="~/Assets/CSS/toastr.css" rel="stylesheet" />
+    <link href="~/Assets/NewTemplate/css/megaDrop.css" rel="stylesheet">
+
+
+
+
+    <!-- Template core CSS -->
+    <link href="~/Assets/NewTemplate/css/style.css" rel="stylesheet">
+
+    <!-- Custom css -->
+    <link href="~/Assets/NewTemplate/css/custom.css" rel="stylesheet">
+
+
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" />
+
+    @{
+        var load = 0;
+    }
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+    <!-- /PRELOADER -->
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top" role="navigation">
+
+        <div class="container">
+
+
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="~/Assets/NewTemplate/images/agf_logo_light_full.png" style="margin-top:-7px;">
+            </div>
+
+            <div class="collapse navbar-collapse" id="custom-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("admin"))
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin Actions <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Add Movie", "Create", new { Controller = "MovieAdd", Area = "Admin" })</li>
+                                    <li>@Html.ActionLink("View Users", "Index", new { Controller = "ListCategory", Area = "Admin" })</li>
+                                    <li>@Html.ActionLink("Add Director", "Create", new { Controller = "Director", Area = "Admin" })</li>
+                                    <li>@Html.ActionLink("Add Actor", "Create", new { Controller = "Actor", Area = "Admin" })</li>
+                                    <li>@Html.ActionLink("Add Writer", "Create", new { Controller = "Writer", Area = "Admin" })</li>
+
+
+
+
+                                    <li> @User.Identity.Name.ToString())</li>
+                                    <li> @Html.ActionLink("SignOut", "SignOut", new { Controller = "Login", Area = "Security" })</li>
+
+                                </ul>
+                            </li>
+
+                        }
+
+                        if (User.IsInRole("user"))
+                        {
+                            <li>@Html.ActionLink("Movies", "HomeList", new { Controller = "HomeList", Area = "Users" })</li>
+
+                            <li>@Html.ActionLink("Random", "Random", new { Controller = "Random", Area = "Users" })</li>
+
+                            <li>@Html.ActionLink("Agf 100", "AGF100", new { Controller = "AGF100", Area = "Users" })</li>
+
+                            <li>@Html.ActionLink("Add a Film", "Agf100", new { Controller = "HomeList", Area = "Common" })</li>
+
+                            <li>@Html.ActionLink("Contact", "Agf100", new { Controller = "HomeList", Area = "Common" })</li>
+
+
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@User.Identity.Name.ToString()<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+
+                                    <li>@Html.ActionLink("Profile", "UserProfile", new { Controller = "UserProfile", Area = "Users" })</li>
+
+
+                                    <li>@Html.ActionLink("Signout", "SignOut", new { Controller = "Login", Area = "Security" })</li>
+                                </ul>
+                            </li>
+
+                        }
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Movies", "HomeList", new { Controller = "HomeList", Area = "Common" })</li>
+
+                        <li>@Html.ActionLink("Random", "Random", new { Controller = "Random", Area = "Common" })</li>
+
+                        <li>@Html.ActionLink("Agf 100", "AGF100", new { Controller = "AGF100", Area = "Common" })</li>
+
+                        <li>@Html.ActionLink("Add a Film", "Agf100", new { Controller = "HomeList", Area = "Common" })</li>
+
+                        <li>@Html.ActionLink("Contact", "Agf100", new { Controller = "HomeList", Area = "Common" })</li>
+
+
+                        <li style="color:#39aea9">@Html.ActionLink("Register", "Register", new { Controller = "Register", Area = "Security" })</li>
+
+                        <li><a href="/Security/Login/Login"><span style="color:#39aea9;"><i class="ion-log-in">&nbsp;login</i></span></a></li>
+
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#login-modal"
+                               style="color:#39aea9; font-weight:200">
+                                <span aria-hidden="true" class="icon-lock" style="margin-right:2px;"></span>Login
+                            </a>
+                        </li>
+
+                    }
+
+
+
+                </ul>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><div class="fb-like" data-href="http://linkhub.manzoorthetrainer.com/" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div></li>
+                    </ul>
+                }
+
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="wrapper">
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; z-index:1">
+
+
+            <div class="modal-dialog">
+                <div class="login-clean">
+
+                    <div class="login-inner">
+                        <div class="login-header">
+
+                            <h2 class="sr-only">Login Form</h2>
+                            <p>We recommend great movies to you.</p>
+                            <p>Strictly, great movies!</p>
+                        </div>
+                        <div class="logobarLoader" id=loader style="margin:0px; padding:0px !important;"></div>
+
+                        <div class="login-body">
+
+                            <h2 class="module-title font-alt">Login to AGF</h2>
+
+                           
+                                <div class="form-group">
+                                    @Html.TextBox("email", "", new { type = "email", placeholder = "Email", required = "required", @class = "form-control input-lg" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBox("password", "", new { type = "password", placeholder = "Password", required = "required", @class = "form-control input-lg" })
+                                </div>
+                                <row>
+                                    <div class="form-group">
+
+                                        <button class="btn btn-d btn-circle btn-lg-pink" type="submit" id="loginBtn" >Get in! <i class="fa fa-angle-right"></i></button>
+                                        <a data-brackets-id="211" href="#" class="forgot pull-right">Forgot your email or password?</a>
+
+                                    </div>
+
+                                </row>
+                                <br>
+                                <hr>
+
+                                @*<div class="form-group">
+                                    <label class="rememberme">
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>*@
+
+                                <row>
+                                    <button type="button" class="btn btn-default btn-circle">Not A Member Yet?</button>
+
+                                </row>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="content_inner animated fadeIn">
+            @RenderBody()
+
+
+            <footer>
+
+                <p>
+                    <img src="~/Assets/IMAGES/agf_small.gif" height="30" width="60" />
+                    <span>Copyright 2016. AllGreatFilms. All Rights Reserved.</span>
+                </p>
+
+            </footer>
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- Javascript files -->
+    <script src="~/Assets/NewTemplate/js/jquery-2.1.3.js"></script>
+    <script src="~/Assets/NewTemplate/js/jquery-2.1.3.min.js"></script>
+    <script src="~/Assets/NewTemplate/js/jquery.sticky-kit.min.js"></script>
+    <script src="~/Assets/JAVASCRIPT/jquery.unobtrusive-ajax.js"></script>
+
+
+    <script src="~/Assets/NewTemplate/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Assets/NewTemplate/js/jquery.mb.YTPlayer.min.js"></script>
+    <script src="~/Assets/NewTemplate/js/appear.js"></script>
+    <script src="~/Assets/NewTemplate/js/jquery.simple-text-rotator.min.js"></script>
+    <script src="~/Assets/NewTemplate/js/jqBootstrapValidation.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="~/Assets/NewTemplate/js/gmaps.js"></script>
+    <script src="~/Assets/NewTemplate/js/isotope.pkgd.min.js"></script>
+    <script src="~/Assets/NewTemplate/js/imagesloaded.pkgd.js"></script>
+    <script src="~/Assets/NewTemplate/js/jquery.flexslider-min.js"></script>
+    <script src="~/Assets/NewTemplate/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Assets/NewTemplate/js/jquery.fitvids.js"></script>
+    <script src="~/Assets/NewTemplate/js/smoothscroll.js"></script>
+    <script src="~/Assets/NewTemplate/js/wow.min.js"></script>
+    <script src="~/Assets/NewTemplate/js/contact.js"></script>
+    <script src="~/Assets/NewTemplate/js/custom.js"></script>
+    <script src="~/Assets/JAVASCRIPT/toastr.js"></script>
+    <script src="~/Assets/JAVASCRIPT/toastr.min.js"></script>
+    <script src="~/Assets/NewTemplate/js/cbpHorizontalMenu.js"></script>
+    <script src="~/Assets/NewTemplate/js/cbpHorizontalMenu.min.js"></script>
+    <script src="~/Assets/NewTemplate/js/modernizr.custom.js"></script>
+
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            var em = ($("#email").val());
+            var pa = ($("#password").val());
+
+
+            $("#loginBtn").click(function () {
+                alert($("#email").val());
+                alert($("#password").val());
+
+               
+
+
+
+               var url = '@Url.Action("LoginAjax", "Login")';
+               console.log("Ajax URL", url);
+               console.log("movie ID", movieId);
+
+
+               $.ajax({
+
+                   url: url,
+                   type: "POST",
+                   cache: false,
+                   InsertionMode: 'InsertionMode.Replace',
+                   success: function (data) {
+                       console.log("SUCCESS from MovieMain", data)
+                       $('#partialDiv').html(data)
+
+                   },
+                   error: function (xhr, ajaxOptions, thrownError) {
+                   }
+
+               });
+
+               alert($("#password").val());
+                
+            });
+        });
+
+    </script>
+   
+
+    <script>
+        $(document).ready(function () {
+
+            $('.flexslider').flexslider({
+                animation: "slide"
+            });
+
+        });
+    </script>
+    <script>
+        $("#mainPageloader").fadeOut("slow");
+        $(window).load(function () {
+            $("#mainPageloader").fadeOut("slow");
+        })
+    </script>
+
+    <script>
+
+        $(window).scroll(function () {
+            if ($(".navbar").offset().top > 50) {
+                $('#custom-nav').addClass('affix');
+                $(".navbar-fixed-top").addClass("top-nav-collapse");
+                $('.navbar-brand img').attr('src', '/Assets/NewTemplate/images/agf_logo_dark_full.png', 'style="margin-top:-7px'); //change src
+            } else {
+                $('#custom-nav').removeClass('affix');
+                $(".navbar-fixed-top").removeClass("top-nav-collapse");
+                $('.navbar-brand img').attr('src', '/Assets/NewTemplate/images/agf_logo_light_full.png')
+            }
+        });
+    </script>
+
+    <script>
+        var elementPosition = $('#navigation').offset();
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 400) {
+
+
+
+                $('#navigation').css({ 'position': 'fixed', 'top': '50px' });
+                $('#thumbs').css({ 'padding-top': '30px' });
+
+                $('#navigation').css('box-shadow', '10px', '10px', '5px', '#888');
+
+
+
+            } else {
+
+
+
+                $('#navigation').css({ 'position': 'static' });
+                $('#thumbs').css({ 'padding-top': '0px' });
+
+            }
+        });
+
+    </script>
+
+    <script>
+    login = function () {
+
+        alert($("#email").Val());
+
+        var url = '@Url.Action("MovieMain", "MovieMain")';
+        console.log("Ajax URL", url);
+        console.log("movie ID", movieId);
+
+
+        $.ajax({
+
+            url: url,
+            type: "GET",
+            cache: false,
+            InsertionMode: 'InsertionMode.Replace',
+            success: function (data) {
+                console.log("SUCCESS from MovieMain", data)
+                $('#partialDiv').html(data)
+
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+            }
+
+        });
+
+    }
+
+    </script>
+    
+ 
+
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+
+
+@foreach (var item in Model)
+{
+
+
+
+
+    string rating = Convert.ToString(item.GreatnessRating);
+    rating += "%";
+
+
+    <div class="col-md-3">
+        <a href="~/Movie/GetMovieDetails/@item.Director_name" class="movie-card">
+            <span class="movie-thumb">
+                <img src="~/Assets/IMAGES/Movie-poster-1.jpg" class="movie-thumb-img" />
+
+                <span class="overlay animated fadeIn">
+
+                    <span class="movie-details ">
+                        <span class="movie-title">
+
+                            @Html.DisplayFor(modelItem => item.Movie_name)
+                        </span>
+
+                        <span class="movie-director">
+                            <span class="dir-icon">
+                                <i class="fa fa-2x fa-heart"></i>
+                            </span>
+                            <span class="movie-director-name">
+                                @Html.DisplayFor(modelItem => item.Director_name)
+                            </span>
+
+                        </span>
+                        <span class="movie-cast">
+
+                            <span class="dir-icon">
+                                <i class="fa fa-2x fa-heart"></i>
+                            </span>
+                            <span class="movie-cast-names">
+
+                                @foreach (var actor in item.Actor_name)
+                                {
+                                    <span>
+                                        @actor
+                                    </span>
+
+
+
+                                }
+
+
+                            </span>
+
+                        </span>
+                    </span>
+                </span>
+            </span>
+
+
+            <span class="movie-rating">
+                <span class="greateness-rating">
+                    Greatness Rating
+
+                    <span id="myProgress">
+                        <span id="myBar" style="width:@rating"></span>
+                    </span>
+                </span>
+                <span class="movie-utility-links">
+                    @if (item.isFav)
+                    {
+                        <i class="fa fa-2x fa-heart is-favorite" style="color:#ea495f" aria-hidden="true"></i>
+
+                    }
+
+                    else
+                    {
+                        <i class="fa fa-2x fa-heart is-favorite"></i>
+                    }
+
+
+                    @if (item.isToWatch)
+                    {
+                        <i class="fa fa-2x fa-check-circle is-added" style="color:#39aea9;cursor:pointer;"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-2x fa-check-circle is-added"></i>
+                    }
+
+
+                    @if (item.isWatched)
+                    {
+                        <i class="fa fa-2x fa-check-circle is-watched" style="color:#39aea9;cursor:pointer;"></i> }
+                    else
+                    {
+                        <i class="fa fa-2x fa-plus-circle is-added" aria-hidden="true"></i>
+                    }
+
+                </span>
+            </span>
+        </a>
+    </div>
+}
+

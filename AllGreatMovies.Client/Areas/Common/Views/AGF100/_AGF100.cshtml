@@ -1,0 +1,155 @@
+﻿
+@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+@{
+    int utility = 0;
+    int grLabel = 0;
+    int myBarSpan = 0;
+    int load = 0;
+    int afterFav = 0;
+    int afterToWatch = 0;
+    int afterWatched = 0;
+    int id = 0;
+
+
+    var date = DateTime.Now;
+
+    Random rand = new Random();
+    rand.Next();
+    var number = 0;
+    string numberCircleClass = "";
+    string bg = "";
+}
+
+
+@foreach (var item in Model)
+{
+
+    utility = rand.Next();
+    grLabel = rand.Next();
+    myBarSpan = rand.Next();
+    load = rand.Next();
+    afterFav = rand.Next();
+    afterToWatch = rand.Next();
+    afterWatched = rand.Next();
+    number++;
+
+    if (@number < 4)
+    {
+
+        numberCircleClass = "numberCircleRed";
+
+    }
+    else
+    {
+
+        numberCircleClass = "numberCircle";
+
+    }
+
+
+    <div class="col-sm-8 col-sm-offset-2" style="padding-top:0px !important; background: white ;box-shadow: 1px 1px 6px 0 rgba(107,107,107,.15); height: 75px; margin-top:4px;">
+
+
+        <div class="post">
+            <div class="row">
+                <div class="logobarLoader" id=@load style="padding:0px !important; display:none; position:absolute; height:5px; z-index:98;"></div>
+
+
+
+                <div class="col-sm-6">
+                    <div class="circleContainer">
+                        <div class="@numberCircleClass">@number</div>
+                    </div>
+
+
+
+                    <div class="post-header" style="margin-left: 60px;margin-top: 20px;">
+                        <h2 class="list-Title font-alt"><a class"pink" href="@Url.Action("MovieMain", "MovieMain", new { id = item.Movie_id })">@Html.DisplayFor(modelItem => item.Movie_name)</a></h2>
+                        <div class="post-meta font-inc" style="margin-left: 0px !important;">
+
+                            <i class="fa fa-fw"></i>
+                            <span class="muted"></span>
+
+                            <a href="#">@Html.DisplayFor(modelItem => item.Director_name)</a> | @Html.DisplayFor(modelItem => item.Year)
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="col-sm-6">
+
+                    <div class="rating-icons-container clearfix" style="margin-top: 16px !important;">
+                        <div class="rating-container" id="rating">
+                            <span class="font-inc" style="opacity: 1;" id=@grLabel>Greatness Rating</span>
+                            <div class="progress" style="width:100%" id="myBarSpan">
+                                <div class="progress-bar progress-bar-striped active" aria-valuenow="@item.GreatnessRating" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:@item.GRating">
+                                    <span class="font-inc"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post-more font-inc text-center" id=@utility>
+                            <ul class="cards-list">
+                                @if (item.isFav)
+                                {
+                                    <li><a><span class="pe-7s-like" style="color:#ea495f; cursor:pointer" aria-hidden="true" id="asFav"></span></a></li>
+                                }
+
+                                else
+                                {
+                                    <li><a id="asFav" onclick="actions(@item.Movie_id,'f', @utility, @grLabel, @myBarSpan, @load, @afterFav, @afterToWatch, @afterWatched)" style="cursor:pointer"><span class="pe-7s-like" aria-hidden="true" title="Mark As Favorite" id=@afterFav></span></a></li>
+
+
+                                }
+
+
+                                @if (item.isToWatch)
+                                {
+                                    <li><a><span class="pe-7s-plus" style="margin-left:-5px; color:#f28564; cursor:pointer" aria-hidden="true"></span></a></li>
+                                }
+                                else
+                                {
+                                    <li><a id="asToWatch" onclick="actions(@item.Movie_id,'t', @utility, @grLabel, @myBarSpan,  @load, @afterFav, @afterToWatch, @afterWatched)" style="cursor:pointer"><span class="pe-7s-plus" style="margin-left:-5px" aria-hidden="true" title="Add To Watchlist" id=@afterToWatch></span></a></li>
+
+                                }
+
+
+                                @if (item.isWatched)
+                                {
+
+                                    <li><a><span class="pe-7s-check" style="margin-left:-5px; color:#39aea9; cursor:pointer" id=@afterWatched></span></a></li>
+                                }
+                                else
+                                {
+
+                                    <li><a id="Watched" onclick="actions(@item.Movie_id,'w', @utility, @grLabel, @myBarSpan, @load, @afterFav, @afterToWatch, @afterWatched)"><span class="pe-7s-check" style="margin-left:-5px; cursor:pointer"></span></a></li>
+
+
+                                }
+
+
+
+
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+}

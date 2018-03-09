@@ -1,0 +1,682 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+@{
+    ViewBag.Title = "HomeList_byGenre";
+    Layout = "~/Views/Shared/_Layout_inner.cshtml";
+
+}
+
+@{
+    ViewBag.Title = "Movies";
+
+    var card = Model;
+}
+<script src="~/Assets/JAVASCRIPT/jquery-1.10.2.min.js"></script>
+
+<script src="~/Assets/JAVASCRIPT/jquery.unobtrusive-ajax.js"></script>
+<link href="~/Assets/NewTemplate/css/custom.css" rel="stylesheet">
+
+ <!-- WRAPPER -->
+<div class="wrapper">
+
+    <!-- HOME -->
+    <section id="home" class="module-hero module-parallax module-fade">
+
+        <div class="hero-slider ">
+            <ul class="slides">
+
+                <!-- SLIDE -->
+                <li class="bg-dark">
+
+                    <div class="slidebg slide-zoom bg-dark-30" style="background-image:url(../../../../Assets/NewTemplate/images/pf_1.jpg)"></div>
+
+                    <div class="hs-caption container">
+                        <div class="caption-content">
+                            <div class="hs-title-size-3 font-alt m-b-20">
+                                We are Semantic
+                            </div>
+                            <div class="hs-title-size-1 font-inc">
+                                <p>
+                                    A wonderful serenity has taken possession of my entire soul, like these<br /> sweet mornings of spring which I enjoy with my whole heart
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <!-- /SLIDE -->
+                <!-- SLIDE -->
+                <li class="bg-light">
+
+                    <div class="slidebg slide-zoom bg-light-30" style="background-image:url(../../../../Assets/NewTemplate/images/looper_ver3_xlg.jpg)"></div>
+
+                    <div class="hs-caption container">
+                        <div class="caption-content left">
+                            <div class="hs-title-size-3 font-alt m-b-20">
+                                Incoming call
+                            </div>
+                            <div class="hs-title-size-1 font-inc">
+                                A wonderful serenity has taken possession of my entire soul, like these<br /> sweet mornings of spring which I enjoy with my whole heart
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <!-- /SLIDE -->
+                <!-- SLIDE -->
+                <li class="bg-dark">
+
+                    <div class="slidebg slide-zoom bg-dark-50" style="background-image:url(../../../../Assets/NewTemplate/images/fury.jpg)"></div>
+
+                    <div class="hs-caption container">
+                        <div class="caption-content right">
+                            <div class="hs-title-size-3 font-alt m-b-20">
+                                Yellow coat
+                            </div>
+                            <div class="hs-title-size-1 font-inc">
+                                A wonderful serenity has taken possession of my entire soul, like these<br /> sweet mornings of spring which I enjoy with my whole heart
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <!-- /SLIDE -->
+
+            </ul>
+        </div>
+
+    </section>
+    <!-- PORTFOLIO FILTER -->
+
+
+    <div class="row" style="margin:0px">
+
+
+        <div class="filtersSticky" id="navigation" style="position: static; top: 0px;">
+
+            <div class="col-sm-12" style="background:#20292d" id="filters">
+
+                <ul id="filters" class="filter font-inc" style="background:white">
+                    <li><a onclick="filterCommon('L')" data-filter=".illustration" class="wow fadeInUp current" data-wow-delay="0.2s" style="cursor:pointer">latest</a></li>
+                    <li><a onclick="filterCommon('R')" data-filter=".illustration" class="wow fadeInUp" data-wow-delay="0.2s" style="cursor:pointer">by rating</a></li>
+                    <li><a id="moodFilter" onclick="filterCommon('M')" data-filter=".marketing" class="wow fadeInUp" data-wow-delay="0.4s" style="cursor:pointer">by mood</a></li>
+                    <li><a id="genreFilter" onclick="filterCommon('G')" data-filter=".photography" class="wow fadeInUp" data-wow-delay="0.6s" style="cursor:pointer">by genre</a></li>
+                </ul>
+                <div class="filterloadArea wow fadeInUp" data-wow-delay="0.4s" id="filterContainer"></div>
+                <div class="logobarLoader" id=100 style="padding:0px !important; display:none; height:5px; position:absolute; z-index:98;"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- /PORTFOLIO FILTER -->
+    <!-- BLOG GRID -->
+    <section class="module p-b-0" style="background-color:#f6f6f6 !important">
+
+
+        <div class="row multi-columns-row post-columns">
+
+            <div class="container" id="thumbs">
+
+
+                <div id="partialDiv">
+
+                    @Html.Partial("~/Areas/Common/Views/HomeList/_GetCardss.cshtml", card)
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- /BLOG GRID -->
+    <!-- PAGINATION -->
+    <section class="module-small p-t-10">
+
+        <div class="container">
+
+            <div class="pagination font-inc text-uppercase">
+
+                <a href="#"><i class="fa fa-angle-left"></i> Prev</a>
+                <a href="#">Next <i class="fa fa-angle-right"></i></a>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- /PAGINATION -->
+    <!-- DIVIDER -->
+    
+    <!-- /DIVIDER -->
+    <!-- CONTACT -->
+    <!-- /CONTACT -->
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-12 text-center">
+                    <p class="copyright font-inc m-b-0">© 2015 <a href="index.html">SEMANTIC</a>, All Rights Reserved.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- /FOOTER -->
+</div>
+<!-- /WRAPPER -->
+<!-- Scroll-up -->
+<div class="scroll-up">
+    <a href="#totop"><i class="fa fa-angle-double-up"></i></a>
+</div>
+
+<script src="~/Assets/NewTemplate/js/jquery-2.1.3.js"></script>
+<script src="~/Assets/NewTemplate/js/jquery-2.1.3.min.js"></script>
+
+<script>
+
+
+    $("#moodFilter").click(function () {
+
+        if ($("#filterContainer").height() != 400) {
+            // alert("hellow from moodFilter");
+            $("#filterContainer").animate({ height: 400 }, 300);
+
+        }
+
+
+
+        else
+            $("#filterContainer").animate({ height: 0 }, 300);
+
+
+    });
+
+    $("#genreFilter").click(function () {
+
+        if ($("#filterContainer").height() != 400) {
+            // alert("hellow from moodFilter");
+            $("#filterContainer").animate({ height: 400 }, 300);
+
+        }
+
+
+
+        else
+            $("#filterContainer").animate({ height: 0 }, 300);
+
+
+    });
+
+
+</script>
+
+
+<script>
+
+    filterCommon = function (by) {
+
+        switch (by) {
+
+           case "L":
+                $("#thumbs").children().fadeOut(300);
+                $('#' + 100).fadeIn(300);
+
+
+                var url = '@Url.Action("HomeList_byLatest", "HomeList")';
+                console.log(url);
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        $('#' + 100).fadeOut(300);
+                        $("#thumbs").children().fadeIn(300);
+
+                        console.log("SUCCESS By Latest non logged in", data)
+                        $('#partialDiv').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "R":
+                $("#thumbs").children().fadeOut(50);
+                $('#' + 100).fadeIn(300);
+                var url = '@Url.Action("HomeList_byRating", "HomeList")';
+                console.log(url);
+
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        $('#' + 100).fadeOut(300);
+                        $("#thumbs").children().fadeIn(900);
+                        console.log("SUCCESS By Rating", data)
+                        $('#partialDiv').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+
+                break;
+
+
+            case "G":
+
+                var url = '@Url.Action("HomeList_byGenre", "HomeList")';
+                console.log(url);
+                $(".circleRandom").show();
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        $('#' + 100).fadeOut(300);
+                        $("#thumbs").children().fadeIn(900);
+                        console.log("SUCCESS By Rating", data)
+                        $('#filterContainer').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "M":
+                //  alert("hello from case M");
+
+                var url = '@Url.Action("HomeList_byMood", "HomeList")';
+                console.log(url);
+
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        console.log("suceesssss hereeeeeeeeeee")
+                        console.log(data);
+                        $('#filterContainer').html(data)
+                        $('#' + load).fadeOut(900);
+
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+        }
+    }
+</script>
+
+
+
+<script>
+    genreFilter = function (by) {
+
+        var list = [];
+
+        switch (by) {
+
+            case 'G':
+
+                var url = '@Url.Action("HomeList_bySelectedGenre", "HomeList")';
+                console.log(url);
+
+                $('input:checkbox[name=checkbox]:checked').each(function () {
+
+                    var a = $(this).attr("value");
+                    console.log("List is " + a);
+                    list.push(a);
+                    console.log("List of genres after push ", list);
+
+                }
+                );
+
+                var data = JSON.stringify(list);
+                console.log("This is data" + data);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: data,
+                    success: function (result) {
+                        // location.reload();
+                        console.log("after Success the data is ");
+                        $('#partialDiv').html(result); // loading partialView into div
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "M":
+                var url = '@Url.Action("HomeList_byMood", "HomeList")';
+                console.log(url);
+
+                $('input:checkbox[name=checkbox]:checked').each(function () {
+
+                    var a = $(this).attr("value");
+                    console.log("List is " + a);
+                    list.push(a);
+                    console.log("List of genres after push ", list);
+
+                }
+                );
+
+                var data = JSON.stringify(list);
+                console.log("This is data" + data);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: data,
+                    success: function (callback) {
+
+                        console.log(callback);
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "R":
+                $(".page-loader").fadeIn();
+                $(".loader").fadeIn();
+                var url = '@Url.Action("HomeList_byRating", "HomeList")';
+                console.log(url);
+
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        $(".page-loader").fadeOut();
+
+                        console.log("SUCCESS By Rating", data)
+                        $('#partialDiv').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+
+                break;
+        }
+    }
+
+
+
+</script>
+
+<script>
+    mainMovie = function (movieId) {
+
+        var url = '@Url.Action("MovieMain", "MovieMain")';
+        console.log("Ajax URL", url);
+        console.log("movie ID", movieId);
+
+
+        $.ajax({
+
+            url: url,
+            type: "GET",
+            cache: false,
+            InsertionMode: 'InsertionMode.Replace',
+            success: function (data) {
+                console.log("SUCCESS from MovieMain", data)
+                $('#partialDiv').html(data)
+
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+            }
+
+        });
+
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+</script>
+
+<script>
+
+    filter = function (by) {
+
+        switch (by) {
+
+            case "G":
+
+                var url = '@Url.Action("HomeList_byGenre", "HomeList")';
+                console.log(url);
+                $(".circleRandom").show();
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        console.log("suceesssss hereeeeeeeeeee")
+                        $('#navCon').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "M":
+
+                var url = '@Url.Action("HomeList_byMood", "HomeList")';
+                console.log(url);
+
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        console.log("suceesssss hereeeeeeeeeee")
+                        console.log(data);
+                        $('#navCon').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+        }
+    }
+</script>
+
+
+
+<script>
+    genreFilterCommon = function (by) {
+
+        var list = [];
+
+        switch (by) {
+
+            case 'G':
+
+                var url = '@Url.Action("HomeList_bySelectedGenre", "HomeList")';
+                console.log(url);
+
+                $('input:checkbox[name=checkbox]:checked').each(function () {
+
+                    var a = $(this).attr("value");
+                    console.log("List is " + a);
+                    list.push(a);
+                    console.log("List of genres after push ", list);
+
+                }
+                );
+
+                var data = JSON.stringify(list);
+                console.log("This is data" + data);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: data,
+                    success: function (result) {
+
+                        // location.reload();
+                        console.log("after Success the data is ");
+                        document.getElementById("myNav").style.width = "0%";
+                        $('#partialDiv').html(result); // loading partialView into div
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "M":
+
+                var url = '@Url.Action("HomeList_byMood", "HomeList")';
+                console.log(url);
+
+                $('input:checkbox[name=checkbox]:checked').each(function () {
+
+                    var a = $(this).attr("value");
+                    console.log("List is " + a);
+                    list.push(a);
+                    console.log("List of genres after push ", list);
+
+                }
+                );
+
+                var data = JSON.stringify(list);
+                console.log("This is data" + data);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: data,
+                    success: function (callback) {
+                        console.log(callback);
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+        }
+    }
+
+
+
+</script>
+
+

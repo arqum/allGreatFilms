@@ -1,0 +1,20 @@
+ $(document).ready(function () {
+
+
+
+        $('#moods').click(function () {
+            var URL='/HomeList/HomeList_byMood';
+            document.getElementById("myNav").style.width = "100%";
+
+            $.getJSON(url, function (data) {
+
+                $.each(data, function (key, val) {
+
+                    var user = '<tr><td>' + val.Moods + '</td></tr>';
+
+                    $('#users table').append(user);
+
+                });
+            });
+        });
+    });

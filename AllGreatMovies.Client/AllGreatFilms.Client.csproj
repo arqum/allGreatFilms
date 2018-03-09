@@ -1,0 +1,827 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C37AE5F3-F270-421D-B8DE-3D12DE934F9A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AllGreatMovies.Client</RootNamespace>
+    <AssemblyName>AllGreatMovies.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\CSS\agf_custom.css" />
+    <Content Include="Assets\CSS\animate.css" />
+    <Content Include="Assets\CSS\bootstrap.css" />
+    <Content Include="Assets\CSS\bootstrap.min.css" />
+    <Content Include="Assets\CSS\flexslider.css" />
+    <Content Include="Assets\CSS\font-awesome.css" />
+    <Content Include="Assets\CSS\font-awesome.min.css" />
+    <Content Include="Assets\CSS\ionicons.css" />
+    <Content Include="Assets\CSS\ionicons.min.css" />
+    <Content Include="Assets\CSS\lightslider.css" />
+    <Content Include="Assets\CSS\reveal.css" />
+    <Content Include="Assets\CSS\toastr.css" />
+    <Content Include="Assets\CSS\toastr.less" />
+    <Content Include="Assets\CSS\toastr.min.css" />
+    <Content Include="Assets\CSS\toastr.scss" />
+    <Content Include="Assets\FONTS\fontawesome-webfont.eot" />
+    <Content Include="Assets\FONTS\fontawesome-webfont.svg" />
+    <Content Include="Assets\FONTS\fontawesome-webfont.ttf" />
+    <Content Include="Assets\FONTS\fontawesome-webfont.woff" />
+    <Content Include="Assets\FONTS\fontawesome-webfont.woff2" />
+    <Content Include="Assets\FONTS\FontAwesome.otf" />
+    <Content Include="Assets\FONTS\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\FONTS\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\FONTS\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\FONTS\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\FONTS\ionicons\ionicons.less" />
+    <Content Include="Assets\FONTS\ionicons\_ionicons-font.less" />
+    <Content Include="Assets\FONTS\ionicons\_ionicons-icons.less" />
+    <Content Include="Assets\FONTS\ionicons\_ionicons-variables.less" />
+    <Content Include="Assets\IMAGES\1482938080_movie-01.png" />
+    <Content Include="Assets\IMAGES\1482938093_movie-01.png" />
+    <Content Include="Assets\IMAGES\1482938163_carnival_mask_2.png" />
+    <Content Include="Assets\IMAGES\1_img.png" />
+    <Content Include="Assets\IMAGES\2001.jpg" />
+    <Content Include="Assets\IMAGES\2_img.png" />
+    <Content Include="Assets\IMAGES\8cec5c02a972e54e5b1763841cf8d917.jpg" />
+    <Content Include="Assets\IMAGES\add_orange.png" />
+    <Content Include="Assets\IMAGES\agf_logo.png" />
+    <Content Include="Assets\IMAGES\agf_logo_trans.png" />
+    <Content Include="Assets\IMAGES\agf_small.gif" />
+    <Content Include="Assets\IMAGES\agf_small_half.png" />
+    <Content Include="Assets\IMAGES\b313d42bb20f36d74abb081a96160981.jpg" />
+    <Content Include="Assets\IMAGES\banner_inner.png" />
+    <Content Include="Assets\IMAGES\bg_white.png" />
+    <Content Include="Assets\IMAGES\BLpc9y.jpg" />
+    <Content Include="Assets\IMAGES\card-thumb.jpg" />
+    <Content Include="Assets\IMAGES\chungk.png" />
+    <Content Include="Assets\IMAGES\cool_movie_posters_hd_wallpapers.jpg" />
+    <Content Include="Assets\IMAGES\customCheck.png" />
+    <Content Include="Assets\IMAGES\favicon.ico" />
+    <Content Include="Assets\IMAGES\greencheck.png" />
+    <Content Include="Assets\IMAGES\greycheck.png" />
+    <Content Include="Assets\IMAGES\heart_red.png" />
+    <Content Include="Assets\IMAGES\images.jpg" />
+    <Content Include="Assets\IMAGES\imdb.png" />
+    <Content Include="Assets\IMAGES\jumbo3.png" />
+    <Content Include="Assets\IMAGES\j_f.gif" />
+    <Content Include="Assets\IMAGES\line.gif" />
+    <Content Include="Assets\IMAGES\login_logo_full.png" />
+    <Content Include="Assets\IMAGES\meta.png" />
+    <Content Include="Assets\IMAGES\Movie-poster-1.jpg" />
+    <Content Include="Assets\IMAGES\movie-poster-2.jpg" />
+    <Content Include="Assets\IMAGES\movie-poster-3.jpg" />
+    <Content Include="Assets\IMAGES\movie-poster-4.jpg" />
+    <Content Include="Assets\IMAGES\ring.gif" />
+    <Content Include="Assets\IMAGES\RottenTom.png" />
+    <Content Include="Assets\IMAGES\sherlock-holmes-movie-poster-wide-wallpaper-8732.jpg" />
+    <Content Include="Assets\IMAGES\small_main.gif" />
+    <Content Include="Assets\IMAGES\snowden-movie-poster-use.jpg" />
+    <Content Include="Assets\IMAGES\stripes.png" />
+    <Content Include="Assets\IMAGES\theAssassin.jpg" />
+    <Content Include="Assets\IMAGES\tick_green.png" />
+    <Content Include="Assets\IMAGES\tomorrowland.png" />
+    <Content Include="Assets\JAVASCRIPT\bootstrap.min.js" />
+    <Content Include="Assets\JAVASCRIPT\froogaloop.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery-1.10.2.min.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery-ui-1.12.1.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery-ui-1.12.1.min.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery.easing.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery.fitvid.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery.flexslider.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery.mousewheel.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery.reveal.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery.unobtrusive-ajax.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Assets\JAVASCRIPT\lightslider.min.js" />
+    <Content Include="Assets\JAVASCRIPT\modernizr.js" />
+    <Content Include="Assets\JAVASCRIPT\scripts.js" />
+    <Content Include="Assets\JAVASCRIPT\shBrushCss.js" />
+    <Content Include="Assets\JAVASCRIPT\shBrushJScript.js" />
+    <Content Include="Assets\JAVASCRIPT\shBrushXml.js" />
+    <Content Include="Assets\JAVASCRIPT\shCore.js" />
+    <Content Include="Assets\JAVASCRIPT\toastr.js" />
+    <Content Include="Assets\JAVASCRIPT\toastr.min.js" />
+    <Content Include="Assets\NewTemplate\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Assets\NewTemplate\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Assets\NewTemplate\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\NewTemplate\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="Assets\NewTemplate\bootstrap\css\bootstrap.css" />
+    <Content Include="Assets\NewTemplate\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Assets\NewTemplate\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Assets\NewTemplate\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Assets\NewTemplate\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\NewTemplate\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\NewTemplate\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\NewTemplate\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\NewTemplate\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\NewTemplate\bootstrap\js\bootstrap.js" />
+    <Content Include="Assets\NewTemplate\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assets\NewTemplate\bootstrap\js\npm.js" />
+    <Content Include="Assets\NewTemplate\css\animate.css" />
+    <Content Include="Assets\NewTemplate\css\component.css" />
+    <Content Include="Assets\NewTemplate\css\custom.css" />
+    <Content Include="Assets\NewTemplate\css\default.css" />
+    <Content Include="Assets\NewTemplate\css\et-line-font.css" />
+    <Content Include="Assets\NewTemplate\css\filterDropdown.css" />
+    <Content Include="Assets\NewTemplate\css\flexslider.css" />
+    <Content Include="Assets\NewTemplate\css\font-awesome.css" />
+    <Content Include="Assets\NewTemplate\css\font-awesome.min.css" />
+    <Content Include="Assets\NewTemplate\css\linecons.css" />
+    <Content Include="Assets\NewTemplate\css\magnific-popup.css" />
+    <Content Include="Assets\NewTemplate\css\megaDrop.css" />
+    <Content Include="Assets\NewTemplate\css\simpletextrotator.css" />
+    <Content Include="Assets\NewTemplate\css\slider.css" />
+    <Content Include="Assets\NewTemplate\css\style.css" />
+    <Content Include="Assets\NewTemplate\css\vertical.css" />
+    <Content Include="Assets\NewTemplate\fonts\et-line.eot" />
+    <Content Include="Assets\NewTemplate\fonts\et-line.svg" />
+    <Content Include="Assets\NewTemplate\fonts\et-line.ttf" />
+    <Content Include="Assets\NewTemplate\fonts\et-line.woff" />
+    <Content Include="Assets\NewTemplate\fonts\flexslider-icon.eot" />
+    <Content Include="Assets\NewTemplate\fonts\flexslider-icon.svg" />
+    <Content Include="Assets\NewTemplate\fonts\flexslider-icon.ttf" />
+    <Content Include="Assets\NewTemplate\fonts\flexslider-icon.woff" />
+    <Content Include="Assets\NewTemplate\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\NewTemplate\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\NewTemplate\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\NewTemplate\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\NewTemplate\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\NewTemplate\fonts\FontAwesome.otf" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\docs\style.css" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\images\background-paralax.jpg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\images\logo.png" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\libs\css\bootstrap-select.css" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\libs\css\bootstrap.min.css" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\libs\css\prism.css" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\libs\js\bootstrap-select.min.js" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\libs\js\bootstrap.min.js" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\libs\js\jquery-1.11.1.min.js" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\libs\js\jquery-1.11.1.min.map" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\libs\js\prism.js" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\Pe-icon-7-stroke.css" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\refs\main.js" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\refs\style.css" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\changelog-v1.2.0.txt" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\documentation.html" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\icomoon\selection.json" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\pe-icon-7-stroke\css\helper.css" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\read-me.txt" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\reference.html" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\add-user.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\airplay.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\alarm.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\album.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\albums.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\anchor.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\angle-down-circle.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\angle-down.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\angle-left-circle.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\angle-left.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\angle-right-circle.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\angle-right.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\angle-up-circle.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\angle-up.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\arc.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\attention.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\back-2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\back.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\ball.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\bandaid.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\battery.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\bell.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\bicycle.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\bluetooth.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\bookmarks.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\bottom-arrow.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\box1.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\box2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\browser.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\calculator.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\call.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\camera.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\car.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\cart.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\cash.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\chat.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\check.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\clock.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\close-circle.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\close.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\cloud-download.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\cloud-upload.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\cloud.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\coffee.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\comment.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\compass.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\config.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\copy-file.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\credit.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\crop.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\culture.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\cup.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\date.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\delete-user.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\diamond.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\disk.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\diskette.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\display1.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\display2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\door-lock.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\download.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\drawer.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\drop.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\edit.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\exapnd2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\expand1.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\eyedropper.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\female.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\file.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\film.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\filter.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\flag.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\folder.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\gift.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\glasses.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\gleam.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\global.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\graph.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\graph1.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\graph2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\graph3.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\gym.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\hammer.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\headphones.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\helm.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\help1.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\help2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\home.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\hourglass.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\id.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\info.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\joy.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\junk.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\key.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\keypad.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\leaf.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\left-arrow.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\less.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\light.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\like.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\like2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\link.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\lintern.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\lock.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\look.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\loop.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\magic-wand.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\magnet.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\mail-open-file.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\mail-open.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\mail.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\male.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\map-2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\map-marker.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\map.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\medal.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\menu.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\micro.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\monitor.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\moon.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\more.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\mouse.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\music.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\musiclist.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\mute.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\network.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\news-paper.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\next-2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\next.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\note.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\note2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\notebook.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\paint-bucket.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\paint.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\paper-plane.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\paperclip.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\pen.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\pendrive.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\phone.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\photo-gallery.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\photo.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\piggy.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\pin.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\plane.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\play.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\plug.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\plugin.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\plus.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\portfolio.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\power.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\prev.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\print.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\radio.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\refresh-2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\refresh-cloud.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\refresh.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\repeat.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\ribbon.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\right-arrow.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\rocket.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\safe.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\science.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\scissors.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\search.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\server.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\settings.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\share.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\shield.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\shopbag.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\shuffle.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\signal.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\smile.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\speaker.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\star.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\stopwatch.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\study.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\sun.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\switch.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\target.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\ticket.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\timer.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\tools.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\trash.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\umbrella.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\unlock.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\up-arrow.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\upload.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\usb.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\user-female.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\user.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\users.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\vector.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\video.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\voicemail.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\volume.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\volume1.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\volume2.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\wallet.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\way.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\wine.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\world.svg" />
+    <Content Include="Assets\NewTemplate\fonts\Icon-font-7-stroke-PIXEDEN-v-1.2.0\SVG\wristwatch.svg" />
+    <Content Include="Assets\NewTemplate\fonts\linecons.eot" />
+    <Content Include="Assets\NewTemplate\fonts\linecons.svg" />
+    <Content Include="Assets\NewTemplate\fonts\linecons.ttf" />
+    <Content Include="Assets\NewTemplate\fonts\linecons.woff" />
+    <Content Include="Assets\NewTemplate\images\7.png" />
+    <Content Include="Assets\NewTemplate\images\7_2.jpg" />
+    <Content Include="Assets\NewTemplate\images\7_2.png" />
+    <Content Include="Assets\NewTemplate\images\agf_logo_dark_full.png" />
+    <Content Include="Assets\NewTemplate\images\agf_logo_light_full.png" />
+    <Content Include="Assets\NewTemplate\images\agf_small.gif" />
+    <Content Include="Assets\NewTemplate\images\banner_inner.png" />
+    <Content Include="Assets\NewTemplate\images\banner_profile.png" />
+    <Content Include="Assets\NewTemplate\images\fury.jpg" />
+    <Content Include="Assets\NewTemplate\images\fury_thumb.jpg" />
+    <Content Include="Assets\NewTemplate\images\imdb_black.png" />
+    <Content Include="Assets\NewTemplate\images\john.jpg" />
+    <Content Include="Assets\NewTemplate\images\john_thumb.jpg" />
+    <Content Include="Assets\NewTemplate\images\j_f.gif" />
+    <Content Include="Assets\NewTemplate\images\logo_bnw_small.png" />
+    <Content Include="Assets\NewTemplate\images\logo_tiny.png" />
+    <Content Include="Assets\NewTemplate\images\looper_thumb.jpg" />
+    <Content Include="Assets\NewTemplate\images\looper_ver3_xlg.jpg" />
+    <Content Include="Assets\NewTemplate\images\map-icon.png" />
+    <Content Include="Assets\NewTemplate\images\meta.png" />
+    <Content Include="Assets\NewTemplate\images\next-dark.png" />
+    <Content Include="Assets\NewTemplate\images\next-light.png" />
+    <Content Include="Assets\NewTemplate\images\pf_1.jpg" />
+    <Content Include="Assets\NewTemplate\images\pf_2.jpg" />
+    <Content Include="Assets\NewTemplate\images\pf_3.jpg" />
+    <Content Include="Assets\NewTemplate\images\pf_33.jpg" />
+    <Content Include="Assets\NewTemplate\images\pf_4.png" />
+    <Content Include="Assets\NewTemplate\images\post-1.jpg" />
+    <Content Include="Assets\NewTemplate\images\post-2.jpg" />
+    <Content Include="Assets\NewTemplate\images\post-3.jpg" />
+    <Content Include="Assets\NewTemplate\images\post-4.jpg" />
+    <Content Include="Assets\NewTemplate\images\post-5.jpg" />
+    <Content Include="Assets\NewTemplate\images\post-6.jpg" />
+    <Content Include="Assets\NewTemplate\images\prev-dark.png" />
+    <Content Include="Assets\NewTemplate\images\prev-light.png" />
+    <Content Include="Assets\NewTemplate\images\profile-pics.jpg" />
+    <Content Include="Assets\NewTemplate\images\profile_bg.png" />
+    <Content Include="Assets\NewTemplate\images\Rotten_Tomatoes_logo.svg.png" />
+    <Content Include="Assets\NewTemplate\images\rt.png" />
+    <Content Include="Assets\NewTemplate\images\RT_black.png" />
+    <Content Include="Assets\NewTemplate\images\sd.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-1.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-10.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-11.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-2.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-3.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-4.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-5.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-6.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-7.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-8.jpg" />
+    <Content Include="Assets\NewTemplate\images\section-9.jpg" />
+    <Content Include="Assets\NewTemplate\images\team-1.jpg" />
+    <Content Include="Assets\NewTemplate\images\team-2.jpg" />
+    <Content Include="Assets\NewTemplate\images\team-3.jpg" />
+    <Content Include="Assets\NewTemplate\images\team-4.jpg" />
+    <Content Include="Assets\NewTemplate\images\work-1.jpg" />
+    <Content Include="Assets\NewTemplate\images\work-2.jpg" />
+    <Content Include="Assets\NewTemplate\images\work-3.jpg" />
+    <Content Include="Assets\NewTemplate\images\work-4.jpg" />
+    <Content Include="Assets\NewTemplate\images\work-5.jpg" />
+    <Content Include="Assets\NewTemplate\images\work-6.jpg" />
+    <Content Include="Assets\NewTemplate\images\work-7.jpg" />
+    <Content Include="Assets\NewTemplate\images\work-masonry-1.jpg" />
+    <Content Include="Assets\NewTemplate\images\work-masonry-2.jpg" />
+    <Content Include="Assets\NewTemplate\images\work-masonry-3.jpg" />
+    <Content Include="Assets\NewTemplate\js\appear.js" />
+    <Content Include="Assets\NewTemplate\js\cbpHorizontalMenu.js" />
+    <Content Include="Assets\NewTemplate\js\cbpHorizontalMenu.min.js" />
+    <Content Include="Assets\NewTemplate\js\contact.js" />
+    <Content Include="Assets\NewTemplate\js\custom.js" />
+    <Content Include="Assets\NewTemplate\js\gmaps.js" />
+    <Content Include="Assets\NewTemplate\js\icons-lte-ie7.js" />
+    <Content Include="Assets\NewTemplate\js\imagesloaded.pkgd.js" />
+    <Content Include="Assets\NewTemplate\js\isotope.pkgd.js" />
+    <Content Include="Assets\NewTemplate\js\isotope.pkgd.min.js" />
+    <Content Include="Assets\NewTemplate\js\jqBootstrapValidation.js" />
+    <Content Include="Assets\NewTemplate\js\jquery-1.11.1.js" />
+    <Content Include="Assets\NewTemplate\js\jquery-1.11.1.min.js" />
+    <Content Include="Assets\NewTemplate\js\jquery-2.1.3.js" />
+    <Content Include="Assets\NewTemplate\js\jquery-2.1.3.min.js" />
+    <Content Include="Assets\NewTemplate\js\jquery.fitvids.js" />
+    <Content Include="Assets\NewTemplate\js\jquery.flexslider-min.js" />
+    <Content Include="Assets\NewTemplate\js\jquery.flexslider.js" />
+    <Content Include="Assets\NewTemplate\js\jquery.magnific-popup.js" />
+    <Content Include="Assets\NewTemplate\js\jquery.magnific-popup.min.js" />
+    <Content Include="Assets\NewTemplate\js\jquery.mb.YTPlayer.js" />
+    <Content Include="Assets\NewTemplate\js\jquery.mb.YTPlayer.min.js" />
+    <Content Include="Assets\NewTemplate\js\jquery.simple-text-rotator.js" />
+    <Content Include="Assets\NewTemplate\js\jquery.simple-text-rotator.min.js" />
+    <Content Include="Assets\NewTemplate\js\jquery.sticky-kit.min.js" />
+    <Content Include="Assets\NewTemplate\js\main.js" />
+    <Content Include="Assets\NewTemplate\js\modernizr.custom.js" />
+    <Content Include="Assets\NewTemplate\js\smoothscroll.js" />
+    <Content Include="Assets\NewTemplate\js\wow.js" />
+    <Content Include="Assets\NewTemplate\js\wow.min.js" />
+    <Content Include="Assets\NewTemplate\php\contact.php" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Common\Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Users\Views\web.config" />
+    <Content Include="Areas\Security\Views\web.config" />
+    <Content Include="Areas\Common\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Common\Views\movies\Create.cshtml" />
+    <Content Include="Areas\Common\Views\movies\Delete.cshtml" />
+    <Content Include="Areas\Common\Views\movies\Details.cshtml" />
+    <Content Include="Areas\Common\Views\movies\Edit.cshtml" />
+    <Content Include="Areas\Common\Views\movies\Index.cshtml" />
+    <Content Include="Areas\Security\Views\Register\Register.cshtml" />
+    <Content Include="Areas\Security\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Security\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Security\Views\Login\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\MovieAdd\Create.cshtml" />
+    <Content Include="Areas\Users\Views\UserActions\GetWatchList.cshtml" />
+    <Content Include="Areas\Security\Views\AdminRegister\Register.cshtml" />
+    <Content Include="Areas\Admin\Views\Director\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Actor\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Writer\Create.cshtml" />
+    <Content Include="Areas\Common\Views\HomeList\HomeList.cshtml" />
+    <Content Include="Areas\Common\Views\HomeList\_GetCardss.cshtml" />
+    <Content Include="Areas\Common\Views\Random\Random.cshtml" />
+    <Content Include="Areas\Common\Views\HomeList\_Moods.cshtml" />
+    <Content Include="Areas\Common\Views\HomeList\HomeList_byRating.cshtml" />
+    <Content Include="Areas\Common\Views\HomeList\_Genres.cshtml" />
+    <Content Include="Areas\Users\Views\HomeList\_Genres.cshtml" />
+    <Content Include="Areas\Users\Views\HomeList\_GetCardss.cshtml" />
+    <Content Include="Areas\Users\Views\HomeList\_Moods.cshtml" />
+    <Content Include="Areas\Users\Views\HomeList\HomeList.cshtml" />
+    <Content Include="Areas\Users\Views\HomeList\HomeList_byGenre.cshtml" />
+    <Content Include="Areas\Users\Views\HomeList\HomeList_byRating.cshtml" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Common\Views\Random\_RandomMovie.cshtml" />
+    <Content Include="Areas\Security\Views\Register\_register.cshtml" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Areas\Common\Views\HomeList\HomeList_bySelectedGenre.cshtml" />
+    <Content Include="Areas\Common\Views\HomeList\HomeList_bySelectedGenreRedirect.cshtml" />
+    <Content Include="Areas\Users\Views\MovieMain\MovieMain.cshtml" />
+    <Content Include="Areas\Users\Views\HomeList\HomeList - Copy.cshtml" />
+    <Content Include="Areas\Users\Views\HomeList\_GetCardss - Copy.cshtml" />
+    <Content Include="Areas\Users\Views\Random\Random.cshtml" />
+    <Content Include="Areas\Common\Views\Random\Random - Copy.cshtml" />
+    <Content Include="Areas\Users\Views\Random\_RandomMovie.cshtml" />
+    <Content Include="Areas\Users\Views\AGF100\AGF100.cshtml" />
+    <Content Include="Areas\Users\Views\AGF100\_AGF100.cshtml" />
+    <Content Include="Areas\Common\Views\AGF100\AGF100.cshtml" />
+    <Content Include="Areas\Common\Views\AGF100\_AGF100.cshtml" />
+    <Content Include="Areas\Common\Views\MovieMain\MovieMain.cshtml" />
+    <None Include="Areas\Users\Views\Random\Random - Copy" />
+    <Content Include="Areas\Users\Views\UserProfile\UserProfile.cshtml" />
+    <Content Include="Areas\Users\Views\UserProfile\_UserListContainer.cshtml" />
+    <None Include="Areas\Users\Views\UserProfile\UserProfile - Copy" />
+    <Content Include="Areas\Users\Views\UserProfile\_ToWatch.cshtml" />
+    <Content Include="Areas\Users\Views\UserProfile\_Watched.cshtml" />
+    <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr.custom.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\wow.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ActorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CountryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DirectorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LanguageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserListController.cs" />
+    <Compile Include="Areas\Admin\Controllers\WriterController.cs" />
+    <Compile Include="Areas\Common\CommonAreaRegistration.cs" />
+    <Compile Include="Areas\Common\Controllers\Agf100Controller.cs" />
+    <Compile Include="Areas\Common\Controllers\HomeListController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MovieAddController.cs" />
+    <Compile Include="Areas\Common\Controllers\MovieMainController.cs" />
+    <Compile Include="Areas\Common\Controllers\RandomController.cs" />
+    <Compile Include="Areas\Security\Controllers\AdminLoginController.cs" />
+    <Compile Include="Areas\Security\Controllers\AdminRegisterController.cs" />
+    <Compile Include="Areas\Security\Controllers\RegisterController.cs" />
+    <Compile Include="Areas\Security\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
+    <Compile Include="Areas\Security\ViewModels\LoginRegister_vm.cs" />
+    <Compile Include="Areas\Security\ViewModels\Login_VM.cs" />
+    <Compile Include="Areas\Users\Controllers\AGF100Controller.cs" />
+    <Compile Include="Areas\Users\Controllers\HomeListController.cs" />
+    <Compile Include="Areas\Users\Controllers\MovieMainController.cs" />
+    <None Include="Areas\Users\Controllers\RandomController - Copy" />
+    <Compile Include="Areas\Users\Controllers\RandomController.cs" />
+    <Compile Include="Areas\Users\Controllers\UserActionsController.cs" />
+    <Compile Include="Areas\Users\Controllers\UserProfileController.cs" />
+    <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\WriterController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View Models\HomeList_vm.cs" />
+    <None Include="Registration_Arqum\Working Method" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Writer\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_inner.cshtml" />
+    <Content Include="Views\Shared\_Layout_random.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Country\" />
+    <Folder Include="Areas\Admin\Views\Language\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\UserList\" />
+    <Folder Include="Areas\Common\Models\" />
+    <Folder Include="Areas\Security\Models\" />
+    <Folder Include="Areas\Security\Views\AdminLogin\" />
+    <Folder Include="Areas\Users\Models\" />
+    <Folder Include="Areas\Users\Views\Shared\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AllGreatFilms.BusinessLayer\AllGreatFilms.BusinessLogicLayer.csproj">
+      <Project>{6c2fdb47-b3f4-4c8b-9055-825d9af02b76}</Project>
+      <Name>AllGreatFilms.BusinessLogicLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AllGreatFilms.BusinessObjectLayer\AllGreatFilms.BusinessObjectLayer.csproj">
+      <Project>{c0ba07dc-94d5-4c11-9571-78bba418256c}</Project>
+      <Name>AllGreatFilms.BusinessObjectLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56083</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56083/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

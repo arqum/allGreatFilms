@@ -1,0 +1,66 @@
+﻿@model AllGreatFilms.BusinessObjectLayer.user
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout_inner.cshtml";
+}
+
+
+        <div class="register-photo">
+            <div class="form-container">
+                <div class="image-holder"></div>
+                @*<form method="post">*@
+                @using (Html.BeginForm("Register", "Register", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div class="row">
+                        <div class="col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0"><img src="~/Assets/IMAGES/agf_small.gif" width="60"></div>
+                        <div class="col-lg-7 col-lg-offset-1 col-lg-pull-0 col-md-10">
+                            <p>We Recommed Great Films.</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="clearfix"></div>
+                    <div class="form-group">
+                        <h2 class="text-center"><strong>Create</strong> an account.</h2>
+                        <div class="form-group">
+
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", type = "Email", name = "Email", placeholder = "Email" } })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "Password", name = "Password", placeholder = "Password" } })
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+
+
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "Password", name = "Confirm Password", placeholder = "Confirm Password" } })
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+
+
+
+
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label class="control-label">
+                                    <input type="checkbox">I agree to the license terms.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="submit" value="Register" class="btn btn-primary" id="login" />
+
+
+                        </div><a href="#" class="already">You already have an account? Login here.</a>
+
+
+                    </div>
+                }
+            </div>
+
+        </div>

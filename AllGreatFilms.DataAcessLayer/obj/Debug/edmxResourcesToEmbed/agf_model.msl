@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="agf_namespaceStoreContainer" CdmEntityContainer="agf_context">
+    <EntitySetMapping Name="actors">
+      <EntityTypeMapping TypeName="agf_namespace.actor">
+        <MappingFragment StoreEntitySet="actor">
+          <ScalarProperty Name="actor_id" ColumnName="actor_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="awards">
+      <EntityTypeMapping TypeName="agf_namespace.award">
+        <MappingFragment StoreEntitySet="award">
+          <ScalarProperty Name="award_id" ColumnName="award_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="agf_namespace.country">
+        <MappingFragment StoreEntitySet="country">
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="directors">
+      <EntityTypeMapping TypeName="agf_namespace.director">
+        <MappingFragment StoreEntitySet="director">
+          <ScalarProperty Name="director_id" ColumnName="director_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="genres">
+      <EntityTypeMapping TypeName="agf_namespace.genre">
+        <MappingFragment StoreEntitySet="genre">
+          <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="languages">
+      <EntityTypeMapping TypeName="agf_namespace.language">
+        <MappingFragment StoreEntitySet="language">
+          <ScalarProperty Name="lang_id" ColumnName="lang_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="moods">
+      <EntityTypeMapping TypeName="agf_namespace.mood">
+        <MappingFragment StoreEntitySet="mood">
+          <ScalarProperty Name="mood_id" ColumnName="mood_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movies">
+      <EntityTypeMapping TypeName="agf_namespace.movie">
+        <MappingFragment StoreEntitySet="movie">
+          <ScalarProperty Name="agfReview" ColumnName="agfReview" />
+          <ScalarProperty Name="synopsis" ColumnName="synopsis" />
+          <ScalarProperty Name="dateAdded" ColumnName="dateAdded" />
+          <ScalarProperty Name="netflix" ColumnName="netflix" />
+          <ScalarProperty Name="rottenTomatoes" ColumnName="rottenTomatoes" />
+          <ScalarProperty Name="imdb" ColumnName="imdb" />
+          <ScalarProperty Name="Youtube" ColumnName="Youtube" />
+          <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="poster" ColumnName="poster" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="director" ColumnName="director" />
+          <ScalarProperty Name="writer" ColumnName="writer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movie_quotes">
+      <EntityTypeMapping TypeName="agf_namespace.movie_quotes">
+        <MappingFragment StoreEntitySet="movie_quotes">
+          <ScalarProperty Name="quote_id" ColumnName="quote_id" />
+          <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+          <ScalarProperty Name="quote" ColumnName="quote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ratings">
+      <EntityTypeMapping TypeName="agf_namespace.rating">
+        <MappingFragment StoreEntitySet="rating">
+          <ScalarProperty Name="metaR" ColumnName="metaR" />
+          <ScalarProperty Name="rottenR" ColumnName="rottenR" />
+          <ScalarProperty Name="imdbR" ColumnName="imdbR" />
+          <ScalarProperty Name="rating_id" ColumnName="rating_id" />
+          <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+          <ScalarProperty Name="user_rating" ColumnName="user_rating" />
+          <ScalarProperty Name="review" ColumnName="review" />
+          <ScalarProperty Name="agf_rating" ColumnName="agf_rating" />
+          <ScalarProperty Name="reviewer_id" ColumnName="reviewer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="agf_namespace.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="last_login" ColumnName="last_login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_profile">
+      <EntityTypeMapping TypeName="agf_namespace.user_profile">
+        <MappingFragment StoreEntitySet="user_profile">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="about" ColumnName="about" />
+          <ScalarProperty Name="rank" ColumnName="rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="writers">
+      <EntityTypeMapping TypeName="agf_namespace.writer">
+        <MappingFragment StoreEntitySet="writer">
+          <ScalarProperty Name="writer_id" ColumnName="writer_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="awards_actor" TypeName="agf_namespace.awards_actor" StoreEntitySet="awards_actor">
+      <EndProperty Name="actor">
+        <ScalarProperty Name="actor_id" ColumnName="actor_id" />
+      </EndProperty>
+      <EndProperty Name="award">
+        <ScalarProperty Name="award_id" ColumnName="award_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="awards_director" TypeName="agf_namespace.awards_director" StoreEntitySet="awards_director">
+      <EndProperty Name="award">
+        <ScalarProperty Name="award_id" ColumnName="award_id" />
+      </EndProperty>
+      <EndProperty Name="director">
+        <ScalarProperty Name="director_id" ColumnName="director_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="awards_movie" TypeName="agf_namespace.awards_movie" StoreEntitySet="awards_movie">
+      <EndProperty Name="award">
+        <ScalarProperty Name="award_id" ColumnName="award_id" />
+      </EndProperty>
+      <EndProperty Name="movie">
+        <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="movie_actor" TypeName="agf_namespace.movie_actor" StoreEntitySet="movie_actor">
+      <EndProperty Name="actor">
+        <ScalarProperty Name="actor_id" ColumnName="actor_id" />
+      </EndProperty>
+      <EndProperty Name="movie">
+        <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="movie_genre" TypeName="agf_namespace.movie_genre" StoreEntitySet="movie_genre">
+      <EndProperty Name="genre">
+        <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+      </EndProperty>
+      <EndProperty Name="movie">
+        <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="movie_mood" TypeName="agf_namespace.movie_mood" StoreEntitySet="movie_mood">
+      <EndProperty Name="mood">
+        <ScalarProperty Name="mood_id" ColumnName="mood_id" />
+      </EndProperty>
+      <EndProperty Name="movie">
+        <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="user_fav_actors" TypeName="agf_namespace.user_fav_actors" StoreEntitySet="user_fav_actors">
+      <EndProperty Name="actor">
+        <ScalarProperty Name="actor_id" ColumnName="actor_id" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="user_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="user_fav_directors" TypeName="agf_namespace.user_fav_directors" StoreEntitySet="user_fav_directors">
+      <EndProperty Name="director">
+        <ScalarProperty Name="director_id" ColumnName="director_id" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="user_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="user_fav_genre" TypeName="agf_namespace.user_fav_genre" StoreEntitySet="user_fav_genre">
+      <EndProperty Name="genre">
+        <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="user_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="user_fav_moods" TypeName="agf_namespace.user_fav_moods" StoreEntitySet="user_fav_moods">
+      <EndProperty Name="mood">
+        <ScalarProperty Name="mood_id" ColumnName="mood_id" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="user_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="user_fav_movies" TypeName="agf_namespace.user_fav_movies" StoreEntitySet="user_fav_movies">
+      <EndProperty Name="movie">
+        <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="user_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="user_fav_quotes" TypeName="agf_namespace.user_fav_quotes" StoreEntitySet="user_fav_quotes">
+      <EndProperty Name="movie_quotes">
+        <ScalarProperty Name="quote_id" ColumnName="quote_id" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="user_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="user_to_watch_list" TypeName="agf_namespace.user_to_watch_list" StoreEntitySet="user_to_watch_list">
+      <EndProperty Name="movie">
+        <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="id" ColumnName="user_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="user_watched_movies">
+      <EntityTypeMapping TypeName="agf_namespace.user_watched_movies">
+        <MappingFragment StoreEntitySet="user_watched_movies">
+          <ScalarProperty Name="review" ColumnName="review" />
+          <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

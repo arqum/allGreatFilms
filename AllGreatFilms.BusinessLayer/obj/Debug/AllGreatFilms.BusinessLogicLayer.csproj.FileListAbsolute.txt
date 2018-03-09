@@ -1,0 +1,11 @@
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\bin\Debug\AllGreatFilms.BusinessLayer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\bin\Debug\AllGreatFilms.BusinessLayer.pdb
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\bin\Debug\AllGreatFilms.BusinessObjectLayer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\bin\Debug\AllGreatFilms.DataAcessLayer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\bin\Debug\EntityFramework.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\bin\Debug\AllGreatFilms.BusinessObjectLayer.pdb
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\bin\Debug\AllGreatFilms.DataAcessLayer.pdb
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\bin\Debug\EntityFramework.xml
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\obj\Debug\AllGreatFilms.BusinessLogicLayer.csprojResolveAssemblyReference.cache
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\obj\Debug\AllGreatFilms.BusinessLayer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessLayer\obj\Debug\AllGreatFilms.BusinessLayer.pdb

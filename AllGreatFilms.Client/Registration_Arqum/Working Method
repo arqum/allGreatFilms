@@ -1,0 +1,74 @@
+﻿ [HttpPost]
+        public ActionResult Register(ShelfEsteem_v2.Models.User User)
+        {
+            if (ModelState.IsValid)
+            {
+                var db = new SEDBContext();
+                var NewUser = db.Users.Create();
+                var NewShelf = db.User_shelves.Create();
+                var NewProfile = db.User_profiles.Create();
+
+
+                //hash password
+                byte[] data = Encoding.UTF8.GetBytes(User.Password);
+                using (SHA512 sha = new SHA512Managed())
+                {
+                    byte[] hash = sha.ComputeHash(data);
+                    var converted = Convert.ToBase64String(hash);
+                    NewUser.PasswordHash = converted;
+                }
+
+                //Assign user entered values to db
+                NewUser.Id = Guid.NewGuid();
+                NewUser.Email = User.Email;
+                NewUser.Password = User.Password;
+                NewUser.DateCreated = DateTime.Now;
+                NewUser.UserName = User.UserName;
+
+                //create default user shelves when a new user registers
+                NewShelf.user_id = NewUser.Id;  
+                NewShelf.shelf_name = "Read";
+                NewShelf.shelf_id = Guid.NewGuid();
+
+                //Add id FK to user profile table
+                NewProfile.Id = NewUser.Id;
+                NewProfile.interests = "I like books";
+                NewProfile.full_name = "Muhammad Arqum";
+                NewProfile.about = "I like to read.";
+
+
+                //see if the user already exists
+                if (db.Users.Any(e => e.Email == User.Email))
+                {
+                    Debug.WriteLine("exisstsssssssssss");
+
+                }
+                else
+                {
+                    //if not already in the db, add the user, shelves, and profile
+                    db.Users.Add(NewUser);
+                    db.User_profiles.Add(NewProfile);
+                    db.User_shelves.Add(NewShelf);
+
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (DbEntityValidationException ex)
+                    {
+                        foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                        {
+                            foreach (var validationError in entityValidationErrors.ValidationErrors)
+                            {
+                                Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                            }
+                        }
+                    }
+
+
+
+
+                }
+            }
+            return View();
+        }

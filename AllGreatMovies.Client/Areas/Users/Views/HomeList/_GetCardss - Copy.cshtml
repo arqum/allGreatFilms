@@ -1,0 +1,187 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+
+
+@{  
+    int utility = 0;
+    int grLabel = 0;
+    int myBarSpan = 0;
+    int load = 0;
+    int afterFav = 0;
+    int afterToWatch = 0;
+    int afterWatched = 0;
+
+
+    var date = DateTime.Now;
+
+    Random rand = new Random();
+    rand.Next();
+    
+    }
+@foreach (var item in Model)
+{
+
+
+    utility = rand.Next();
+    grLabel = rand.Next();
+    myBarSpan = rand.Next();
+    load = rand.Next();
+    afterFav = rand.Next();
+    afterToWatch = rand.Next();
+    afterWatched = rand.Next();
+
+
+    
+    string rating = Convert.ToString(item.GreatnessRating);
+    rating += "%";
+
+
+    <div class="col-md-3" id="cards">
+        <a href="#" class="movie-card">
+            <span class="movie-thumb">
+                <img src="~/Assets/IMAGES/Movie-poster-1.jpg" class="movie-thumb-img" />
+
+                <span class="overlay animated fadeIn">
+
+                    <span class="movie-details ">
+                        <span class="movie-title" style="color:#eb4d63; font-size:16px;">
+
+                            @Html.DisplayFor(modelItem => item.Movie_name)
+                            <hr style="	border-top: 1px solid #d3d5d6; margin: 5px 0px 12px 0px;"/>
+                        </span>
+
+
+                        <span class="movie-director">
+                            <span class="dir-icon" style="font-size:18px;color:#29363b;">
+                                <i class="ion-calendar"></i>
+                            </span>
+                            <span class="movie-director-name" style="color:#29363b;font-size:12px;">
+
+                                @Html.DisplayFor(modelItem => item.Year)
+
+                            </span>
+                        </span>
+
+  
+                        <span class="movie-director">
+                            <span class="dir-icon" style="font-size:18px;color:#29363b;">
+                                <i class="ion-film-marker"></i>
+                            </span>
+                            <span class="movie-director-name" style="color:#29363b;font-size:12px;">
+
+                                @Html.DisplayFor(modelItem => item.Director_name)
+
+                            </span>
+
+                            <span id="movie" style="color:#29363b;font-size:12px;">
+                                @Html.HiddenFor(modelItem => item.Movie_id)
+                            </span>
+
+                        </span>
+
+                        <span class="movie-director">
+                            <span class="dir-icon" style="font-size:18px;color:#29363b;">
+                                <i class="ion-compose"></i>
+                            </span>
+                            <span class="movie-director-name" style="color:#29363b;font-size:12px;">
+
+                                @Html.DisplayFor(modelItem => item.Writer_name)
+
+                            </span>
+                        </span>
+
+                        <span class="movie-cast" style="margin-bottom: 1px;">
+
+                            <span class="dir-icon" style="font-size:18px;color:#29363b;">
+                                <i class=" ion-person-stalker" style="font-size:20px;color:#29363b;">
+    </i>
+                        </span>
+                            <span class="movie-cast-names" style="color:#29363b;font-size:12px;">
+
+                                @foreach (var actor in item.Actor_name)
+                                {
+                                    <span>
+                                        @actor
+                                    </span>
+
+                                }
+
+
+                            </span>
+
+                        </span>
+                    </span>
+                </span>
+            </span>
+        </a>
+        <div class="logobarLoader" id=@load style="margin:0px; padding:0px !important;"></div>
+
+        <span class="movie-rating" id="rating">
+
+
+            <span class="greateness-rating" id=@grLabel>
+                Greatness Rating
+
+                <span class="myProgress" id=@myBarSpan>
+
+                    <span id="myBar" style="width:@rating"></span>
+
+                </span>
+            </span>
+
+
+            <span class="movie-utility-links" id=@utility>
+
+
+                @if (item.isFav)
+                {
+
+                    <i class="ion-heart" style="color:#ea495f" aria-hidden="true" id="asFav"></i>
+
+
+                }
+
+                else
+                {
+
+                    <a class="favIcon" id="asFav" onclick="actions(@item.Movie_id,'f', @utility, @grLabel, @myBarSpan, @load, @afterFav, @afterToWatch, @afterWatched)"><i class="ion-heart" aria-hidden="true" title="Mark As Favorite" id=@afterFav></i></a>
+
+                }
+
+                @if (item.isToWatch)
+                {
+
+                    <i class="ion-plus-circled" style="color:#f28564" aria-hidden="true"></i>
+                }
+                else
+                {
+                    <a class="ToWatchIcon" id="asToWatch" onclick="actions(@item.Movie_id,'t', @utility, @grLabel, @myBarSpan, @load, @afterFav, @afterToWatch, @afterWatched)"><i class="ion-plus-circled" aria-hidden="true" title="Add To Watchlist" id=@afterToWatch></i></a>
+
+                    @*<a class="ToWatchIcon"><i class="ion-plus-circled" aria-hidden="true" title="Add To Watchlist"></i></a>*@
+                }
+
+                @if (item.isWatched)
+                {
+                    <i class="ion-checkmark-circled" style="color:#39aea9" aria-hidden="true"></i>
+                }
+                else
+                {
+                    <a class="WatchedIcon" id="Watched" onclick="actions(@item.Movie_id,'w', @utility, @grLabel, @myBarSpan, @load, @afterFav, @afterToWatch, @afterWatched)"><i class="ion-checkmark-circled" aria-hidden="true" title="Mark As Watched" id=@afterWatched></i></a>
+
+                    @*<a class="ToWatchIcon"><i class="ion-plus-circled" aria-hidden="true" title="Add To Watchlist"></i></a>
+
+                        @*<a class="WatchedIcon"> <i class="ion-checkmark-circled" aria-hidden="true" title="Mark As Watched"></i></a>*@
+                }
+
+
+
+            </span>
+        </span>
+
+     
+    </div>
+
+
+
+
+}

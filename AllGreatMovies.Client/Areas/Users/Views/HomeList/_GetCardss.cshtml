@@ -1,0 +1,194 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+
+
+@{
+    int utility = 0;
+    int grLabel = 0;
+    int myBarSpan = 0;
+    int load = 0;
+    int afterFav = 0;
+    int afterToWatch = 0;
+    int afterWatched = 0;
+    int id = 0;
+
+
+    var date = DateTime.Now;
+
+    Random rand = new Random();
+    rand.Next();
+    double? count = @ViewBag.Pages;
+    int? pageNo = @ViewBag.Page;
+    string active = "";
+
+
+}
+@foreach (var item in Model)
+{
+
+
+    utility = rand.Next();
+    grLabel = rand.Next();
+    myBarSpan = rand.Next();
+    load = rand.Next();
+    afterFav = rand.Next();
+    afterToWatch = rand.Next();
+    afterWatched = rand.Next();
+
+
+    //var rating = Convert.ToString(item.GreatnessRating);
+    //rating += "%";
+
+
+    <!-- POST ITEM -->
+    <div class="col-sm-6 col-md-4 col-lg-4" id="cards">
+
+
+        <div class="post" style="box-shadow: 1px 1px 6px 0 rgba(107,107,107,.15);">
+
+            <div class="post-thumbnail">
+
+                <a href="@Url.Action("MovieMain", "MovieMain", new { id = item.Movie_id })"><img src="~/Assets/NewTemplate/images/john_thumb.jpg" /></a>
+                <div class="logobarLoader" id=@load style="padding:0px !important; position:relative; display:none; height:5px;"></div>
+
+            </div>
+
+
+            <div class="post-header">
+                <h2 class="post-title font-alt"><a class"pink" href="blog-single.html">@Html.DisplayFor(modelItem => item.Movie_name)</a></h2>
+                <div class="post-meta font-inc">
+                    <i class="fa fa-fw"></i>
+                    <span class="muted"></span>
+
+                    <a href="#">@Html.DisplayFor(modelItem => item.Director_name)</a> |  @Html.DisplayFor(modelItem => item.Year)
+
+
+                </div>
+            </div>
+            <div class="post-entry">
+                <p style="margin:15px !important;">@Html.DisplayFor(modelItem => item.Synopsis)</p>
+            </div>
+            <div class="row fa-icons">
+
+            </div>
+            <div class="rating-icons-container clearfix">
+                <div class="rating-container" id="rating">
+                    <span class="font-inc" style="opacity: 1;" id=@grLabel>Greatness Rating</span>
+                    <div class="progress" style="width:135%" id="myBarSpan">
+                        <div class="progress-bar progress-bar-striped active" aria-valuenow="@item.GreatnessRating" role="progressbar" aria-valuemin="0" aria-valuemax="100"  style="width:@item.GRating">
+                            <span class="font-inc"></span>
+                        </div>
+                    </div>
+                </div>
+                
+      
+
+
+                <div class="post-more font-inc" id=@utility>
+                    <ul class="cards-list pull-right">
+                        @if (item.isFav)
+                {
+                            <li><a ><span class="pe-7s-like" style="color:#ea495f; cursor:pointer" aria-hidden="true" id="asFav"></span></a></li>
+                }
+
+                        else
+                        {
+                            <li><a id="asFav" onclick="actions(@item.Movie_id,'f', @utility, @grLabel, @myBarSpan, @load, @afterFav, @afterToWatch, @afterWatched)" style="cursor:pointer"><span class="pe-7s-like" aria-hidden="true" title="Mark As Favorite" id=@afterFav></span></a></li>
+
+
+                        }
+                        
+
+                        @if (item.isToWatch)
+                        {
+                            <li><a ><span class="pe-7s-plus" style="margin-left:-5px; color:#f28564; cursor:pointer"  aria-hidden="true"></span></a></li>
+                        }
+                        else
+                        {
+                            <li><a  id="asToWatch" onclick="actions(@item.Movie_id,'t', @utility, @grLabel, @myBarSpan,  @load, @afterFav, @afterToWatch, @afterWatched)" style="cursor:pointer"><span class="pe-7s-plus" style="margin-left:-5px" aria-hidden="true" title="Add To Watchlist" id=@afterToWatch></span></a></li>
+
+                        }
+
+
+                        @if (item.isWatched)
+                        {
+
+                            <li><a ><span class="pe-7s-check" style="margin-left:-5px; color:#39aea9; cursor:pointer" ></span></a></li>
+                        }
+                        else
+                        {
+
+                            <li><a id="Watched" onclick="actions(@item.Movie_id,'w', @utility, @grLabel, @myBarSpan, @load, @afterFav, @afterToWatch, @afterWatched)"><span class="pe-7s-check" style="margin-left:-5px; cursor:pointer; color:#000" id=@afterWatched></span></a></li>
+
+                          
+                        }
+
+
+                        </ul>
+              
+                </div>
+                <label>
+                    @*@ViewBag.Pages
+                    @ViewBag.RecordCount*@
+                    @ViewBag.Page
+                </label>
+                            <div class="post-more font-inc">
+                                <a href="blog-single.html" class="more-link">Read more</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+</div>
+
+
+        <!-- /POST ITEM -->
+        }
+ <!-- PAGINATION -->
+<div class="container pull-left">
+
+    <div class="pagination font-inc text-uppercase">
+        <ul class="pagination">
+
+
+            @for (int i = 1; i <= count; i++)
+            {
+
+                if (pageNo == i)
+                {
+
+                    <li class="active"><a onclick="filter('L', '@i')">@i</a></li>
+
+                }
+                else
+                {
+
+                    <li><a onclick="filter('L', '@i')">@i</a></li>
+
+                }
+
+
+
+            }
+
+
+
+
+        </ul>
+
+    </div>
+
+</div>
+
+       
+     
+
+
+        
+
+
+<hr class="divider-w">
+
+
+

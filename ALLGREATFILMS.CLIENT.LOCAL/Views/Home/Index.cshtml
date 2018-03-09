@@ -1,0 +1,63 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+
+@{
+    ViewBag.Title = "Index";
+
+    var card = Model;
+}
+
+
+<div id="slider" class="mb-20">
+    <div class="container">
+        <!-- Place somewhere in the <body> of your page -->
+        <div class="flexslider">
+            <ul class="slides">
+                <li class="slide">
+                    <ul class="list-unstyled">
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/snowden-movie-poster-use.jpg" alt="" style="height:100%;"  />
+                        </li>
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/theAssassin.jpg" alt="" style="height:470px;"  />
+                        </li>
+
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/b313d42bb20f36d74abb081a96160981.jpg" alt="" style="height:470px;" />
+                        </li>
+                    </ul>
+                </li>
+                <li class="slide">
+                    <ul class="list-unstyled">
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/1_img.png" alt="" style="height:470px;"  />
+                        </li>
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/2_img.png" alt="" style="height:470px;" />
+                        </li>
+
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/2001.jpg" alt="" style="height:470px;" />
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 h3">
+            <h1>Recently Added</h1>
+        </div>
+    </div>
+
+
+   
+    @Html.Partial("~/Views/Movie/_GetCards.cshtml",card)
+
+    
+</div>
+
+

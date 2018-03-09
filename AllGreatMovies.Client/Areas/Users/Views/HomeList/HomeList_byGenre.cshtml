@@ -1,0 +1,139 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+@{
+    ViewBag.Title = "HomeList_byGenre";
+    Layout = "~/Views/Shared/_Layout_inner.cshtml";
+}
+
+@{
+    ViewBag.Title = "Movies";
+
+    var card = Model;
+}
+<script src="~/Assets/JAVASCRIPT/jquery-1.10.2.min.js"></script>
+<script src="~/Assets/JAVASCRIPT/jquery.unobtrusive-ajax.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+
+
+
+        $('#moods').click(function () {
+            var URL = '/HomeList/HomeList_byMood';
+
+            $.getJSON(url, function (data) {
+
+                $.each(data, function (key, val) {
+                    console.log("oiudfdhfdfdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd")
+                    console.log(key)
+                    console.log(val)
+
+                    var user = '<tr><td>' + val.Moods + '</td></tr>';
+
+                    $('#users table').append(user);
+
+                });
+            });
+        });
+    });
+
+</script>
+
+<div id="slider" class="mb-20">
+    <div class="container">
+        <!-- Place somewhere in the <body> of your page -->
+        <div class="flexslider">
+            <ul class="slides">
+                <li class="slide">
+                    <ul class="list-unstyled">
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/snowden-movie-poster-use.jpg" alt="" style="height:100%;" />
+                        </li>
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/theAssassin.jpg" alt="" style="height:470px;" />
+                        </li>
+
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/b313d42bb20f36d74abb081a96160981.jpg" alt="" style="height:470px;" />
+                        </li>
+                    </ul>
+                </li>
+                <li class="slide">
+                    <ul class="list-unstyled">
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/1_img.png" alt="" style="height:470px;" />
+                        </li>
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/2_img.png" alt="" style="height:470px;" />
+                        </li>
+
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/2001.jpg" alt="" style="height:470px;" />
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h2>Recently Added</h2>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="pull-right">
+                <div class="filtersRow ">
+                    <a href="@Url.Action("HomeList", "HomeList")">
+                        <div class="filters time" style="padding-left:8px;"><i class="ion-ios-clock-outline" style="color:#eb4d63" aria-hidden="true" title="Show Latest"></i></div>
+                    </a>
+
+                    <a href="@Url.Action("HomeList_byRating", "HomeList")">
+                        <div class="filters rating" style="padding-left:8px;"><i class="ion-ios-star-outline" aria-hidden="true" title="Show To Rated First"></i></div>
+                    </a>
+
+                    <a href="@Url.Action("HomeList_byGenre", "HomeList")">
+                        <div class="filters genre" style="padding-left:8px;"><i class="ion-ios-film-outline" aria-hidden="true" title="Filter by Genre"></i></div>
+                    </a>
+
+                    <a href="@Url.Action("HomeList_byMood", "HomeList")">
+                        <div class="filters mood" style="padding-left:8px;"><i class="ion-ios-analytics-outline" aria-hidden="true" title="Filter by Moods" id="moods"></i></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="myNav" class="overlayPanel">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlayPanel-content" id="navCon">
+
+
+                </div>
+            </div>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+        </div>
+
+        @Ajax.ActionLink("Bottom 3", "HomeList_byMood", "HomeList",
+    new AjaxOptions
+    {
+
+        HttpMethod = "GET", // HttpMethod to use, GET or POST
+        UpdateTargetId = "navCon", // ID of the HTML element to update
+        InsertionMode = InsertionMode.Replace // Replace the existing contents
+    })
+
+
+
+        @Html.Partial("~/Areas/Users/Views/HomeList/_GetCardss.cshtml", card)
+
+
+
+
+    </div>
+
+

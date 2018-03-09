@@ -1,0 +1,81 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+ @{
+     
+     var date = DateTime.Now;
+
+     Random rand = new Random();
+     rand.Next();   
+ }
+
+@foreach (var item in Model)
+{
+    int load = rand.Next();
+   int grLabel = rand.Next();
+
+
+    @*<script>
+            var myNumber = @(item.Movie_id);
+
+        </script>*@
+    //string rating = Convert.ToString(item.GreatnessRating);
+    // rating += "%";
+
+    <!-- POST ITEM -->
+    <div class="col-sm-6 col-md-4 col-lg-4" id="cards">
+        <div class="post" style="box-shadow: 1px 1px 6px 0 rgba(107,107,107,.15);">
+
+            <div class="post-thumbnail">
+
+                <a href="@Url.Action("MovieMain", "MovieMain", new { id = item.Movie_id })"><img src="~/Assets/NewTemplate/images/john_thumb.jpg" /></a>
+                <div class="logobarLoader" id=@load style="padding:0px !important; position:relative; display:none; height:5px;"></div>
+
+            </div>
+
+
+            <div class="post-header">
+                <h2 class="post-title font-alt"><a class"pink" href="blog-single.html">@Html.DisplayFor(modelItem => item.Movie_name)</a></h2>
+                <div class="post-meta font-inc">
+                    <i class="fa fa-fw"></i>
+                    <span class="muted"></span>
+
+                    <a href="#">@Html.DisplayFor(modelItem => item.Director_name)</a> |  @Html.DisplayFor(modelItem => item.Year)
+
+
+                </div>
+            </div>
+            <div class="post-entry">
+                <p style="margin:15px !important;">@Html.DisplayFor(modelItem => item.Synopsis)</p>
+            </div>
+            <div class="row fa-icons">
+
+            </div>
+            <div class="rating-icons-container clearfix">
+                <div class="rating-container" id="rating">
+                    <span class="font-inc" style="opacity: 1;" id=@grLabel>Greatness Rating</span>
+                    <div class="progress" style="width:135%" id="myBarSpan">
+                        <div class="progress-bar progress-bar-striped active" aria-valuenow="@item.GreatnessRating" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:@item.GRating">
+                            <span class="font-inc"></span>
+                        </div>
+                    </div>
+                </div>
+             
+
+                <div class="post-more font-inc">
+                    <ul class="cards-list pull-right">
+                        <li><a href="#"><span class="pe-7s-like"></span></a></li>
+                        <li><a href="#"><span class="pe-7s-plus" style="margin-left:-5px"></span></a></li>
+                        <li><a href="#"><span class="pe-7s-check" style="margin-left:-5px"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="post-more font-inc">
+                <a href="blog-single.html" class="more-link">Read more</a>
+            </div>
+
+        </div>
+    </div>
+
+
+                <!-- /POST ITEM -->
+}

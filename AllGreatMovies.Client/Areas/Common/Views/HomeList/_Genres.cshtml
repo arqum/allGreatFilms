@@ -1,0 +1,56 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+<div class="row">
+
+    <div class="moodsPanelHeading col-md-8">
+
+        GENRES
+        <div class="col-md-4 pull-right">
+            <button class="btn btn-green" onclick="genreFilter('G')"> FILTER</button>
+
+
+        </div>
+        <hr />
+    </div>
+
+</div>
+
+
+@{int i = 0;
+string gen = "";}
+@foreach (var item in Model)
+{
+    i = i + 1;
+
+
+    <div style="align-content:center; margin-left:10%; border-top:1px; border-bottom:1px;" class="animated fadeIn">
+        <ul style="list-style-type:none; list-style-position:outside; text-align:left;">
+            <li style="float:left; width: 30%">
+                <input type="checkbox" name="checkbox" value="@Html.DisplayFor(modelItem => item.GenresIds)" id=@Html.DisplayFor(modelItem => item.GenresIds) class="css-checkbox" />
+                <label for=@i class="css-label">@Html.DisplayFor(modelItem => item.Genres) </label>
+
+
+
+            </li>
+
+        </ul>
+
+
+    </div>
+
+
+}
+
+<div class="row">
+
+    <div class="moodsPanelHeading col-md-8">
+
+
+        <div class="col-md-12 pull-right">
+            <button class="btn btn-default btn-circle" onclick="genreFilterCommon('M')"> Apply</button>
+
+
+        </div>
+    </div>
+
+</div>

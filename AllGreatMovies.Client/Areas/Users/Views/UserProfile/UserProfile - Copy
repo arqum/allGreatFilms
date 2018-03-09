@@ -1,0 +1,552 @@
+﻿@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_layout_random.cshtml";
+    //var card = Model;
+
+}
+
+<section class="module p-b-0" >
+
+    <div class="container" style="margin-top:3%">
+
+        <div class="row multi-columns-row post-columns">
+
+
+            <!-- POST ITEM -->
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div>
+
+
+
+                    <div class="profileCard">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align:center;">
+                                <div class="profilePic"></div>
+                                <span style="text-align:center;margin:inherit;" class="module-title-pink">
+                                   <h5 style="color:#eb4d63">
+                                       MUHAMMAD ARQUM
+                                    </h5> 
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="row" style="margin-top:40px;">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;">
+                                <i class="pe-7s-plus" style="margin-left:10%;color:#f28564; font-size:26px;"></i><span style="margin-left:5%; vertical-align:super; color:white">To-Watch</span>
+                                <span style="color:white;" class="pull-right">11 </span>
+                            </div>
+                        </div>
+
+                        <hr style="border-top: 1px solid #2c393e;border-bottom: 1px solid #1e282c;margin-top: 10px;margin-bottom: 10px;" />
+                        <div class="row fade" style="margin-top:10px;">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;">
+                                <i class="pe-7s-check" style="color:#39aea9;margin-left:10%; font-size:26px;"></i><span style="margin-left:5%; vertical-align:super; color:white">Watched</span>
+                                <span style="color:white;" class="pull-right">11 </span>
+                            </div>     
+                            </div>
+                        <hr style="border-top: 1px solid #2c393e;border-bottom: 1px solid #1e282c;margin-top: 10px;margin-bottom: 10px;" />
+
+                        <div class="row fade" style="margin-top:10px;">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;">
+                                <i class="pe-7s-like" style="margin-left:10%;color:#eb4d63; font-size:26px;"></i><span style="margin-left:5%; vertical-align:super; color:white">Favorites</span>
+                                <span style="color:white;" class="pull-right">11 </span>
+                            </div>
+                        </div>
+                        <hr style="border-top: 1px solid #2c393e;border-bottom: 1px solid #1e282c;margin-top: 10px;margin-bottom: 10px;" />
+
+                        <div class="row fade" style="margin-top:10px;">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;">
+                                <i class="pe-7s-pen" style="margin-left:10%;color:white; font-size:24px;"></i><span style="margin-left:5%; vertical-align:super; color:white">Reviews</span>
+                                <span style="color:white;" class="pull-right">11 </span>
+                            </div>
+                        </div>
+                        <hr style="border-top: 1px solid #2c393e;border-bottom: 1px solid #1e282c;margin-top: 10px;margin-bottom: 10px;" />
+                        <div class="row fade" style="margin-top:10px;">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;">
+                                <i class="pe-7s-more" style="margin-left:10%;color:white; font-size:24px;"></i><span style="margin-left:5%; vertical-align:super; color:white">More</span>
+                                <span style="color:white;" class="pull-right">11 </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ACCORDIONS -->
+
+
+
+                    <div class="panel-group" style="margin-top:140px;">
+
+                        <!-- Accordion item start -->
+                        <div class="panel panel-default" style="margin-top:-1px">
+                            <div class="panel-heading">
+                                <h4 class="panel-title font-inc text-uppercase">
+                                    Support Question 1
+
+                                </h4>
+                            </div>
+
+                        </div>
+                        <!-- Accordion item end -->
+                        <!-- Accordion item start -->
+                        <div class="panel panel-default" style="margin-top:-1px">
+                            <div class="panel-heading">
+                                <h4 class="panel-title font-inc text-uppercase">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#support2" class="collapsed">
+                                        Support Question 2
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="support2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Accordion item end -->
+                        <!-- Accordion item start -->
+                        <div class="panel panel-default" style="margin-top:-1px">
+                            <div class="panel-heading">
+                                <h4 class="panel-title font-inc text-uppercase">
+                                    Support Question 1
+
+                                </h4>
+                            </div>
+
+                        </div>
+                        <!-- Accordion item end -->
+                        <!-- Accordion item start -->
+                        <div class="panel panel-default" style="margin-top:-1px">
+                            <div class="panel-heading">
+                                <h4 class="panel-title font-inc text-uppercase">
+                                    Support Question 1
+
+                                </h4>
+                            </div>
+
+                        </div>
+                        <!-- Accordion item end -->
+                        <!-- Accordion item start -->
+                        <div class="panel panel-default" style="margin-top:-1px">
+                            <div class="panel-heading">
+                                <h4 class="panel-title font-inc text-uppercase">
+                                    Support Question 1
+
+                                </h4>
+                            </div>
+
+                        </div>
+                        <!-- Accordion item end -->
+
+
+
+
+                    </div>
+
+                    <!-- White wells -->
+                    <div style="margin-top:20px; margin-top:0px;">
+                        <h5 class="font-alt m-t-40 m-b-0">Awards & Recognition</h5>
+                        <div class="well well-sm" style="background: white; margin-bottom:-1px !important; margin-top:22px">
+                            Oscars 2009
+                        </div>
+                        <div class="well well-sm" style="background: white;  margin-bottom:-1px !important;">
+                            Oscars 2009
+                        </div>
+
+                    </div>
+
+                    <!-- /White wells -->
+                    <!-- White wells -->
+                    <div style="margin-top:20px; margin-top:0px;">
+                        <h5 class="font-alt m-t-40 m-b-0">Moods</h5>
+                        <div class="well well-sm" style="background: white; margin-bottom:-1px !important; margin-top:22px">
+                            Oscars 2009
+                            <span>
+                                <i class="fa fa-star pull-right" style="position: relative;color: #d3d5d6;right: 5%;"> </i>
+                            </span>
+
+
+                        </div>
+                        <div class="well well-sm" style="background: white;  margin-bottom:-1px !important;">
+                            Oscars 2009
+                        </div>
+
+                    </div>
+
+                    <!-- White wells -->
+                    <div style="margin-top:20px; margin-top:0px;">
+                        <h5 class="font-alt m-t-40 m-b-0">Genres</h5>
+                        <div class="well well-sm" style="background: white; margin-bottom:-1px !important; margin-top:22px">
+                            Oscars 2009
+                        </div>
+                        <div class="well well-sm" style="background: white;  margin-bottom:-1px !important;">
+                            Oscars 2009
+                        </div>
+
+                    </div>
+
+                    <!-- /White wells -->
+                    <!-- /White wells -->
+
+                </div>
+
+
+            </div>
+
+
+            <!-- /POST ITEM -->
+            <!-- POST ITEM -->
+            <div class="col-sm-6 col-md-9 col-lg-9">
+
+                <!-- TABS -->
+
+                <div role="tabpanel">
+
+                    <!-- Nav tabs start-->
+                    <ul class="nav nav-tabs font-inc text-uppercase" role="tablist">
+                        <li class="active">
+                            <a href="#support" data-toggle="tab"> Synopses</a>
+                        </li>
+                        <li>
+                            <a href="#sales" data-toggle="tab"> AGF Review</a>
+                        </li>
+                    </ul>
+                    <!-- Nav tabs end -->
+                    <!-- Tab panes start-->
+                    <div class="tab-content">
+
+                        <!-- Tab start -->
+                        <div class="tab-pane active" id="support">
+                            <p>
+
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus id leo et aliquam. Proin consectetur ligula vel neque cursus laoreet. Nullam dignissim, augue at consectetur pellentesque, metus ipsum interdum sapien, quis ornare quam enim vel ipsum.
+
+                                In congue nunc vitae magna tempor ultrices. Cras ultricies posuere elit. Nullam ultrices purus ante, at mattis leo placerat ac. Nunc faucibus ligula nec lorem sodales venenatis. Curabitur nec est condimentum, blandit tellus nec, semper arcu. Nullam in porta ipsum, non consectetur mi. Sed pharetra sapien nisl. Aliquam ac lectus sed elit vehicula scelerisque ut vel sem. Ut ut semper nisl.
+                            </p>
+                        </div>
+                        <!-- Tab end -->
+                        <!-- Tab start -->
+                        <div class="tab-pane" id="sales">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempus id leo et aliquam. Proin consectetur ligula vel neque cursus laoreet. Nullam dignissim, augue at consectetur pellentesque, metus ipsum interdum sapien, quis ornare quam enim vel ipsum.
+
+                        </div>
+                        <!-- Tab end -->
+
+                    </div>
+                    <!-- Tab panes end-->
+                </div>
+                <!-- /TABS -->
+                <!-- /POST ITEM -->
+                <hr class="divider-w">
+                <h4 class="font-alt m-t-40 m-b-0">MEMORABLE QUOTES</h4>
+
+
+                <div class="well well-lg" style="margin-top:22px">
+                    <blockquote class="font-serif align-right">
+                        <p>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.</p>
+                        <p class="font-inc font-uppercase">- Thomas Anderson</p>
+                    </blockquote>
+                </div>
+            </div>
+
+
+            <!-- POST ITEM -->
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="post" style="box-shadow: 1px 1px 6px 0 rgba(107,107,107,.15);">
+                    <div class="post-thumbnail">
+                        <a href="Details.html"><img src="assets/images/sd.jpg" alt=""></a>
+                    </div>
+                    <div class="post-header">
+                        <h2 class="post-title font-alt"><a class"pink" href="blog-single.html">a scanner darkly</a></h2>
+                        <div class="post-meta font-inc">
+
+                            <i class="fa fa-fw"></i>
+                            <span class="muted"></span>
+
+                            <a href="#">Wes Anderson</a> | 2014
+                        </div>
+                    </div>
+                    <div class="post-entry">
+                        <p style="margin:15px !important;">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                    </div>
+                    <div class="row fa-icons">
+
+                    </div>
+
+                    <div class="rating-icons-container clearfix">
+                        <div class="rating-container">
+                            <span class="font-inc" style="opacity: 1;">Greatness Rating</span>
+                            <div class="progress" style="width: 135%">
+                                <div class="progress-bar progress-bar-striped active" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="font-inc"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post-more font-inc ">
+
+                            <ul class="cards-list pull-right">
+                                <li><a href="#"><span class="pe-7s-like"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-plus" style="margin-left:-5px"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-check" style="margin-left:-5px"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="post-more font-inc">
+                        <a href="blog-single.html" class="more-link">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /POST ITEM -->
+            <!-- POST ITEM -->
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="post" style="box-shadow: 1px 1px 6px 0 rgba(107,107,107,.15);">
+                    <div class="post-thumbnail">
+                        <a href="blog-single.html"><img src="assets/images/john_thumb.jpg" alt=""></a>
+                    </div>
+                    <div class="post-header">
+                        <h2 class="post-title font-alt"><a class"pink" href="blog-single.html">a scanner darkly</a></h2>
+                        <div class="post-meta font-inc">
+
+                            <i class="fa fa-fw"></i>
+                            <span class="muted"></span>
+
+                            <a href="#">Wes Anderson</a> | 2014
+                        </div>
+                    </div>
+                    <div class="post-entry">
+                        <p style="margin:15px !important;">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                    </div>
+                    <div class="row fa-icons">
+
+                    </div>
+                    <div class="rating-icons-container clearfix">
+                        <div class="rating-container">
+                            <span class="font-inc" style="opacity: 1;">Greatness Rating</span>
+                            <div class="progress" style="width: 135%">
+                                <div class="progress-bar progress-bar-striped active" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="font-inc"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post-more font-inc">
+                            <ul class="cards-list pull-right">
+                                <li><a href="#"><span class="pe-7s-like"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-plus" style="margin-left:-5px"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-check" style="margin-left:-5px"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="post-more font-inc">
+                        <a href="blog-single.html" class="more-link">Read more</a>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /POST ITEM -->
+            <!-- POST ITEM -->
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="post" style="box-shadow: 1px 1px 6px 0 rgba(107,107,107,.15);">
+                    <div class="post-thumbnail">
+                        <a href="blog-single.html"><img src="assets/images/fury_thumb.jpg" alt=""></a>
+                    </div>
+                    <div class="post-header">
+                        <h2 class="post-title font-alt"><a class"pink" href="blog-single.html">a scanner darkly</a></h2>
+                        <div class="post-meta font-inc">
+
+                            <i class="fa fa-fw"></i>
+                            <span class="muted"></span>
+
+                            <a href="#">Wes Anderson</a> | 2014
+                        </div>
+                    </div>
+                    <div class="post-entry">
+                        <p style="margin:15px !important;">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                    </div>
+                    <div class="row fa-icons">
+
+                    </div>
+
+                    <div class="rating-icons-container clearfix">
+
+                        <div class="rating-container">
+                            <span class="font-inc" style="opacity: 1;">Greatness Rating</span>
+                            <div class="progress" style="width: 135%">
+                                <div class="progress-bar progress-bar-striped active" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="font-inc"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post-more font-inc">
+                            <ul class="cards-list pull-right">
+                                <li><a href="#"><span class="pe-7s-like"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-plus" style="margin-left:-5px"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-check" style="margin-left:-5px"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="post-more font-inc">
+                        <a href="blog-single.html" class="more-link">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /POST ITEM -->
+            <!-- POST ITEM -->
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="post" style="box-shadow: 1px 1px 6px 0 rgba(107,107,107,.15);">
+                    <div class="post-thumbnail">
+                        <a href="blog-single.html"><img src="assets/images/looper_thumb.jpg" alt=""></a>
+                    </div>
+                    <div class="post-header">
+                        <h2 class="post-title font-alt"><a class"pink" href="blog-single.html">a scanner darkly</a></h2>
+                        <div class="post-meta font-inc">
+
+                            <i class="fa fa-fw"></i>
+                            <span class="muted"></span>
+
+                            <a href="#">Wes Anderson</a> | 2014
+                        </div>
+                    </div>
+                    <div class="post-entry">
+                        <p style="margin:15px !important;">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                    </div>
+                    <div class="row fa-icons">
+
+                    </div>
+
+                    <div class="rating-icons-container clearfix">
+
+                        <div class="rating-container">
+                            <span class="font-inc" style="opacity: 1;">Greatness Rating</span>
+                            <div class="progress" style="width:135%">
+                                <div class="progress-bar progress-bar-striped active" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="font-inc"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post-more font-inc">
+                            <ul class="cards-list pull-right">
+                                <li><a href="#"><span class="pe-7s-like"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-plus" style="margin-left:-5px"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-check" style="margin-left:-5px"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="post-more font-inc">
+                        <a href="blog-single.html" class="more-link">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /POST ITEM -->
+            <!-- POST ITEM -->
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="post" style="box-shadow: 1px 1px 6px 0 rgba(107,107,107,.15);">
+                    <div class="post-thumbnail">
+                        <a href="blog-single.html"><img src="assets/images/sd.jpg" alt=""></a>
+                    </div>
+                    <div class="post-header">
+                        <h2 class="post-title font-alt"><a class"pink" href="blog-single.html">a scanner darkly</a></h2>
+                        <div class="post-meta font-inc">
+
+                            <i class="fa fa-fw"></i>
+                            <span class="muted"></span>
+
+                            <a href="#">Wes Anderson</a> | 2014
+                        </div>
+                    </div>
+                    <div class="post-entry">
+                        <p style="margin:15px !important;">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                    </div>
+                    <div class="row fa-icons">
+
+                    </div>
+
+                    <div class="rating-icons-container clearfix">
+
+                        <div class="rating-container">
+                            <span class="font-inc" style="opacity: 1;">Greatness Rating</span>
+                            <div class="progress" style="width:135%">
+                                <div class="progress-bar progress-bar-striped active" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="font-inc"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post-more font-inc">
+                            <ul class="cards-list pull-right">
+                                <li><a href="#"><span class="pe-7s-like"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-plus" style="margin-left:-5px"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-check" style="margin-left:-5px"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="post-more font-inc">
+                        <a href="blog-single.html" class="more-link">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /POST ITEM -->
+            <!-- POST ITEM -->
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="post" style="box-shadow: 1px 1px 6px 0 rgba(107,107,107,.15);">
+                    <div class="post-thumbnail">
+                        <a href="blog-single.html"><img src="assets/images/sd.jpg" alt=""></a>
+                    </div>
+                    <div class="post-header">
+                        <h2 class="post-title font-alt"><a class"pink" href="blog-single.html">a scanner darkly</a></h2>
+                        <div class="post-meta font-inc">
+
+                            <i class="fa fa-fw"></i>
+                            <span class="muted"></span>
+
+                            <a href="#">Wes Anderson</a> | 2014
+                        </div>
+                    </div>
+                    <div class="post-entry">
+                        <p style="margin:15px !important;">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                    </div>
+                    <div class="row fa-icons">
+
+                    </div>
+
+                    <div class="rating-icons-container clearfix">
+
+                        <div class="rating-container">
+                            <span class="font-inc" style="opacity: 1;">Greatness Rating</span>
+                            <div class="progress" style="width:135%">
+                                <div class="progress-bar progress-bar-striped active" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="font-inc"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post-more font-inc">
+                            <ul class="cards-list pull-right">
+                                <li><a href="#"><span class="pe-7s-like"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-plus" style="margin-left:-5px"></span></a></li>
+                                <li><a href="#"><span class="pe-7s-check" style="margin-left:-5px"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="post-more font-inc">
+                        <a href="blog-single.html" class="more-link">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /POST ITEM -->
+
+
+
+
+
+        </div>
+    </div>
+
+
+</section>
+

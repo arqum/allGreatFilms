@@ -1,0 +1,861 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+@{
+    ViewBag.Title = "HomeList_byGenre";
+    Layout = "~/Views/Shared/_Layout_inner.cshtml";
+}
+
+@{
+    ViewBag.Title = "Movies";
+    var card = Model;
+    double? count = @ViewBag.Pages;
+    int pageNo = @ViewBag.Page;
+    string active = "";
+
+
+}
+
+
+
+<script src="~/Assets/JAVASCRIPT/jquery-1.10.2.min.js"></script>
+
+<script src="~/Assets/JAVASCRIPT/jquery.unobtrusive-ajax.js"></script>
+<link href="~/Assets/NewTemplate/css/custom.css" rel="stylesheet">
+
+<!-- WRAPPER -->
+<div class="wrapper">
+
+    <!-- HOME -->
+    <section id="home" class="module-hero module-parallax module-fade">
+
+        <div class="hero-slider ">
+            <ul class="slides">
+
+                <!-- SLIDE -->
+                <li class="bg-dark">
+
+                    <div class="slidebg slide-zoom bg-dark-30" style="background-image:url(../../../../Assets/NewTemplate/images/pf_1.jpg)"></div>
+
+                    <div class="hs-caption container">
+                        <div class="caption-content">
+                            <div class="hs-title-size-3 font-alt m-b-20">
+                                We are Semantic
+                            </div>
+                            <div class="hs-title-size-1 font-inc">
+                                <p>
+                                    A wonderful serenity has taken possession of my entire soul, like these<br /> sweet mornings of spring which I enjoy with my whole heart
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <!-- /SLIDE -->
+                <!-- SLIDE -->
+                <li class="bg-light">
+
+                    <div class="slidebg slide-zoom bg-light-30" style="background-image:url(../../../../Assets/NewTemplate/images/looper_ver3_xlg.jpg)"></div>
+
+                    <div class="hs-caption container">
+                        <div class="caption-content left">
+                            <div class="hs-title-size-3 font-alt m-b-20">
+                                Incoming call
+                            </div>
+                            <div class="hs-title-size-1 font-inc">
+                                A wonderful serenity has taken possession of my entire soul, like these<br /> sweet mornings of spring which I enjoy with my whole heart
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <!-- /SLIDE -->
+                <!-- SLIDE -->
+                <li class="bg-dark">
+
+                    <div class="slidebg slide-zoom bg-dark-50" style="background-image:url(../../../../Assets/NewTemplate/images/fury.jpg)"></div>
+
+                    <div class="hs-caption container">
+                        <div class="caption-content right">
+                            <div class="hs-title-size-3 font-alt m-b-20">
+                                Yellow coat
+                            </div>
+                            <div class="hs-title-size-1 font-inc">
+                                A wonderful serenity has taken possession of my entire soul, like these<br /> sweet mornings of spring which I enjoy with my whole heart
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <!-- /SLIDE -->
+
+            </ul>
+        </div>
+
+    </section>
+    <!-- PORTFOLIO FILTER -->
+
+
+
+    <div class="row" style="margin:0px">
+
+
+        <div class="filtersSticky" id="navigation" style="position: static; top: 0px;">
+
+            <nav class="navbar navbar-inverse " style="margin-bottom:0px">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#" style="color: #eb4d63; margin-left: 0px; font-family:Inconsolata; text-transform:uppercase">Filters</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+
+
+                            <li class="dropdown mega-dropdown">
+                                <a onclick="filter('L','0')" data-filter=".illustration" class="wow fadeInUp current" data-wow-delay="0.2s" role="button" aria-haspopup="false" aria-expanded="true">Latest </a>
+
+                            </li>
+
+
+                            <li class="dropdown mega-dropdown">
+                                <a onclick="filter('R','0')" data-filter=".illustration" class="wow fadeInUp current" data-wow-delay="0.2s" role="button" aria-haspopup="false" aria-expanded="true">By Rating </a>
+
+                            </li>
+
+
+                            <li class="dropdown mega-dropdown">
+
+                                <a onclick="filter('M', '0')" data-filter=".illustration" class="dropdown-toggle wow fadeInUp current" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">By Moods </a>
+                                <ul class="dropdown-menu mega-dropdown-menu" id="moodDD">
+                                    <div class="filterloadArea wow fadeInUp" data-wow-delay="0.2s" id="moodContainer"></div>
+
+
+                                </ul>
+                            </li>
+
+                            <li class="dropdown mega-dropdown">
+
+                                <a onclick="filter('G', '0')" data-filter=".illustration" class="dropdown-toggle wow fadeInUp current" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">By Genres </a>
+                                <ul class="dropdown-menu mega-dropdown-menu">
+                                    <div class="filterloadArea wow fadeInUp" data-wow-delay="0.2s" id="genreContainer"></div>
+
+
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
+            @*<div class="col-sm-12" style="background:#20292d" id="filters">
+
+                    <ul id="filters" class="filter font-inc" style="background:white">
+                        <li><a onclick="filter('L','0')" data-filter=".illustration" class="wow fadeInUp current" data-wow-delay="0.2s" style="cursor:pointer">latest</a></li>
+                        <li><a onclick="filter('R','0')" data-filter=".illustration" class="wow fadeInUp" data-wow-delay="0.2s" style="cursor:pointer">by rating</a></li>
+                        <li><a id="moodFilter" onclick="filter('M', '0'), moodPanel()" data-filter=".marketing" class="wow fadeInUp" data-wow-delay="0.4s" style="cursor:pointer">by mood</a></li>
+                        <li><a id="genreFilter" onclick="filter('G','0')" data-filter=".photography" class="wow fadeInUp" data-wow-delay="0.6s" style="cursor:pointer">by genre</a></li>
+                    </ul>
+                    <div class="filterloadArea wow fadeInUp" data-wow-delay="0.4s" id="filterContainer"></div>
+                    <div class="logobarLoader" id=100 style="padding:0px !important; display:none; height:5px; position:absolute; z-index:98;"></div>
+
+                </div>*@
+            <div class="logobarLoader" id=100 style="padding:0px !important; display:none; height:5px; position:absolute; z-index:98;"></div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- /PORTFOLIO FILTER -->
+    <!-- BLOG GRID -->
+    <section class="module p-b-0" style="background-color:#f6f6f6 !important">
+
+
+        <div class="row multi-columns-row post-columns">
+
+            <div class="container" id="thumbs">
+
+
+                <div id="partialDiv">
+
+                    @Html.Partial("~/Areas/Users/Views/HomeList/_GetCardss.cshtml", card)
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- /BLOG GRID -->
+    <!-- DIVIDER -->
+    <hr class="divider-w">
+    <!-- /DIVIDER -->
+    <!-- CONTACT -->
+    <!-- /CONTACT -->
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-12 text-center">
+                    <p class="copyright font-inc m-b-0">© 2015 <a href="index.html">SEMANTIC</a>, All Rights Reserved.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- /FOOTER -->
+</div>
+<!-- /WRAPPER -->
+
+<div class="scroll-up">
+    <a href="#totop"><i class="fa fa-angle-double-up"></i></a>
+</div>
+
+<script src="~/Assets/NewTemplate/js/jquery-2.1.3.js"></script>
+<script src="~/Assets/NewTemplate/js/jquery-2.1.3.min.js"></script>
+
+
+
+<script>
+
+    moodPanel = function () {
+
+        if ($("#filterContainer").height() > 0) {
+            alert("hellow from moodFilter");
+            $("#filterContainer").animate({ height: 35 }, 300);
+
+
+
+        }
+
+        else {
+            alert("hellow from moodFilter Else");
+
+            $("#filterContainer").animate({ height: 400 }, 300);
+
+
+        }
+
+    }
+
+
+
+    $("#genreFilter").click(function () {
+
+        if ($("#filterContainer").height() != 400) {
+            // alert("hellow from moodFilter");
+            $("#filterContainer").animate({ height: 400 }, 300);
+
+        }
+
+
+
+        else
+            $("#filterContainer").animate({ height: 0 }, 300);
+
+
+    });
+
+
+</script>
+
+
+
+
+
+
+<script>
+
+
+    var addtoFav = null;
+    var url = null;
+
+
+
+    actions = function (movieID, action, utility, grLabel, myBarSpan, load, afterFav, afterToWatch, afterWatched) {
+
+
+
+        $('#' + utility).fadeTo(200, 0.5);
+        $('#' + myBarSpan).fadeTo(200, 0.5);
+
+        //$('#' + grLabel).hide();
+        //$('#' + myBarSpan).hide();
+        //$('#' + utility).hide();
+        $('#' + load).fadeIn(300);
+
+
+        console.log("MovieID is : " + movieID + " And action is" + action);
+
+
+        var data = { 'movie_id': movieID, 'UserAction': action };
+        data = JSON.stringify(data);
+        console.log(url);
+        console.log(data);
+        console.log("after json", data);
+
+
+        switch (action) {
+
+            case "f":
+
+
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",//what we expect to get back from server; read explanation #2
+
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "2000",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("Arghh!!", "Something went wrong!")
+
+                        } else {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["success"]("Added!", "")
+
+
+
+
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(300);
+                        $('#' + grLabel).delay(500).fadeTo(300, 1);
+                        $('#' + utility).delay(500).fadeTo(300, 1);
+                        $('#' + afterWatched).attr('style', 'color: #39aea9 !important');
+                        $('#' + afterToWatch).attr('style', 'color: #d3d5d6 !important');
+                        $('#' + afterFav).attr('style', 'color: #eb4d63 !important');
+
+                    },
+                    type: 'POST'
+                });
+
+
+                break;
+
+            case "t":
+
+
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "3000",
+                                hideDuration: "2000",
+                                timeOut: "3000",
+                                extendedTimeOut: "3000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("This Film is already Watched!", "Can't do it...")
+
+                        } else {
+
+
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+
+                            toastr["success"]("Added!", "")
+                            $('#' + afterToWatch).attr('style', 'color: #f28564 !important');
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(300);
+                        $('#' + grLabel).delay(500).fadeTo(300, 1);
+                        $('#' + utility).delay(500).fadeTo(300, 1);
+
+                    },
+                    type: 'POST'
+                });
+
+                break;
+
+            case "w":
+                alert("Watched");
+
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("Arghh!!", "Something went wrong!")
+
+                        } else {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["success"]("Added!", "")
+                            $('#' + afterWatched).attr('style', 'color: #39aea9 !important');
+                            $('#' + afterToWatch).attr('style', 'color: #d3d5d6 !important');
+                            $('#' + grLabel).fadeTo(300, 1);
+                            $('#' + utility).fadeTo(300, 1);
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(300);
+                        $('#' + grLabel).delay(500).fadeTo(300, 1);
+                        $('#' + utility).delay(500).fadeTo(300, 1);
+
+                    },
+                    type: 'POST'
+                });
+
+                break;
+
+        }
+
+    };
+
+
+</script>
+
+
+<script>
+
+    filter = function (by, pagefromPagination) {
+
+        switch (by) {
+
+            case "L":
+                $("#thumbs").children().fadeOut(300);
+                $('#' + 100).fadeIn(300);
+                var p = pagefromPagination;
+
+                console.log("hereeeee check ittt", p);
+
+
+                var url = '@Url.Action("HomeList_byLatest", "HomeList", new { Page = "0" })';
+                url = url.replace("0", pagefromPagination);
+
+
+                console.log(url);
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        $('#' + 100).fadeOut(300);
+                        $("#thumbs").children().fadeIn(300);
+
+                        console.log("SUCCESS By Latest", data)
+                        $('#partialDiv').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "R":
+                $("#thumbs").children().fadeOut(50);
+                $('#' + 100).fadeIn(300);
+                var url = '@Url.Action("HomeList_byRating", "HomeList", new { Page = "0" })';
+                url = url.replace("0", pagefromPagination);
+                console.log(url);
+
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        $('#' + 100).fadeOut(300);
+                        $("#thumbs").children().fadeIn(900);
+                        console.log("SUCCESS By Rating", data)
+                        $('#partialDiv').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+
+                break;
+
+
+            case "G":
+                $('#genreContainer').click(function (e) {
+                    e.stopPropagation();
+                });
+
+                var url = '@Url.Action("HomeList_byGenre", "HomeList", new { Page = "0" })';
+                url = url.replace("0", pagefromPagination);
+                console.log(url);
+                $(".circleRandom").show();
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        $('#' + 100).fadeOut(300);
+                        $("#thumbs").children().fadeIn(900);
+                        console.log("SUCCESS By Rating", data)
+                        $('#genreContainer').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "M":
+
+                $('#moodContainer').click(function (e) {
+                    e.stopPropagation();
+                });
+
+                //  alert("hello from case M");
+                var url = '@Url.Action("HomeList_byMood", "HomeList", new { Page = "0" })';
+                url = url.replace("0", pagefromPagination);
+
+                console.log(url);
+
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        console.log(data);
+                        $('#moodContainer').html(data)
+                        $('#' + 100).fadeOut(300);
+                        $("#thumbs").children().fadeIn(900);
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+        }
+    }
+</script>
+
+
+
+<script>
+    genreFilter = function (by) {
+
+        var list = [];
+
+        switch (by) {
+
+            case 'G':
+
+                var url = '@Url.Action("HomeList_bySelectedGenre", "HomeList")';
+                console.log(url);
+
+                $('input:checkbox[name=checkbox]:checked').each(function () {
+
+                    var a = $(this).attr("value");
+                    console.log("List is " + a);
+                    list.push(a);
+                    console.log("List of genres after push ", list);
+
+                }
+                );
+
+                var data = JSON.stringify(list);
+                console.log("This is data" + data);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: data,
+                    success: function (result) {
+                        // location.reload();
+                        console.log("after Success the data is ");
+                        $('#partialDiv').html(result); // loading partialView into div
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "M":
+                var url = '@Url.Action("HomeList_byMood", "HomeList")';
+                console.log(url);
+
+                $('input:checkbox[name=checkbox]:checked').each(function () {
+
+                    var a = $(this).attr("value");
+                    console.log("List is " + a);
+                    list.push(a);
+                    console.log("List of genres after push ", list);
+
+                }
+                );
+
+                var data = JSON.stringify(list);
+                console.log("This is data" + data);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: data,
+                    success: function (callback) {
+
+                        console.log(callback);
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "R":
+                $(".page-loader").fadeIn();
+                $(".loader").fadeIn();
+                var url = '@Url.Action("HomeList_byRating", "HomeList")';
+                console.log(url);
+
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        $(".page-loader").fadeOut();
+
+                        console.log("SUCCESS By Rating", data)
+                        $('#partialDiv').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+
+                break;
+        }
+    }
+
+
+
+</script>
+
+<script>
+    mainMovie = function (movieId) {
+
+        var url = '@Url.Action("MovieMain", "MovieMain")';
+        console.log("Ajax URL", url);
+        console.log("movie ID", movieId);
+
+
+        $.ajax({
+
+            url: url,
+            type: "GET",
+            cache: false,
+            InsertionMode: 'InsertionMode.Replace',
+            success: function (data) {
+                console.log("SUCCESS from MovieMain", data)
+                $('#partialDiv').html(data)
+
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+            }
+
+        });
+
+    }
+
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        $(".dropdown1").hover(
+            function () {
+                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("400");
+                $(this).toggleClass('open');
+            },
+            function () {
+                $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("400");
+                $(this).toggleClass('open');
+            }
+        );
+    });
+
+
+</script>
+@*<script>
+    $('.dropdown-toggle').click(function () {
+        $(this).next('.dropdown-menu').slideToggle(300);
+    });
+
+    $('.dropdown-toggle').focusout(function () {
+        $(this).next('.dropdown-menu').slideUp(300);
+    })
+
+</script>*@
+
+  
+
+
+

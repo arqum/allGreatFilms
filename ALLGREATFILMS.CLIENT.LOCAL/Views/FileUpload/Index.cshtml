@@ -1,0 +1,29 @@
+﻿@model ALLGREATFILMS.CLIENT.LOCAL.Models.FileUpload
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>File Upload</h2>
+
+@using (Html.BeginForm(null,null,FormMethod.Post,new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>FileUpload</h4>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="file" name="file" id="file"/>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="upload" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

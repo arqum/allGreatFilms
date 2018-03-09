@@ -1,0 +1,301 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+@{
+    ViewBag.Title = "HomeList_bySelectedGenre";
+    Layout = "~/Views/Shared/_Layout_inner.cshtml";
+}
+
+@{
+    ViewBag.Title = "Movies";
+
+    var card = Model;
+}
+<h2>HomeList_bySelectedGenre</h2>
+
+
+<script src="~/Assets/JAVASCRIPT/jquery.unobtrusive-ajax.js"></script>
+
+<div id="slider">
+    <div class="container">
+        <!-- Place somewhere in the <body> of your page -->
+        <div class="flexslider">
+            <ul class="slides">
+                <li class="slide">
+                    <ul class="list-unstyled">
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/snowden-movie-poster-use.jpg" alt="" style="height:100%;" />
+                        </li>
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/theAssassin.jpg" alt="" style="height:470px;" />
+                        </li>
+
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/b313d42bb20f36d74abb081a96160981.jpg" alt="" style="height:470px;" />
+                        </li>
+                    </ul>
+                </li>
+                <li class="slide">
+                    <ul class="list-unstyled">
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/1_img.png" alt="" style="height:470px;" />
+                        </li>
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/2_img.png" alt="" style="height:470px;" />
+                        </li>
+
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/2001.jpg" alt="" style="height:470px;" />
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<section id="movie-cards">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>Recently Added</h2>
+            </div>
+
+            <div class="col-sm-8">
+                <div class="pull-right">
+
+                    <div class="filtersRow ">
+
+                        <a href="@Url.Action("HomeList", "HomeList")">
+                            <div class="filters time" style="padding-left:8px;"><i class="ion-ios-clock-outline" style="color:#eb4d63" aria-hidden="true" title="Show Latest"></i></div>
+                        </a>
+
+                        <a href="@Url.Action("HomeList_byRating", "HomeList")">
+                            <div class="filters rating" style="padding-left:8px;"><i class="ion-ios-star-outline" aria-hidden="true" title="Show To Rated First"></i></div>
+                        </a>
+                        <a>
+                            <div class="filters genre" style="padding-left:8px;" onclick="openNav(); filter('G')"><i class="ion-ios-film-outline" title="Filter by Genre"></i></div>
+                        </a>
+
+                        <a>
+                            <div class="filters mood" style="padding-left:8px;" onclick="openNav(); filter('M')"><i class="ion-ios-analytics-outline" aria-hidden="true" title="Filter by Moods" id="moods"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="myNav" class="overlayPanel">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div class="overlayPanel-content" id="navCon">
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="myModal" class="reveal-modal">
+
+                <div class="form-group">
+
+
+                </div>
+                <h1>Reveal Modal Goodness</h1>
+
+
+
+
+
+                <p>This is a default modal in all its glory, but any of the styles here can easily be changed in the CSS.</p>
+                <a class="close-reveal-modal">&#215;</a>
+            </div>
+
+
+
+
+            @Html.Partial("~/Areas/Common/Views/HomeList/_GetCardss.cshtml", card)
+
+            <div class="page-nation pull-right" style="margin-right:15px;">
+                <ul class="pagination pagination-large">
+                    <li class="disabled"><span>«</span></li>
+                    <li class="active"><span>1</span></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">6</a></li>
+                    <li><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li><a href="#">9</a></li>
+                    <li class="disabled"><span>...</span></li>
+                    <li>
+                    <li><a rel="next" href="#">Next</a></li>
+
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+</script>
+
+<script>
+
+    filter = function (by) {
+
+        switch (by) {
+
+            case "G":
+
+                var url = '@Url.Action("HomeList_byGenre", "HomeList")';
+                console.log(url);
+                $(".circleRandom").show();
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        console.log("suceesssss hereeeeeeeeeee")
+                        $('#navCon').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "M":
+
+                var url = '@Url.Action("HomeList_byMood", "HomeList")';
+                console.log(url);
+
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        console.log("suceesssss hereeeeeeeeeee")
+                        console.log(data);
+                        $('#navCon').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+        }
+    }
+</script>
+
+
+
+<script>
+    genreFilter = function (by) {
+
+        var list = [];
+
+        switch (by) {
+
+            case 'G':
+
+                var url = '@Url.Action("HomeList_bySelectedGenre", "HomeList")';
+                console.log(url);
+
+                $('input:checkbox[name=checkbox]:checked').each(function () {
+
+                    var a = $(this).attr("value");
+                    console.log("List is " + a);
+                    list.push(a);
+                    console.log("List of genres after push ", list);
+
+                }
+                );
+
+                var data = JSON.stringify(list);
+                console.log("This is data" + data);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: data,
+                    success: function () {
+
+                        location.reload();
+
+                        console.log("after Success the data is ");
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "M":
+
+                var url = '@Url.Action("HomeList_byMood", "HomeList")';
+                console.log(url);
+
+                $('input:checkbox[name=checkbox]:checked').each(function () {
+
+                    var a = $(this).attr("value");
+                    console.log("List is " + a);
+                    list.push(a);
+                    console.log("List of genres after push ", list);
+
+                }
+                );
+
+                var data = JSON.stringify(list);
+                console.log("This is data" + data);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: data,
+                    success: function (callback) {
+                        console.log(callback);
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+        }
+    }
+
+
+
+</script>
+
+
+

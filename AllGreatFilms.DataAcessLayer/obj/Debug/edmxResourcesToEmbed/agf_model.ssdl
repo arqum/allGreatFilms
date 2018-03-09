@@ -1,0 +1,878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="agf_namespace.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="actor">
+    <Key>
+      <PropertyRef Name="actor_id" />
+    </Key>
+    <Property Name="actor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="country_id" Type="int" Nullable="false" />
+    <Property Name="bio" Type="text" />
+    <Property Name="photo" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="award">
+    <Key>
+      <PropertyRef Name="award_id" />
+    </Key>
+    <Property Name="award_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="awards_actor">
+    <Key>
+      <PropertyRef Name="actor_id" />
+      <PropertyRef Name="award_id" />
+    </Key>
+    <Property Name="actor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="award_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="awards_director">
+    <Key>
+      <PropertyRef Name="director_id" />
+      <PropertyRef Name="award_id" />
+    </Key>
+    <Property Name="director_id" Type="int" Nullable="false" />
+    <Property Name="award_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="awards_movie">
+    <Key>
+      <PropertyRef Name="award_id" />
+      <PropertyRef Name="movie_id" />
+    </Key>
+    <Property Name="award_id" Type="int" Nullable="false" />
+    <Property Name="movie_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="country">
+    <Key>
+      <PropertyRef Name="country_id" />
+    </Key>
+    <Property Name="country_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="director">
+    <Key>
+      <PropertyRef Name="director_id" />
+    </Key>
+    <Property Name="director_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="genre">
+    <Key>
+      <PropertyRef Name="genre_id" />
+    </Key>
+    <Property Name="genre_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="language">
+    <Key>
+      <PropertyRef Name="lang_id" />
+    </Key>
+    <Property Name="lang_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mood">
+    <Key>
+      <PropertyRef Name="mood_id" />
+    </Key>
+    <Property Name="mood_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="movie">
+    <Key>
+      <PropertyRef Name="movie_id" />
+    </Key>
+    <Property Name="movie_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="poster" Type="nvarchar" MaxLength="250" />
+    <Property Name="language" Type="int" Nullable="false" />
+    <Property Name="country" Type="int" Nullable="false" />
+    <Property Name="duration" Type="varchar" MaxLength="50" />
+    <Property Name="year" Type="date" Nullable="false" />
+    <Property Name="director" Type="int" Nullable="false" />
+    <Property Name="writer" Type="int" Nullable="false" />
+    <Property Name="Youtube" Type="text" />
+    <Property Name="imdb" Type="text" />
+    <Property Name="rottenTomatoes" Type="text" />
+    <Property Name="netflix" Type="text" />
+    <Property Name="dateAdded" Type="datetime" Nullable="false" />
+    <Property Name="synopsis" Type="text" Nullable="false" />
+    <Property Name="agfReview" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="movie_actor">
+    <Key>
+      <PropertyRef Name="actor_id" />
+      <PropertyRef Name="movie_id" />
+    </Key>
+    <Property Name="actor_id" Type="int" Nullable="false" />
+    <Property Name="movie_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="movie_genre">
+    <Key>
+      <PropertyRef Name="movie_id" />
+      <PropertyRef Name="genre_id" />
+    </Key>
+    <Property Name="movie_id" Type="int" Nullable="false" />
+    <Property Name="genre_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="movie_mood">
+    <Key>
+      <PropertyRef Name="mood_id" />
+      <PropertyRef Name="movie_id" />
+    </Key>
+    <Property Name="mood_id" Type="int" Nullable="false" />
+    <Property Name="movie_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="movie_quotes">
+    <Key>
+      <PropertyRef Name="quote_id" />
+    </Key>
+    <Property Name="quote_id" Type="int" Nullable="false" />
+    <Property Name="movie_id" Type="int" Nullable="false" />
+    <Property Name="quote" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rating">
+    <Key>
+      <PropertyRef Name="rating_id" />
+    </Key>
+    <Property Name="rating_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="movie_id" Type="int" Nullable="false" />
+    <Property Name="user_rating" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="review" Type="text" />
+    <Property Name="agf_rating" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="reviewer_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="imdbR" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="rottenR" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="metaR" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="date_created" Type="datetime" Nullable="false" />
+    <Property Name="last_login" Type="datetime" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_fav_actors">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="actor_id" />
+    </Key>
+    <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="actor_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_fav_directors">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="director_id" />
+    </Key>
+    <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="director_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_fav_genre">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="genre_id" />
+    </Key>
+    <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="genre_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_fav_moods">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="mood_id" />
+    </Key>
+    <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="mood_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_fav_movies">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="movie_id" />
+    </Key>
+    <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="movie_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_fav_quotes">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="quote_id" />
+    </Key>
+    <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="quote_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_profile">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="60" />
+    <Property Name="dob" Type="date" Nullable="false" />
+    <Property Name="about" Type="text" />
+    <Property Name="rank" Type="int" />
+  </EntityType>
+  <EntityType Name="user_to_watch_list">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="movie_id" />
+    </Key>
+    <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="movie_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_watched_movies">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="movie_id" />
+    </Key>
+    <Property Name="user_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="movie_id" Type="int" Nullable="false" />
+    <Property Name="review" Type="text" />
+  </EntityType>
+  <EntityType Name="writer">
+    <Key>
+      <PropertyRef Name="writer_id" />
+    </Key>
+    <Property Name="writer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__ratings__reviewe__1273C1CD">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="rating" Type="Self.rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rating">
+        <PropertyRef Name="reviewer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_actor_awards_actors">
+    <End Role="actor" Type="Self.actor" Multiplicity="1" />
+    <End Role="awards_actor" Type="Self.awards_actor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="actor">
+        <PropertyRef Name="actor_id" />
+      </Principal>
+      <Dependent Role="awards_actor">
+        <PropertyRef Name="actor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_actor_awards_awards">
+    <End Role="award" Type="Self.award" Multiplicity="1" />
+    <End Role="awards_actor" Type="Self.awards_actor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="award">
+        <PropertyRef Name="award_id" />
+      </Principal>
+      <Dependent Role="awards_actor">
+        <PropertyRef Name="award_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_actor_movies_actor">
+    <End Role="actor" Type="Self.actor" Multiplicity="1" />
+    <End Role="movie_actor" Type="Self.movie_actor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="actor">
+        <PropertyRef Name="actor_id" />
+      </Principal>
+      <Dependent Role="movie_actor">
+        <PropertyRef Name="actor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_actor_movies_movies">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="movie_actor" Type="Self.movie_actor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_id" />
+      </Principal>
+      <Dependent Role="movie_actor">
+        <PropertyRef Name="movie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_actors_country">
+    <End Role="country" Type="Self.country" Multiplicity="1" />
+    <End Role="actor" Type="Self.actor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="country_id" />
+      </Principal>
+      <Dependent Role="actor">
+        <PropertyRef Name="country_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_director_awards_awards">
+    <End Role="award" Type="Self.award" Multiplicity="1" />
+    <End Role="awards_director" Type="Self.awards_director" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="award">
+        <PropertyRef Name="award_id" />
+      </Principal>
+      <Dependent Role="awards_director">
+        <PropertyRef Name="award_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_director_awards_director">
+    <End Role="director" Type="Self.director" Multiplicity="1" />
+    <End Role="awards_director" Type="Self.awards_director" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="director">
+        <PropertyRef Name="director_id" />
+      </Principal>
+      <Dependent Role="awards_director">
+        <PropertyRef Name="director_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movie_awards_award">
+    <End Role="award" Type="Self.award" Multiplicity="1" />
+    <End Role="awards_movie" Type="Self.awards_movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="award">
+        <PropertyRef Name="award_id" />
+      </Principal>
+      <Dependent Role="awards_movie">
+        <PropertyRef Name="award_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movie_awards_movies">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="awards_movie" Type="Self.awards_movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_id" />
+      </Principal>
+      <Dependent Role="awards_movie">
+        <PropertyRef Name="movie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movie_director">
+    <End Role="director" Type="Self.director" Multiplicity="1" />
+    <End Role="movie" Type="Self.movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="director">
+        <PropertyRef Name="director_id" />
+      </Principal>
+      <Dependent Role="movie">
+        <PropertyRef Name="director" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movie_genre_genre">
+    <End Role="genre" Type="Self.genre" Multiplicity="1" />
+    <End Role="movie_genre" Type="Self.movie_genre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="genre">
+        <PropertyRef Name="genre_id" />
+      </Principal>
+      <Dependent Role="movie_genre">
+        <PropertyRef Name="genre_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movie_genre_movies">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="movie_genre" Type="Self.movie_genre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_id" />
+      </Principal>
+      <Dependent Role="movie_genre">
+        <PropertyRef Name="movie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movie_mood_moods">
+    <End Role="mood" Type="Self.mood" Multiplicity="1" />
+    <End Role="movie_mood" Type="Self.movie_mood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mood">
+        <PropertyRef Name="mood_id" />
+      </Principal>
+      <Dependent Role="movie_mood">
+        <PropertyRef Name="mood_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movie_mood_movies">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="movie_mood" Type="Self.movie_mood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_id" />
+      </Principal>
+      <Dependent Role="movie_mood">
+        <PropertyRef Name="movie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movie_quotes_movies">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="movie_quotes" Type="Self.movie_quotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_id" />
+      </Principal>
+      <Dependent Role="movie_quotes">
+        <PropertyRef Name="movie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movie_writer">
+    <End Role="writer" Type="Self.writer" Multiplicity="1" />
+    <End Role="movie" Type="Self.movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="writer">
+        <PropertyRef Name="writer_id" />
+      </Principal>
+      <Dependent Role="movie">
+        <PropertyRef Name="writer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movies_country">
+    <End Role="country" Type="Self.country" Multiplicity="1" />
+    <End Role="movie" Type="Self.movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="country_id" />
+      </Principal>
+      <Dependent Role="movie">
+        <PropertyRef Name="country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movies_language">
+    <End Role="language" Type="Self.language" Multiplicity="1" />
+    <End Role="movie" Type="Self.movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="language">
+        <PropertyRef Name="lang_id" />
+      </Principal>
+      <Dependent Role="movie">
+        <PropertyRef Name="language" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ratings_movies">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="rating" Type="Self.rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_id" />
+      </Principal>
+      <Dependent Role="rating">
+        <PropertyRef Name="movie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_fav_actors_actors">
+    <End Role="actor" Type="Self.actor" Multiplicity="1" />
+    <End Role="user_fav_actors" Type="Self.user_fav_actors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="actor">
+        <PropertyRef Name="actor_id" />
+      </Principal>
+      <Dependent Role="user_fav_actors">
+        <PropertyRef Name="actor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_fav_actors_users">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user_fav_actors" Type="Self.user_fav_actors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_fav_actors">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_fav_directors_directors">
+    <End Role="director" Type="Self.director" Multiplicity="1" />
+    <End Role="user_fav_directors" Type="Self.user_fav_directors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="director">
+        <PropertyRef Name="director_id" />
+      </Principal>
+      <Dependent Role="user_fav_directors">
+        <PropertyRef Name="director_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_fav_directors_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user_fav_directors" Type="Self.user_fav_directors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_fav_directors">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_fav_movies_movies">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="user_fav_movies" Type="Self.user_fav_movies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_id" />
+      </Principal>
+      <Dependent Role="user_fav_movies">
+        <PropertyRef Name="movie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_fav_movies_users">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user_fav_movies" Type="Self.user_fav_movies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_fav_movies">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_fav_quotes_movie_quotes">
+    <End Role="movie_quotes" Type="Self.movie_quotes" Multiplicity="1" />
+    <End Role="user_fav_quotes" Type="Self.user_fav_quotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie_quotes">
+        <PropertyRef Name="quote_id" />
+      </Principal>
+      <Dependent Role="user_fav_quotes">
+        <PropertyRef Name="quote_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_fav_quotes_users">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user_fav_quotes" Type="Self.user_fav_quotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_fav_quotes">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_genres_genre">
+    <End Role="genre" Type="Self.genre" Multiplicity="1" />
+    <End Role="user_fav_genre" Type="Self.user_fav_genre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="genre">
+        <PropertyRef Name="genre_id" />
+      </Principal>
+      <Dependent Role="user_fav_genre">
+        <PropertyRef Name="genre_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_genres_users">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user_fav_genre" Type="Self.user_fav_genre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_fav_genre">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_moods_moods">
+    <End Role="mood" Type="Self.mood" Multiplicity="1" />
+    <End Role="user_fav_moods" Type="Self.user_fav_moods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mood">
+        <PropertyRef Name="mood_id" />
+      </Principal>
+      <Dependent Role="user_fav_moods">
+        <PropertyRef Name="mood_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_moods_users">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user_fav_moods" Type="Self.user_fav_moods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_fav_moods">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_profile_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user_profile" Type="Self.user_profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_profile">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_to_watch_list_movie">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="user_to_watch_list" Type="Self.user_to_watch_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_id" />
+      </Principal>
+      <Dependent Role="user_to_watch_list">
+        <PropertyRef Name="movie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_to_watch_list_movies">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="user_to_watch_list" Type="Self.user_to_watch_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_id" />
+      </Principal>
+      <Dependent Role="user_to_watch_list">
+        <PropertyRef Name="movie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_to_watch_list_users">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user_to_watch_list" Type="Self.user_to_watch_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_to_watch_list">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_watched_movies_movie">
+    <End Role="movie" Type="Self.movie" Multiplicity="1" />
+    <End Role="user_watched_movies" Type="Self.user_watched_movies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="movie">
+        <PropertyRef Name="movie_id" />
+      </Principal>
+      <Dependent Role="user_watched_movies">
+        <PropertyRef Name="movie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_watched_movies_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="user_watched_movies" Type="Self.user_watched_movies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user_watched_movies">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="agf_namespaceStoreContainer">
+    <EntitySet Name="actor" EntityType="Self.actor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="award" EntityType="Self.award" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="awards_actor" EntityType="Self.awards_actor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="awards_director" EntityType="Self.awards_director" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="awards_movie" EntityType="Self.awards_movie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="country" EntityType="Self.country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="director" EntityType="Self.director" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="genre" EntityType="Self.genre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="language" EntityType="Self.language" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mood" EntityType="Self.mood" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="movie" EntityType="Self.movie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="movie_actor" EntityType="Self.movie_actor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="movie_genre" EntityType="Self.movie_genre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="movie_mood" EntityType="Self.movie_mood" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="movie_quotes" EntityType="Self.movie_quotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rating" EntityType="Self.rating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_fav_actors" EntityType="Self.user_fav_actors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_fav_directors" EntityType="Self.user_fav_directors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_fav_genre" EntityType="Self.user_fav_genre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_fav_moods" EntityType="Self.user_fav_moods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_fav_movies" EntityType="Self.user_fav_movies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_fav_quotes" EntityType="Self.user_fav_quotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_profile" EntityType="Self.user_profile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_to_watch_list" EntityType="Self.user_to_watch_list" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_watched_movies" EntityType="Self.user_watched_movies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="writer" EntityType="Self.writer" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ratings__reviewe__1273C1CD" Association="Self.FK__ratings__reviewe__1273C1CD">
+      <End Role="user" EntitySet="user" />
+      <End Role="rating" EntitySet="rating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_actor_awards_actors" Association="Self.FK_actor_awards_actors">
+      <End Role="actor" EntitySet="actor" />
+      <End Role="awards_actor" EntitySet="awards_actor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_actor_awards_awards" Association="Self.FK_actor_awards_awards">
+      <End Role="award" EntitySet="award" />
+      <End Role="awards_actor" EntitySet="awards_actor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_actor_movies_actor" Association="Self.FK_actor_movies_actor">
+      <End Role="actor" EntitySet="actor" />
+      <End Role="movie_actor" EntitySet="movie_actor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_actor_movies_movies" Association="Self.FK_actor_movies_movies">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="movie_actor" EntitySet="movie_actor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_actors_country" Association="Self.FK_actors_country">
+      <End Role="country" EntitySet="country" />
+      <End Role="actor" EntitySet="actor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_director_awards_awards" Association="Self.FK_director_awards_awards">
+      <End Role="award" EntitySet="award" />
+      <End Role="awards_director" EntitySet="awards_director" />
+    </AssociationSet>
+    <AssociationSet Name="FK_director_awards_director" Association="Self.FK_director_awards_director">
+      <End Role="director" EntitySet="director" />
+      <End Role="awards_director" EntitySet="awards_director" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movie_awards_award" Association="Self.FK_movie_awards_award">
+      <End Role="award" EntitySet="award" />
+      <End Role="awards_movie" EntitySet="awards_movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movie_awards_movies" Association="Self.FK_movie_awards_movies">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="awards_movie" EntitySet="awards_movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movie_director" Association="Self.FK_movie_director">
+      <End Role="director" EntitySet="director" />
+      <End Role="movie" EntitySet="movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movie_genre_genre" Association="Self.FK_movie_genre_genre">
+      <End Role="genre" EntitySet="genre" />
+      <End Role="movie_genre" EntitySet="movie_genre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movie_genre_movies" Association="Self.FK_movie_genre_movies">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="movie_genre" EntitySet="movie_genre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movie_mood_moods" Association="Self.FK_movie_mood_moods">
+      <End Role="mood" EntitySet="mood" />
+      <End Role="movie_mood" EntitySet="movie_mood" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movie_mood_movies" Association="Self.FK_movie_mood_movies">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="movie_mood" EntitySet="movie_mood" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movie_quotes_movies" Association="Self.FK_movie_quotes_movies">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="movie_quotes" EntitySet="movie_quotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movie_writer" Association="Self.FK_movie_writer">
+      <End Role="writer" EntitySet="writer" />
+      <End Role="movie" EntitySet="movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movies_country" Association="Self.FK_movies_country">
+      <End Role="country" EntitySet="country" />
+      <End Role="movie" EntitySet="movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movies_language" Association="Self.FK_movies_language">
+      <End Role="language" EntitySet="language" />
+      <End Role="movie" EntitySet="movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ratings_movies" Association="Self.FK_ratings_movies">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="rating" EntitySet="rating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_fav_actors_actors" Association="Self.FK_user_fav_actors_actors">
+      <End Role="actor" EntitySet="actor" />
+      <End Role="user_fav_actors" EntitySet="user_fav_actors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_fav_actors_users" Association="Self.FK_user_fav_actors_users">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_fav_actors" EntitySet="user_fav_actors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_fav_directors_directors" Association="Self.FK_user_fav_directors_directors">
+      <End Role="director" EntitySet="director" />
+      <End Role="user_fav_directors" EntitySet="user_fav_directors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_fav_directors_user" Association="Self.FK_user_fav_directors_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_fav_directors" EntitySet="user_fav_directors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_fav_movies_movies" Association="Self.FK_user_fav_movies_movies">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="user_fav_movies" EntitySet="user_fav_movies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_fav_movies_users" Association="Self.FK_user_fav_movies_users">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_fav_movies" EntitySet="user_fav_movies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_fav_quotes_movie_quotes" Association="Self.FK_user_fav_quotes_movie_quotes">
+      <End Role="movie_quotes" EntitySet="movie_quotes" />
+      <End Role="user_fav_quotes" EntitySet="user_fav_quotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_fav_quotes_users" Association="Self.FK_user_fav_quotes_users">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_fav_quotes" EntitySet="user_fav_quotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_genres_genre" Association="Self.FK_user_genres_genre">
+      <End Role="genre" EntitySet="genre" />
+      <End Role="user_fav_genre" EntitySet="user_fav_genre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_genres_users" Association="Self.FK_user_genres_users">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_fav_genre" EntitySet="user_fav_genre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_moods_moods" Association="Self.FK_user_moods_moods">
+      <End Role="mood" EntitySet="mood" />
+      <End Role="user_fav_moods" EntitySet="user_fav_moods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_moods_users" Association="Self.FK_user_moods_users">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_fav_moods" EntitySet="user_fav_moods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_profile_user" Association="Self.FK_user_profile_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_profile" EntitySet="user_profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_to_watch_list_movie" Association="Self.FK_user_to_watch_list_movie">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="user_to_watch_list" EntitySet="user_to_watch_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_to_watch_list_movies" Association="Self.FK_user_to_watch_list_movies">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="user_to_watch_list" EntitySet="user_to_watch_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_to_watch_list_users" Association="Self.FK_user_to_watch_list_users">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_to_watch_list" EntitySet="user_to_watch_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_watched_movies_movie" Association="Self.FK_user_watched_movies_movie">
+      <End Role="movie" EntitySet="movie" />
+      <End Role="user_watched_movies" EntitySet="user_watched_movies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_watched_movies_user" Association="Self.FK_user_watched_movies_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_watched_movies" EntitySet="user_watched_movies" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

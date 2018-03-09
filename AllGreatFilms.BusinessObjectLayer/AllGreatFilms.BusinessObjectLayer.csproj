@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0BA07DC-94D5-4C11-9571-78BBA418256C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AllGreatFilms.BusinessObjectLayer</RootNamespace>
+    <AssemblyName>AllGreatFilms.BusinessObjectLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\actor.cs">
+      <Link>actor.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\agf_model.cs">
+      <Link>agf_model.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\award.cs">
+      <Link>award.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\country.cs">
+      <Link>country.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\director.cs">
+      <Link>director.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\genre.cs">
+      <Link>genre.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\language.cs">
+      <Link>language.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\mood.cs">
+      <Link>mood.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\movie.cs">
+      <Link>movie.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\movie_quotes.cs">
+      <Link>movie_quotes.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\rating.cs">
+      <Link>rating.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\user.cs">
+      <Link>user.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\user_profile.cs">
+      <Link>user_profile.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\user_watched_movies.cs">
+      <Link>user_watched_movies.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\AllGreatFilms.DataAcessLayer\writer.cs">
+      <Link>writer.cs</Link>
+      <DependentUpon>agf_model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\AllGreatFilms.DataAcessLayer\agf_model.tt">
+      <Link>agf_model.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>agf_model.cs</LastGenOutput>
+    </None>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

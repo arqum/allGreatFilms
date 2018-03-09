@@ -1,0 +1,257 @@
+﻿
+@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.random_VM>
+
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_layout_random.cshtml";
+}
+
+
+
+
+@foreach (var item in Model)
+{
+
+  <!-- WRAPPER -->
+    <div class="wrapper">
+        <div class="row">
+
+            <div class="col-sm-8 col-sm-offset-2" style="margin-top:70px; margin-bottom:0px">
+
+
+
+                <h3 class="font-alt m-b-0">
+                    <span style="color:#eb4d63 !important">Random</span>
+                    Movie Suggestion
+                </h3>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- BLOG STANDART 2 -->
+        <section class="module" style="background-color:#f6f6f6 !important">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-8 col-sm-offset-2" style="padding-top:0px !important">
+
+                        <div class="rnd-movie-post">
+                            <div class="col-md-7 no-padding">
+                                <div class="rand-post-poster full-height">
+                                    <img src="~/Assets/NewTemplate/images/john.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-5 " style="background-color: white; box-shadow: 1px 1px 6px 0 rgba(107,107,107,.15);">
+                                <div class="rand-post-desc">
+                                    <div class="post-header">
+
+                                        <h1 class="post-title font-alt" style="margin-top:20px"><a href="blog-single.html">Post with image</a></h1>
+                                        <div class="post-meta font-inc">
+
+                                            <i class="fa fa-fw"></i>
+                                            <span class="muted"></span>
+
+                                            <a href="#">@item.Director_name</a> | 2014
+                                        </div>
+
+                                    </div>
+
+                                    <div class="post-entry">
+
+                                        <p>@item.synopses</p>
+
+
+                                        <div class="rating-container">
+                                            <span class="font-inc" style="opacity: 1;">Greatness Rating</span>
+                                            <div class="progress" style="width: 100%">
+                                                <div class="progress-bar progress-bar-striped active" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="font-inc"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="post-more font-inc text-center">
+                                            <ul class="cards-list">
+                                                <li><a href="#"><span class="pe-7s-like"></span></a></li>
+                                                <li><a href="#"><span class="pe-7s-plus"></span></a></li>
+                                                <li><a href="#"><span class="pe-7s-check"></span></a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="rand-next-movie pull-right">
+
+                                            <a href="#"><img src="~/Assets/NewTemplate/images/next-light.png"></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </section>
+        <!-- /BLOG STANDART 2 -->
+        <!-- DIVIDER -->
+        <hr class="divider-w">
+        <!-- /DIVIDER -->
+        <!-- CONTACT -->
+        <section class="module-small">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-facebook"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                Like us
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-tumblr"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                Follow us
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-upload"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                Add a Film
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+
+}
+<script>
+    $(window).load(function () {
+        alert("from random function");
+
+
+            var url = '@Url.Action("Random", "Random")';
+            $(".logobar").css("-webkit-animation-play-state", "running");
+
+            $.ajax({
+                url: url,
+                success: function (data) {
+
+                    var title = data[0].title;
+                    var year = data[0].year;
+                    var poster = data[0].poster;
+                    var syno = data[0].synopses;
+
+
+                    $('#movieTitle').html(title);
+                    $('#movieYear').html(title);
+                    $('#synopsis').html(syno);
+
+                    console.log("this is json data received " + data);
+                    console.log("syno " + syno)
+                    console.log("year " + year)
+                    console.log("title " + title)
+                    console.log("poster " + poster)
+                },
+
+                type: 'GET'//HTTP request method.
+            });
+
+
+        });
+
+      
+
+  
+
+
+
+        @**@$(document).ready(function () {
+
+            $("#circleRandom").click(function () {
+
+                var url = '@Url.Action("_RandomMovie", "Random")';
+                $(".logobar").css("-webkit-animation-play-state", "running");
+
+                $.ajax({
+                    url: url,
+                    success: function (data) {
+
+                        var title = data[0].title;
+                        var year = data[0].year;
+                        var poster = data[0].poster;
+                        var syno = data[0].synopses;
+
+
+                        $('#movieTitle').html(title);
+                        $('#movieYear').html(title);
+                        $('#synopsis').html(syno);
+
+                        console.log("this is json data received " + data);
+                        console.log("syno " + syno)
+                        console.log("year " + year)
+                        console.log("title " + title)
+                        console.log("poster " + poster)
+                    },
+
+                    type: 'GET'//HTTP request method.
+                });
+
+                $("#moviePoster, #synopsis, #movieTitle").fadeIn('slow');
+
+
+            });
+
+            $("#circleRandom").mouseleave(function () {
+                $(".logobar").css("-webkit-animation-play-state", "paused");
+
+            });
+
+        });*@
+
+</script>
+
+
+
+
+
+
+
+
+

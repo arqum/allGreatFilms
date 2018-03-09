@@ -1,0 +1,9 @@
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessObjectLayer\bin\Debug\AllGreatFilms.BusinessObjectLayer.dll.config
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessObjectLayer\bin\Debug\AllGreatFilms.BusinessObjectLayer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessObjectLayer\bin\Debug\AllGreatFilms.BusinessObjectLayer.pdb
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessObjectLayer\bin\Debug\EntityFramework.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessObjectLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessObjectLayer\bin\Debug\EntityFramework.xml
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessObjectLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessObjectLayer\obj\Debug\AllGreatFilms.BusinessObjectLayer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.BusinessObjectLayer\obj\Debug\AllGreatFilms.BusinessObjectLayer.pdb

@@ -1,0 +1,543 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+@{
+    ViewBag.Title = "HomeList_byGenre";
+    Layout = "~/Views/Shared/_Layout_inner.cshtml";
+}
+
+@{
+    ViewBag.Title = "Movies";
+
+    var card = Model;
+}
+
+
+<script src="~/Assets/JAVASCRIPT/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Assets/JAVASCRIPT/jquery-1.10.2.min.js"></script>
+
+
+<div id="slider">
+    <div class="container">
+        <!-- Place somewhere in the <body> of your page -->
+        <div class="flexslider">
+            <ul class="slides">
+                <li class="slide">
+                    <ul class="list-unstyled">
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/snowden-movie-poster-use.jpg" alt="" style="height:100%;" />
+                        </li>
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/theAssassin.jpg" alt="" style="height:470px;" />
+                        </li>
+
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/b313d42bb20f36d74abb081a96160981.jpg" alt="" style="height:470px;" />
+                        </li>
+                    </ul>
+                </li>
+                <li class="slide">
+                    <ul class="list-unstyled">
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/1_img.png" alt="" style="height:470px;" />
+                        </li>
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/2_img.png" alt="" style="height:470px;" />
+                        </li>
+
+                        <li class="slide-col-3">
+                            <img src="~/Assets/IMAGES/2001.jpg" alt="" style="height:470px;" />
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<section id="movie-cards">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>Recently Added</h2>
+            </div>
+
+            <div class="col-sm-8">
+                <div class="pull-right">
+
+                    <div class="filtersRow ">
+
+                        <a href="@Url.Action("HomeList", "HomeList")">
+                            <div class="filters time" style="padding-left:8px;"><i class="ion-ios-clock-outline" style="color:#eb4d63" aria-hidden="true" title="Show Latest"></i></div>
+                        </a>
+
+                        <a href="@Url.Action("HomeList_byRating", "HomeList")">
+                            <div class="filters rating" style="padding-left:8px;"><i class="ion-ios-star-outline" aria-hidden="true" title="Show To Rated First"></i></div>
+                        </a>
+                        <a>
+                            <div class="filters genre" style="padding-left:8px;" onclick="openNav(); filter('G')"><i class="ion-ios-film-outline" title="Filter by Genre"></i></div>
+                        </a>
+
+                        <a>
+                            <div class="filters mood" style="padding-left:8px;" onclick="openNav(); filter('M')"><i class="ion-ios-analytics-outline" aria-hidden="true" title="Filter by Moods" id="moods"></i></div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="myNav" class="overlayPanel">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div class="overlayPanel-content" id="navCon">
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="myModal" class="reveal-modal">
+                <h1>Reveal Modal Goodness</h1>
+                <p>This is a default modal in all its glory, but any of the styles here can easily be changed in the CSS.</p>
+                <a class="close-reveal-modal">&#215;</a>
+            </div>
+            <div class="loaderCirlce" id="spin" style="display:none">
+
+
+            </div>
+
+
+            <div id="partialDiv">
+                @Html.Partial("~/Areas/Users/Views/HomeList/_GetCardss.cshtml", card)
+                </div>
+                <div class="page-nation pull-right" style="margin-right:15px;">
+                    <ul class="pagination pagination-large">
+                        <li class="disabled"><span>«</span></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#">8</a></li>
+                        <li><a href="#">9</a></li>
+                        <li class="disabled"><span>...</span></li>
+                        <li>
+                        <li><a rel="next" href="#">Next</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+</section>
+
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+</script>
+
+<script>
+
+
+
+    changeClass = function (utility, grLabel, myBarSpan, load) {
+
+
+        $('#' + utility).hide();
+        $('#' + grLabel).hide();
+        $('#' + myBarSpan).hide();
+        $('#' + load).fadeIn(1000);
+
+        console.log("Changing the class here" + u);
+
+
+    };
+
+</script>
+
+<script>
+
+
+    var addtoFav = null;
+    var url = null;
+
+
+
+    actions = function (movieID, action, utility, grLabel, myBarSpan, load, afterFav, afterToWatch, afterWatched) {
+
+        $('#' + grLabel).fadeTo(500, 0.4);
+        $('#' + utility).fadeTo(500, 0.4);
+
+        //$('#' + grLabel).hide();
+        //$('#' + myBarSpan).hide();
+        //$('#' + utility).hide();
+        $('#' + load).fadeIn(500);
+      
+
+        console.log("MovieID is : " + movieID + " And action is" + action);
+
+        
+        var data = { 'movie_id': movieID, 'UserAction': action };
+        data = JSON.stringify(data);
+        console.log(url);
+        console.log(data);
+        console.log("after json", data);
+
+        
+        switch (action) {
+
+            case "f":
+
+               
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",//what we expect to get back from server; read explanation #2
+
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "2000",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("Arghh!!", "Something went wrong!")
+
+                        } else {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["success"]("Added!", "")
+
+                            $('#' + afterWatched).attr('style', 'color: #39aea9 !important');
+                            $('#' + afterToWatch).attr('style', 'color: #d3d5d6 !important');
+                            $('#' + afterFav).attr('style', 'color: #ea495f !important');
+                         
+
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(900);
+                        $('#' + grLabel).delay(500).fadeTo(900, 1);
+                        $('#' + utility).delay(500).fadeTo(900, 1);
+
+                    },
+                    type: 'POST'
+                });
+
+
+                break;
+
+            case "t":
+
+             
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "3000",
+                                hideDuration: "2000",
+                                timeOut: "3000",
+                                extendedTimeOut: "3000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("This Film is already Watched!", "Can't do it...")
+
+                        } else {
+
+
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+
+                            toastr["success"]("Added!", "")
+                            $('#' + afterToWatch).attr('style', 'color: #f28564 !important');
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(900);
+                        $('#' + grLabel).delay(500).fadeTo(900, 1);
+                        $('#' + utility).delay(500).fadeTo(900, 1);
+
+                    },                
+                    type: 'POST'
+                });
+
+                break;
+
+            case "w":
+
+      
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("Arghh!!", "Something went wrong!")
+
+                        } else {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["success"]("Added!", "")
+                            $('#' + afterWatched).attr('style', 'color: #39aea9 !important');
+                            $('#' + afterToWatch).attr('style', 'color: #d3d5d6 !important');
+                            $('#' + grLabel).fadeTo(300, 1);
+                            $('#' + utility).fadeTo(300, 1);
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(900);
+                        $('#' + grLabel).delay(500).fadeTo(900, 1);
+                        $('#' + utility).delay(500).fadeTo(900, 1);
+
+                    },
+                    type: 'POST'
+                });
+
+                break;
+
+        }
+
+    };
+
+
+</script>
+
+
+
+
+<script>
+
+    filter = function (by) {
+
+        switch (by) {
+
+            case "G":
+
+                var url = '@Url.Action("HomeList_byGenre", "HomeList")';
+                console.log(url);
+                $(".circleRandom").show();
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        console.log("suceesssss hereeeeeeeeeee")
+                        $('#navCon').html(data)
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "M":
+
+                var url = '@Url.Action("HomeList_byMood", "HomeList")';
+                console.log(url);
+
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        console.log("suceesssss hereeeeeeeeeee")
+                        console.log(data);
+                        $('#navCon').html(data)
+                        $('#' + load).fadeOut(900);
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+        }
+    }
+</script>
+
+<script>
+    genreFilter = function (by) {
+
+        var list = [];
+
+        switch (by) {
+
+            case 'G':
+
+                var url = '@Url.Action("HomeList_bySelectedGenre", "HomeList")';
+                console.log(url);
+
+                $('input:checkbox[name=checkbox]:checked').each(function () {
+
+                    var a = $(this).attr("value");
+                    console.log("List is " + a);
+                    list.push(a);
+                    console.log("List of genres after push ", list);
+
+                }
+                );
+
+                var data = JSON.stringify(list);
+                console.log("This is data" + data);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: data,
+                    success: function (result) {
+
+                        // location.reload();
+                        console.log("after Success the data is ");
+                        document.getElementById("myNav").style.width = "0%";
+                        $('#partialDiv').html(result); // loading partialView into div
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "M":
+
+                var url = '@Url.Action("HomeList_byMood", "HomeList")';
+                console.log(url);
+
+                $('input:checkbox[name=checkbox]:checked').each(function () {
+
+                    var a = $(this).attr("value");
+                    console.log("List is " + a);
+                    list.push(a);
+                    console.log("List of genres after push ", list);
+
+                }
+                );
+
+                var data = JSON.stringify(list);
+                console.log("This is data" + data);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: data,
+                    success: function (callback) {
+                        console.log(callback);
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+        }
+    }
+
+
+
+</script>
+

@@ -1,0 +1,689 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.movie_main_vm>
+
+@{
+    Layout = "~/Views/Shared/_Layout_inner.cshtml";
+}
+
+@{
+    ViewBag.Title = "Movies";
+
+}
+
+@{
+    int utility = 0;
+    int grLabel = 0;
+    int myBarSpan = 0;
+    int load = 0;
+    int afterFav = 0;
+    int afterToWatch = 0;
+    int afterWatched = 0;
+    int id = 0;
+
+
+    var date = DateTime.Now;
+
+    Random rand = new Random();
+    rand.Next();
+
+}
+
+@foreach (var item in Model)
+{
+    utility = rand.Next();
+    grLabel = rand.Next();
+    myBarSpan = rand.Next();
+    load = rand.Next();
+    afterFav = rand.Next();
+    afterToWatch = rand.Next();
+    afterWatched = rand.Next();
+
+    string rating = Convert.ToString(item.GreatnessRating);
+    // rating += "%";
+    <!-- WRAPPER -->
+    <div class="wrapper">
+        <div class="logobarLoader" id=@load style="padding:0px !important; display:none; height:5px; position:absolute; z-index:98;"></div>
+
+
+        <!-- HOME -->
+        <section class="module module-header bg-dark  tint img-responsive" data-background="../../../../Assets/NewTemplate/images/banner_inner.png" style="height:430px;">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-6 col-sm-offset-3">
+
+                        <h1 class="module-title-pink font-alt align-center">@Html.DisplayFor(modelItem => item.Movie_name)</h1>
+                        <div class="post-meta font-inc align-center">
+
+                            <i class="fa fa-fw"></i>
+
+
+                            <a href="#">@Html.DisplayFor(modelItem => item.Director_name)</a> | @Html.DisplayFor(modelItem => item.Year)
+
+                        </div>
+                        <div class=" align-center" id="actions">
+                            <ul class="side-by-side">
+
+                                @if (item.isFav)
+                                {
+                                    <li><a ><span class="pe-7s-like" style="color:#ea495f; cursor:pointer" aria-hidden="true" id="asFav"></span></a></li>
+
+                                }
+
+                                else
+                                {
+                                    <li><a id="asFav" onclick="actions(@item.Movie_id,'f', @utility, @grLabel, @myBarSpan, @load, @afterFav, @afterToWatch, @afterWatched)" style="cursor:pointer"><span class="pe-7s-like" aria-hidden="true" title="Mark As Favorite" id=@afterFav></span></a></li>
+
+
+                                }
+
+                                @if (item.isToWatch)
+                                {
+
+                                    <li><a><span class="pe-7s-plus" style="color:#f28564; cursor:pointer" aria-hidden="true"></span></a></li>
+                                }
+                                else
+                                {
+                                    <li><a id="asToWatch" onclick="actions(@item.Movie_id,'t', @utility, @grLabel, @myBarSpan,  @load, @afterFav, @afterToWatch, @afterWatched)" style="cursor:pointer"><span class="pe-7s-plus" aria-hidden="true" title="Add To Watchlist" id=@afterToWatch></span></a></li>
+
+                                }
+
+                                @if (item.isWatched)
+                                {
+
+                                    <li><a><span class="pe-7s-check" style="color:#39aea9; cursor:pointer" id=@afterWatched></span></a></li>
+                                }
+                                else
+                                {
+
+                                    <li><a id="Watched" onclick="actions(@item.Movie_id,'w', @utility, @grLabel, @myBarSpan, @load, @afterFav, @afterToWatch, @afterWatched)"><span class="pe-7s-check" style="cursor:pointer"></span></a></li>
+
+
+                                }
+
+
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <!-- /MODULE TITLE -->
+
+            </div>
+
+        </section>
+        <!-- /HOME -->
+        <!-- BLOG GRID -->
+
+        <section class="module p-b-0">
+
+            <div class="container">
+
+                <div class="row multi-columns-row post-columns">
+
+
+                    <!-- POST ITEM -->
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <div class="post" style="margin-top:-60px;z-index:99;">
+                            <div class="post-thumbnail">
+                                <a href="blog-single.html"><img src="~/Assets/NewTemplate/images/sd.jpg" alt="" style="border:2px solid white;"></a>
+                            </div>
+                            <span class="font-inc" style="opacity: 1;" id="">Greatness Rating</span>
+                            <div class="progress" style="width: 100%">
+                                <div class="progress-bar progress-bar-striped active" aria-valuenow="@rating" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="myBar" style="width:@rating">
+                                    <span class="font-inc"></span>
+                                </div>
+
+                            </div>
+                            <div class="other-rating-circle-imdb" style="margin-left:10px;">
+                                <a href="#"><img class="manImg" src="assets/images/imdb_black.png" style="width:54px;margin-top: 8px;"></img></a>
+                                <a href="#"><img class="manImg" src="assets/images/RT_black.png" style="width:37px;margin-top:15px;"></img></a>
+                                <a href="#"><img class="manImg" src="assets/images/meta.png" style="width: 37px;margin-top: 16px;"></img></a>
+
+                            </div>
+                            <!-- ACCORDIONS -->
+
+
+
+                            <div class="panel-group" style="margin-top:140px;">
+
+                                <!-- Accordion item start -->
+                                <div class="panel panel-default" style="margin-top:-1px">
+                                    <div class="panel-heading" style="padding:20px">
+                                        <h4 class="panel-title font-inc text-uppercase">
+                                            <i class="icon-pencil"></i>
+                                            @Html.DisplayFor(modelItem => item.Writer_name)
+
+                                        </h4>
+                                    </div>
+
+                                </div>
+                                <!-- Accordion item end -->
+                                <!-- Accordion item start -->
+                                <div class="panel panel-default" style="margin-top:-1px">
+                                    <div class="panel-heading" style="padding:20px">
+                                        <h4 class="panel-title font-inc text-uppercase">
+                                            <i class="icon-clipboard"></i>
+                                            @Html.DisplayFor(modelItem => item.Writer_name)
+
+                                        </h4>
+                                    </div>
+
+                                </div>
+                                <!-- Accordion item end -->
+                                <!-- Accordion item start -->
+                                <div class="panel panel-default" style="margin-top:-1px">
+                                    <div class="panel-heading" style="padding:20px">
+                                        <h4 class="panel-title font-inc text-uppercase">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#actorList" class="collapsed">
+                                                <i class="icon-profile-male"></i>
+                                                Actors
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="actorList" class="panel-collapse collapse">
+                                        <div class="panel-body">
+
+
+
+                                            @foreach (var actor in item.Actor_name)
+                                            {
+                                                    
+                                                            @actor
+                                                    <hr class="divider-w" style="margin:8px"/>
+
+                                            }
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accordion item end -->
+                            <!-- Accordion item start -->
+                            <div class="panel panel-default" style="margin-top:-1px">
+                                <div class="panel-heading" style="padding:20px">
+                                    <h4 class="panel-title font-inc text-uppercase">
+                                        <i class="icon-global"></i>
+
+                                        @Html.DisplayFor(modelItem => item.lang)
+
+                                    </h4>
+                                </div>
+
+                            </div>
+                            <!-- Accordion item end -->
+                            <!-- Accordion item start -->
+                            <div class="panel panel-default" style="margin-top:-1px">
+                                <div class="panel-heading" style="padding:20px">
+                                    <h4 class="panel-title font-inc text-uppercase">
+                                        <i class="icon-clock"></i>
+                                        @Html.DisplayFor(modelItem => item.lang)
+
+                                    </h4>
+                                </div>
+
+                            </div>
+                            <!-- Accordion item end -->
+
+
+
+
+                        </div>
+
+                        <!-- White wells -->
+                        <div style="margin-top:20px;">
+                            <h5 class="font-alt m-t-40 m-b-0" style="margin-bottom:20px !important">Awards & Recognition</h5>
+                            @foreach (var award in item.awards)
+                            {
+
+                                <div class="well well-sm" style="background: white; margin-bottom:-1px !important; margin-top:22px">
+                                @award                                
+                                </div>
+                            }
+                            
+    
+                        </div>
+
+                        <!-- /White wells -->
+                        <!-- White wells -->
+                        <div style="margin-top:20px;">
+                            <h5 class="font-alt m-t-40 m-b-0" style="margin-bottom:20px !important">Moods</h5>
+                            @foreach (var mood in item.moods)
+                            {
+
+                                <div class="well well-sm" style="background: white; margin-bottom:-1px !important;">
+                                    @mood
+                                    <span>
+                                       <a href="#">
+                                           <i class="favStar fa fa-star pull-right"> </i>
+                                        </a> 
+                                    </span>
+
+
+                                </div>
+                            }
+                         
+                        </div>
+
+                        <!-- White wells -->
+                        <div style="margin-top:20px; ">
+                            <h5 class="font-alt m-t-40 m-b-0" style="margin-bottom:20px !important">Genres</h5>
+                            @foreach (var genre in item.Genres)
+                            {
+
+                                <div class="well well-sm" style="background: white; margin-bottom:-1px !important; ">
+                                    @genre
+                                    <span>
+                                        <a href="#">
+
+                                            <i class="favStar fa fa-star pull-right" > </i>
+                                        </a>
+                                        
+                                    </span>
+
+
+                                </div>
+                            }
+                          
+
+                        </div>
+
+                        <!-- /White wells -->
+                        <!-- /White wells -->
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- /POST ITEM -->
+                <!-- POST ITEM -->
+                <div class="col-sm-6 col-md-9 col-lg-9">
+
+                    <!-- TABS -->
+
+                    <div role="tabpanel">
+
+                        <!-- Nav tabs start-->
+                        <ul class="nav nav-tabs font-inc text-uppercase" role="tablist">
+                            <li class="active">
+                                <a href="#support" data-toggle="tab"> Synopses</a>
+                            </li>
+                            <li>
+                                <a href="#sales" data-toggle="tab"> AGF Review</a>
+                            </li>
+                        </ul>
+                        <!-- Nav tabs end -->
+                        <!-- Tab panes start-->
+                        <div class="tab-content">
+
+                            <!-- Tab start -->
+                            <div class="tab-pane active" id="support">
+                                <p>
+                                    @Html.DisplayFor(modelItem => item.Synopsis)
+                                </p>
+                            </div>
+                            <!-- Tab end -->
+                            <!-- Tab start -->
+                            <div class="tab-pane" id="sales">
+                                <p>
+
+                                    @Html.DisplayFor(modelItem => item.agfReview)
+                                </p>
+                            </div>
+                            <!-- Tab end -->
+
+                        </div>
+                        <!-- Tab panes end-->
+                    </div>
+                    <!-- /TABS -->
+                    <!-- /POST ITEM -->
+                    <hr class="divider-w">
+                    <h4 class="font-alt m-t-40 m-b-0">MEMORABLE QUOTES</h4>
+
+
+                    <div class="well well-lg" style="margin-top:22px">
+                        <blockquote class="font-serif align-right">
+                            @foreach (var quote in item.quotes)
+                            {
+                               <p>
+
+                                   @quote
+                               </p> 
+                                
+                            }
+                            <p class="font-inc font-uppercase">- @Html.DisplayFor(modelItem => item.Movie_name)</p>
+                        </blockquote>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </section>
+        <!-- /BLOG GRID -->
+        <!-- PAGINATION -->
+        <section class="module-small p-t-10">
+
+            <div class="container">
+
+                <div class="pagination font-inc text-uppercase">
+
+                    <a href="#"><i class="fa fa-angle-left"></i> Prev</a>
+                    <a href="#">Next <i class="fa fa-angle-right"></i></a>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- /PAGINATION -->
+        <!-- DIVIDER -->
+        <hr class="divider-w">
+        <!-- /DIVIDER -->
+        <!-- CONTACT -->
+        <section class="module-small">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-map-pin"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                007 Steet, City, USA
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-phone"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                +1 234 567 89 00
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-envelope"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                semantic@email.com
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- /CONTACT -->
+        <!-- FOOTER -->
+      <section>
+
+          <div id="partialDiv">
+
+          </div>
+      </section>
+        <!-- /FOOTER -->
+
+    </div>
+    <!-- /WRAPPER -->
+}
+
+<script>
+
+
+    var addtoFav = null;
+    var url = null;
+
+
+
+    actions = function (movieID, action, utility, grLabel, myBarSpan, load, afterFav, afterToWatch, afterWatched) {
+
+
+
+        //$('#' + utility).fadeTo(200, 0.1);
+        //$('#' + myBarSpan).fadeTo(800, 0.1);
+
+        //$('#' + grLabel).hide();
+        //$('#' + myBarSpan).hide();
+        //$('#' + utility).hide();
+        $("#actions").children().fadeTo(300, 0.5);
+        $('#' + load).fadeIn(300);
+
+
+        console.log("MovieID is : " + movieID + " And action is" + action);
+
+
+        var data = { 'movie_id': movieID, 'UserAction': action };
+        data = JSON.stringify(data);
+        console.log(url);
+        console.log(data);
+        console.log("after json", data);
+
+
+        switch (action) {
+
+            case "f":
+
+
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",//what we expect to get back from server; read explanation #2
+
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "2000",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("Arghh!!", "Something went wrong!")
+
+                        } else {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["success"]("Added!", "")
+
+                            $('#' + afterWatched).attr('style', 'color: #39aea9 !important');
+                            $('#' + afterToWatch).attr('style', 'color: #d3d5d6 !important');
+                            $('#' + afterFav).attr('style', 'color: #ea495f !important');
+
+
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(300);
+                        $("#actions").children().fadeTo(300, 1);
+
+                        //$('#' + grLabel).delay(500).fadeTo(900, 1);
+                        //$('#' + utility).delay(500).fadeTo(900, 1);
+
+                    },
+                    type: 'POST'
+                });
+
+
+                break;
+
+            case "t":
+
+
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "3000",
+                                hideDuration: "2000",
+                                timeOut: "3000",
+                                extendedTimeOut: "3000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("This Film is already Watched!", "Can't do it...")
+
+                        } else {
+
+
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+
+                            toastr["success"]("Added!", "")
+                            $('#' + afterToWatch).attr('style', 'color: #f28564 !important');
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(300);
+                        $("#actions").children().fadeTo(300, 1);
+                        //$('#' + grLabel).delay(500).fadeTo(900, 1);
+                        //$('#' + utility).delay(500).fadeTo(900, 1);
+
+                    },
+                    type: 'POST'
+                });
+
+                break;
+
+            case "w":
+                alert("Watched");
+
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("Arghh!!", "Something went wrong!")
+
+                        } else {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["success"]("Added!", "")
+                            $('#' + afterWatched).attr('style', 'color: #39aea9 !important');
+                            $('#' + afterToWatch).attr('style', 'color: #d3d5d6 !important');
+                            $('#' + grLabel).fadeTo(300, 1);
+                            $('#' + utility).fadeTo(300, 1);
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(300);
+                        $("#actions").children().fadeTo(300, 1);
+
+                        //$('#' + grLabel).delay(500).fadeTo(900, 1);
+                        //$('#' + utility).delay(500).fadeTo(900, 1);
+
+                    },
+                    type: 'POST'
+                });
+
+                break;
+
+        }
+
+    };
+
+
+</script>

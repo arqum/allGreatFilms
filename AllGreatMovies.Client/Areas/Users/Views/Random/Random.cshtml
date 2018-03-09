@@ -1,0 +1,452 @@
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.random_VM>
+
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_layout_random.cshtml";
+    var card = Model;
+
+}
+
+@{
+    int utility = 0;
+    int grLabel = 0;
+    int myBarSpan = 0;
+    int load = 0;
+    int afterFav = 0;
+    int afterToWatch = 0;
+    int afterWatched = 0;
+    int id = 0;
+
+
+    var date = DateTime.Now;
+
+    Random rand = new Random();
+    rand.Next();
+
+}
+
+
+@foreach (var item in Model)
+{
+
+    utility = rand.Next();
+    grLabel = rand.Next();
+    myBarSpan = rand.Next();
+    load = rand.Next();
+    afterFav = rand.Next();
+    afterToWatch = rand.Next();
+    afterWatched = rand.Next();
+  <!-- WRAPPER -->
+    <div class="wrapper">
+      
+       
+        <section class="module">
+            <img src="assets/images/side_stripes.png" alt="" class=" sideStripes">
+
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-8 col-sm-offset-2" style="margin-top:70px; margin-bottom:0px">
+
+                        <!-- PARAGRAPH -->
+                        <h3 class="font-alt m-b-0">
+                            <span style="color:#eb4d63 !important">Random</span>
+                            Movie Suggestion
+                        </h3>
+
+                        <hr class="divider-w m-t-10 m-b-20">
+
+                        <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
+
+                        <!-- /PARAGRAPH -->
+                        <!-- /HEADING -->
+                        <div class="rand-next-movie pull-right">
+
+                            <button type="button" onclick="RandomMovie()" class="btn btn-d btn-circle btn-sm-pink"><i class="icon-refresh"></i> Next Random</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="logobarLoader" id=100 style="padding:0px !important; display:none; height:5px; position:absolute; z-index:98; bottom:0"></div>
+
+        </section>
+
+        <!-- BLOG STANDART 2 -->
+
+        <section class="module" style="background-color:#f6f6f6 !important; padding-top: 0px;">
+
+            <div class="container" id="randomContainer">
+
+                    <div class="row">
+
+                        <div id="partialDiv">
+
+                            @Html.Partial("~/Areas/Users/Views/Random/_RandomMovie.cshtml", card)
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+        </section>
+        <!-- /BLOG STANDART 2 -->
+        <!-- DIVIDER -->
+        <hr class="divider-w">
+        <!-- /DIVIDER -->
+        <!-- CONTACT -->
+        <section class="module-small">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-facebook"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                Like us
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-tumblr"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                Follow us
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-upload"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                Add a Film
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+
+}
+
+<script>
+
+
+    var addtoFav = null;
+    var url = null;
+
+
+
+    actions = function (movieID, action, utility, grLabel, myBarSpan, load, afterFav, afterToWatch, afterWatched) {
+
+
+
+    
+        $(".rand-post-desc").children().fadeTo("fast", 0.2);
+        $('#' + load).fadeIn(200);
+
+
+        console.log("MovieID is : " + movieID + " And action is" + action);
+
+
+        var data = { 'movie_id': movieID, 'UserAction': action };
+        data = JSON.stringify(data);
+        console.log(url);
+        console.log(data);
+        console.log("after json", data);
+
+
+        switch (action) {
+
+            case "f":
+
+
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",//what we expect to get back from server; read explanation #2
+
+                    success: function (data) {
+                        if (!data.success) {
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "2000",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("Arghh!!", "Something went wrong!")
+
+                        } else {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["success"]("Added!", "")
+                          
+                            $('#' + afterWatched).attr('style', 'color: #39aea9 !important');
+                            $('#' + afterToWatch).attr('style', 'color: #d3d5d6 !important');
+                            $('#' + afterFav).attr('style', 'color: #ea495f !important');
+
+
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(200);
+                        $(".rand-post-desc").children().fadeTo("fast", 1);
+
+
+                    },
+                    type: 'POST'
+                });
+
+
+                break;
+
+            case "t":
+
+
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "3000",
+                                hideDuration: "2000",
+                                timeOut: "3000",
+                                extendedTimeOut: "3000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("This Film is already Watched!", "Can't do it...")
+
+                        } else {
+
+
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+
+                            toastr["success"]("Added!", "")
+                            $('#' + afterToWatch).attr('style', 'color: #f28564 !important');
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(200);
+                        $(".rand-post-desc").children().fadeTo("fast", 1);
+
+
+                    },
+                    type: 'POST'
+                });
+
+                break;
+
+            case "w":
+                alert("Watched");
+
+                var url = '@Url.Action("Actions", "UserActions")';
+
+                $.ajax({
+                    url: url,
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        if (!data.success) {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["error"]("Arghh!!", "Something went wrong!")
+
+                        } else {
+
+                            toastr.options = {
+                                closeButton: true,
+                                positionClass: "toast-bottom-right",
+                                preventDuplicates: false,
+                                onclick: null,
+                                showDuration: "300",
+                                hideDuration: "2000",
+                                timeOut: "2000",
+                                extendedTimeOut: "1000",
+                                showEasing: "swing",
+                                hideEasing: "linear",
+                                showMethod: "slideDown",
+                                hideMethod: "fadeOut"
+                            };
+                            toastr["success"]("Added!", "")
+                            $('#' + afterWatched).attr('style', 'color: #39aea9 !important');
+                            $('#' + afterToWatch).attr('style', 'color: #d3d5d6 !important');
+                            $('#' + grLabel).fadeTo(300, 1);
+                            $('#' + utility).fadeTo(300, 1);
+                        }
+                    },
+                    complete: function () {
+                        $('#' + load).fadeOut(200);
+                        $(".rand-post-desc").children().fadeTo("fast", 1);
+
+                    },
+                    type: 'POST'
+                });
+
+                break;
+
+        }
+
+    };
+
+
+</script>
+
+
+    <script>
+
+        RandomMovie = function () {
+         
+
+            $("#randomContainer").children().fadeOut(300);
+            $('#' + 100).fadeIn(300);
+
+                var url = '@Url.Action("_RandomMovie", "Random")';
+                console.log(url);
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        console.log("SUCCESS By Latest", data)
+                        $('#' + 100).fadeOut(300);
+                        $("#randomContainer").children().fadeIn(300);
+                        $('#partialDiv').html(data);
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+               
+
+
+        }
+    
+</script>
+
+<script>
+    mainMovie = function (movieId) {
+
+        var url = '@Url.Action("MovieMain", "MovieMain")';
+        console.log("Ajax URL", url);
+        console.log("movie ID", movieId);
+
+
+        $.ajax({
+
+            url: url,
+            type: "GET",
+            cache: false,
+            InsertionMode: 'InsertionMode.Replace',
+            success: function (data) {
+                console.log("SUCCESS from MovieMain", data)
+                $('#partialDiv').html(data)
+
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+            }
+
+        });
+
+    }
+
+</script>
+
+    
+
+

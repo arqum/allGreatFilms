@@ -1,0 +1,51 @@
+
+Dependency Structure on the Project:
+
+	Client > BOL, BLL
+	BL > DAL, BOL
+	DAL > BOL
+
+	-----------------------------------------------------------------------------------------------------------------------
+
+	Next we need to initialize the following upon creating a new user:
+	1- User's profile
+	2- Fav movies
+	3- Fav quotes
+	4- fav Actors
+	5- Fav directors
+	6- to watch list
+
+	-----------------------------------------------------------------------------------------------------------------------
+	UI KIT
+
+	Primary Redish-pink color: #eb4d63
+	Primary Dark Green-Grey color: #29363b
+	BG Very light grey: #f0f0f0
+	Icon grey: #d3d5d6
+	Icon/logo green: #39aea9
+	Icon orange: #f28564
+	Light lime green: #cce48c
+
+
+	-----------------------------------------------------------------------------------------------------------------------
+	CONTROLLERS 
+
+	Area Common
+	- agf100 (Roles: User, Admin, Others)
+	- movie list (home) (Roles: User, Admin, Others)
+	- random (Roles: User, Admin, Others)
+
+	Area Admin
+	-movieAdd (Roles: Admin)
+	-UserList (Roles: Admin)
+
+	Area User
+	-userAction (profile)
+
+	Area Security
+	-Login (Roles: User, Admin)
+	-Logout (Roles: User, Admin)
+	-Register (Other)
+
+
+	FIX USER ACTIONS AND DEBUG THEM ARQUM

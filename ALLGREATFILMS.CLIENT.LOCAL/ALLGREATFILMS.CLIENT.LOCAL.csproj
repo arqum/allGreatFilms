@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2DCFD467-CDD6-411F-92A2-11BE4E890F2C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ALLGREATFILMS.CLIENT.LOCAL</RootNamespace>
+    <AssemblyName>ALLGREATFILMS.CLIENT.LOCAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\CSS\agf_custom.css" />
+    <Content Include="Assets\CSS\bootstrap.css" />
+    <Content Include="Assets\CSS\flexslider.css" />
+    <Content Include="Assets\CSS\font-awesome.min.css" />
+    <Content Include="Assets\CSS\ionicons.css" />
+    <Content Include="Assets\CSS\ionicons.min.css" />
+    <Content Include="Assets\CSS\lightslider.css" />
+    <Content Include="Assets\FONTS\fontawesome-webfont.svg" />
+    <Content Include="Assets\FONTS\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\IMAGES\1482938080_movie-01.png" />
+    <Content Include="Assets\IMAGES\1482938093_movie-01.png" />
+    <Content Include="Assets\IMAGES\1482938163_carnival_mask_2.png" />
+    <Content Include="Assets\IMAGES\1_img.png" />
+    <Content Include="Assets\IMAGES\2001.jpg" />
+    <Content Include="Assets\IMAGES\2_img.png" />
+    <Content Include="Assets\IMAGES\8cec5c02a972e54e5b1763841cf8d917.jpg" />
+    <Content Include="Assets\IMAGES\add_orange.png" />
+    <Content Include="Assets\IMAGES\agf_logo.png" />
+    <Content Include="Assets\IMAGES\agf_logo_trans.png" />
+    <Content Include="Assets\IMAGES\agf_small.gif" />
+    <Content Include="Assets\IMAGES\b313d42bb20f36d74abb081a96160981.jpg" />
+    <Content Include="Assets\IMAGES\BLpc9y.jpg" />
+    <Content Include="Assets\IMAGES\card-thumb.jpg" />
+    <Content Include="Assets\IMAGES\cool_movie_posters_hd_wallpapers.jpg" />
+    <Content Include="Assets\IMAGES\heart_red.png" />
+    <Content Include="Assets\IMAGES\images.jpg" />
+    <Content Include="Assets\IMAGES\jumbo3.png" />
+    <Content Include="Assets\IMAGES\j_f.gif" />
+    <Content Include="Assets\IMAGES\line.gif" />
+    <Content Include="Assets\IMAGES\Movie-poster-1.jpg" />
+    <Content Include="Assets\IMAGES\movie-poster-2.jpg" />
+    <Content Include="Assets\IMAGES\movie-poster-3.jpg" />
+    <Content Include="Assets\IMAGES\movie-poster-4.jpg" />
+    <Content Include="Assets\IMAGES\sherlock-holmes-movie-poster-wide-wallpaper-8732.jpg" />
+    <Content Include="Assets\IMAGES\snowden-movie-poster-use.jpg" />
+    <Content Include="Assets\IMAGES\theAssassin.jpg" />
+    <Content Include="Assets\IMAGES\tick_green.png" />
+    <Content Include="Assets\JAVASCRIPT\bootstrap.min.js" />
+    <Content Include="Assets\JAVASCRIPT\froogaloop.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery-1.10.2.min.js" />
+    <Content Include="Assets\CSS\font-awesome.css" />
+    <Content Include="Assets\JAVASCRIPT\jquery.easing.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery.fitvid.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery.flexslider.js" />
+    <Content Include="Assets\JAVASCRIPT\jquery.mousewheel.js" />
+    <Content Include="Assets\JAVASCRIPT\lightslider.min.js" />
+    <Content Include="Assets\JAVASCRIPT\modernizr.js" />
+    <Content Include="Assets\JAVASCRIPT\scripts.js" />
+    <Content Include="Assets\JAVASCRIPT\shBrushCss.js" />
+    <Content Include="Assets\JAVASCRIPT\shBrushJScript.js" />
+    <Content Include="Assets\JAVASCRIPT\shBrushXml.js" />
+    <Content Include="Assets\JAVASCRIPT\shCore.js" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Content Include="Assets\CSS\animate.css" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileType.cs" />
+    <Compile Include="Models\FileUpload.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout_login.cshtml" />
+    <Content Include="Views\Shared\_Layout_inner.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Assets\FONTS\fontawesome-webfont.eot" />
+    <Content Include="Assets\FONTS\fontawesome-webfont.ttf" />
+    <Content Include="Assets\FONTS\fontawesome-webfont.woff" />
+    <Content Include="Assets\FONTS\fontawesome-webfont.woff2" />
+    <Content Include="Assets\FONTS\FontAwesome.otf" />
+    <Content Include="Assets\FONTS\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\FONTS\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\FONTS\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Home\MovieDetails.cshtml" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Views\FileUpload\Index.cshtml" />
+    <Content Include="Assets\FONTS\ionicons\ionicons.less" />
+    <Content Include="Assets\FONTS\ionicons\_ionicons-variables.less" />
+    <Content Include="Assets\FONTS\ionicons\_ionicons-icons.less" />
+    <Content Include="Assets\FONTS\ionicons\_ionicons-font.less" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AllGreatFilms.BusinessLayer\AllGreatFilms.BusinessLogicLayer.csproj">
+      <Project>{6c2fdb47-b3f4-4c8b-9055-825d9af02b76}</Project>
+      <Name>AllGreatFilms.BusinessLogicLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AllGreatFilms.BusinessObjectLayer\AllGreatFilms.BusinessObjectLayer.csproj">
+      <Project>{c0ba07dc-94d5-4c11-9571-78bba418256c}</Project>
+      <Name>AllGreatFilms.BusinessObjectLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59912</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59912/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,253 @@
+﻿@*@model AllGreatFilms.BusinessLayer.UserAccess
+    @{
+        ViewBag.Title = "Login";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <div class="login-clean">
+
+        <div class="login-inner">
+            <div class="login-header">
+
+                <h2 class="sr-only">Login Form</h2>
+                <p>We recommend great movies to you.</p>
+                <p>Strictly, great movies!</p>
+            </div>
+            <div class="logobarLoader" id=loader style="margin:0px; padding:0px !important;"></div>
+
+            <div class="login-body">
+
+                <h3>
+                    Login to AGF
+                </h3>
+
+                @using (Html.BeginForm("login", "login", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.TextBox("email", "", new { type = "email", placeholder = "Email", @class = "form-control" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBox("password", "", new { type = "password", placeholder = "Password", @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label class="rememberme">
+                            <input type="checkbox"> Remember me
+                        </label>
+                    </div>
+        <div class="form-group" >
+            <button class="btn btn-primary btn-block" type="submit" id="btnLogin" onclick="loader();">LogIn</button>
+        </div>
+                    <a href="#" class="forgot">Forgot your email or password?</a>
+                }
+
+            </div>
+        </div>
+    </div>
+    <script>
+        loader = function () {
+
+            $('#mainPageloader').delay(6000).show();
+
+            console.log("Changing the class here");
+
+
+        };
+    </script>*@
+
+
+
+
+
+
+
+<!-- HOME -->
+@model AllGreatFilms.BusinessObjectLayer.user
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+
+    <!-- PRELOADER -->
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+    <!-- /PRELOADER -->
+    <!-- HOME -->
+    <section id="home" class="module-hero module-parallax module-fade module-full-height bg-dark-30" data-background="/Assets/NewTemplate/images/j_f.gif">
+
+        <div class="hs-caption container">
+            <div class="caption-content">
+                <div class="hs-title-size-3 font-alt m-b-30">
+                    <span class="rotate">We are contemporary | We are amazing | We are best</span>
+                </div>
+                <div class="hs-title-size-1 font-inc">
+                    A wonderful serenity has taken possession of my entire soul, like these<br /> sweet mornings of spring which I enjoy with my whole heart
+                </div>
+            </div>
+        </div>
+        <div class='icon-scroll' style="margin-top:15%;width: 37px;height: 60px;"></div>
+
+    </section>
+    <!-- /HOME -->
+    <!-- WRAPPER -->
+    <div class="wrapper">
+        <!-- ABOUT -->
+        <section class="module p-t-0 p-b-0" data-background="/Assets/NewTemplate/images/7_2.jpg">
+
+
+            <div class="container-fluid">
+
+
+
+
+                <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+
+
+                    <div class="modal-dialog">
+                        <div class="login-clean">
+
+                            <div class="login-inner">
+                                <div class="login-header">
+
+                                    <h2 class="sr-only">Login Form</h2>
+                                    <p>We recommend great movies to you.</p>
+                                    <p>Strictly, great movies!</p>
+                                </div>
+                                <div class="logobarLoader" id=loader style="margin:0px; padding:0px !important;"></div>
+
+                                <div class="login-body">
+
+                                    <h2 class="module-title font-alt">Login to AGF</h2>
+
+                                    @using (Html.BeginForm("login", "login", FormMethod.Post))
+                                    {
+                                        <div class="form-group">
+                                            @Html.TextBox("email", "", new { type = "email", placeholder = "Email", required = "required", @class = "form-control input-lg" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.TextBox("password", "", new { type = "password", placeholder = "Password",required="required", @class = "form-control input-lg" })
+                                        </div>
+                                        <row>
+                                            <div class="form-group">
+
+                                                <button class="btn btn-d btn-circle btn-lg-pink" type="submit" id="btnLogin" onclick="loader();">Get in! <i class="fa fa-angle-right"></i></button>
+                                                <a data-brackets-id="211" href="#" class="forgot pull-right">Forgot your email or password?</a>
+                                                
+                                            </div>
+
+                                    </row>
+                                         <br>
+                                        <hr>
+                                        
+                                        @*<div class="form-group">
+                                            <label class="rememberme">
+                                                <input type="checkbox"> Remember me
+                                            </label>
+                                        </div>*@
+
+                                        <row>
+                                            <button type="button" class="btn btn-default btn-circle">Not A Member Yet?</button>
+
+                                        </row>
+                                       
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row relative">
+
+                    <div class="col-sm-12 col-md-6 col-md-offset-6 col-bg-narrow">
+
+                        <h2 class="module-title font-alt">get on board</h2>
+
+                        <div class="module-subtitle font-inc">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                        </div>
+@using (Html.BeginForm("Register", "Register", FormMethod.Post))
+                {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+                        <div class="form-group">
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", type = "Email", name = "Email", placeholder = "Email", required = "required" } })
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })                        </div>
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "Password", name = "Password", placeholder = "Password", required = "required" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+
+
+                            </div>
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "Password", name = "Confirm Password", placeholder = "Confirm Password", required = "required" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            </div>
+
+                        <button type="submit" class="btn btn-d btn-circle btn-lg-pink" style="width:35%">Submit</button>
+}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- /ABOUT -->
+        <!-- CONTACT -->
+        <section class="module-small">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-facebook"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                Like us
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-tumblr"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                Follow us
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+                    <!-- CONTENT BOX -->
+                    <div class="col-sm-4">
+                        <div class="content-box">
+                            <div class="content-box-icon">
+                                <span class="icon-upload"></span>
+                            </div>
+                            <div class="content-box-title font-inc">
+                                Add a Film
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /CONTENT BOX -->
+
+                </div>
+
+            </div>
+
+
+
+        </section>
+    </div>
+</body>

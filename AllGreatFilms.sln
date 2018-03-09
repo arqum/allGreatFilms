@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllGreatFilms.Client", "AllGreatMovies.Client\AllGreatFilms.Client.csproj", "{C37AE5F3-F270-421D-B8DE-3D12DE934F9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllGreatFilms.DataAcessLayer", "AllGreatFilms.DataAcessLayer\AllGreatFilms.DataAcessLayer.csproj", "{350BD466-2B9D-41C4-ABC7-01E5ADD09C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllGreatFilms.BusinessLogicLayer", "AllGreatFilms.BusinessLayer\AllGreatFilms.BusinessLogicLayer.csproj", "{6C2FDB47-B3F4-4C8B-9055-825D9AF02B76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllGreatFilms.BusinessObjectLayer", "AllGreatFilms.BusinessObjectLayer\AllGreatFilms.BusinessObjectLayer.csproj", "{C0BA07DC-94D5-4C11-9571-78BBA418256C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project Info", "Project Info", "{7A2F3301-3BF2-4846-BB2D-D9C1E2BCA1F1}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\AGF SQL\AGF_DB_27-12.sql = ..\..\..\..\Desktop\AGF SQL\AGF_DB_27-12.sql
+		Info.txt = Info.txt
+		TextFile1.txt = TextFile1.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALLGREATFILMS.CLIENT.LOCAL", "ALLGREATFILMS.CLIENT.LOCAL\ALLGREATFILMS.CLIENT.LOCAL.csproj", "{2DCFD467-CDD6-411F-92A2-11BE4E890F2C}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://talaltahir.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AllGreatFilms.DataAcessLayer\\AllGreatFilms.DataAcessLayer.csproj
+		SccProjectName1 = AllGreatFilms.DataAcessLayer
+		SccLocalPath1 = AllGreatFilms.DataAcessLayer
+		SccProjectUniqueName2 = AllGreatMovies.Client\\AllGreatFilms.Client.csproj
+		SccProjectName2 = AllGreatMovies.Client
+		SccLocalPath2 = AllGreatMovies.Client
+		SccProjectUniqueName3 = AllGreatFilms.BusinessObjectLayer\\AllGreatFilms.BusinessObjectLayer.csproj
+		SccProjectName3 = AllGreatFilms.BusinessObjectLayer
+		SccLocalPath3 = AllGreatFilms.BusinessObjectLayer
+		SccProjectUniqueName4 = AllGreatFilms.BusinessLayer\\AllGreatFilms.BusinessLogicLayer.csproj
+		SccProjectName4 = AllGreatFilms.BusinessLayer
+		SccLocalPath4 = AllGreatFilms.BusinessLayer
+		SccProjectUniqueName5 = ALLGREATFILMS.CLIENT.LOCAL\\ALLGREATFILMS.CLIENT.LOCAL.csproj
+		SccProjectName5 = ALLGREATFILMS.CLIENT.LOCAL
+		SccLocalPath5 = ALLGREATFILMS.CLIENT.LOCAL
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C37AE5F3-F270-421D-B8DE-3D12DE934F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C37AE5F3-F270-421D-B8DE-3D12DE934F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C37AE5F3-F270-421D-B8DE-3D12DE934F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C37AE5F3-F270-421D-B8DE-3D12DE934F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350BD466-2B9D-41C4-ABC7-01E5ADD09C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350BD466-2B9D-41C4-ABC7-01E5ADD09C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350BD466-2B9D-41C4-ABC7-01E5ADD09C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350BD466-2B9D-41C4-ABC7-01E5ADD09C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C2FDB47-B3F4-4C8B-9055-825D9AF02B76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C2FDB47-B3F4-4C8B-9055-825D9AF02B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C2FDB47-B3F4-4C8B-9055-825D9AF02B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C2FDB47-B3F4-4C8B-9055-825D9AF02B76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0BA07DC-94D5-4C11-9571-78BBA418256C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BA07DC-94D5-4C11-9571-78BBA418256C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BA07DC-94D5-4C11-9571-78BBA418256C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BA07DC-94D5-4C11-9571-78BBA418256C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DCFD467-CDD6-411F-92A2-11BE4E890F2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DCFD467-CDD6-411F-92A2-11BE4E890F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DCFD467-CDD6-411F-92A2-11BE4E890F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DCFD467-CDD6-411F-92A2-11BE4E890F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

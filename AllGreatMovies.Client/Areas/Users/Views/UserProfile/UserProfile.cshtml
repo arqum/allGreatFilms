@@ -1,0 +1,272 @@
+﻿
+@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+
+@{
+    ViewBag.Title = "AGF TOP 100";
+    Layout = "~/Views/Shared/_layout_random.cshtml";
+    var movies = Model;
+    var fade = "fade";
+
+}
+
+<section class="module p-b-0" style="background-color:#f6f6f6 !important;">
+
+    <div class="container" style="margin-top:3%">
+
+        <div class="row">
+
+
+            <!-- POST ITEM -->
+            <div class="col-sm-6 col-md-3 col-lg-3">
+
+
+
+                <div class="logobarLoader" id=102 style="padding:0px !important; display:none; height:5px; position:absolute; z-index:98; transform:rotate(90deg); float:right"></div>
+
+                    <div class="profileCard">
+                   
+                        <div class="row">
+                            <div class="col-md-12" style="text-align:center;">
+
+                                <div class="profilePic"></div>
+                                <span style="text-align:center;margin:inherit;" class="module-title-pink">
+                                    <h5 style="color:#eb4d63">
+                                        MUHAMMAD ARQUM
+                                    </h5>
+                                </span>
+                            </div>
+                        </div>
+
+                       @if(@ViewBag.ListTitle == "To-Watch" ) {
+                        <div class="row" style="margin-top:40px; cursor:pointer" onclick="UserProfileActions('T')" id="toWatchID">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;">
+                                <i class="pe-7s-plus" style="margin-left:10%;color:#f28564; font-size:26px;"></i><span style="margin-left:5%; vertical-align:super; color:white">To-Watch</span>
+                                <span style="color:white;" class="pull-right">@ViewBag.count </span>
+                            </div>
+                        </div>
+
+                        <hr style="border-top: 1px solid #314146;border-bottom: 1px solid #253135;margin-top: 10px;margin-bottom: 10px;" />
+                        
+                        } 
+                        else{
+                        <div class="row @fade" style="margin-top:40px; cursor:pointer" onclick="UserProfileActions('T')" id="toWatchID">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;">
+                                <i class="pe-7s-plus" style="margin-left:10%;color:#f28564; font-size:26px;"></i><span style="margin-left:5%; vertical-align:super; color:white">To-Watch</span>
+                                <span style="color:white;" class="pull-right">@ViewBag.count </span>
+                            </div>
+                        </div>
+
+                        <hr style="border-top: 1px solid #314146;border-bottom: 1px solid #253135;margin-top: 10px;margin-bottom: 10px;" />
+                        }
+
+
+                        <div class="row @fade" style="margin-top:10px;cursor:pointer" onclick="UserProfileActions('W')" id="watchedID">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;" id="watchedID">
+                                <i class="pe-7s-check" style="color:#39aea9;margin-left:10%; font-size:26px;"></i><span style="margin-left:5%; vertical-align:super; color:white">Watched</span>
+                                <span style="color:white;" class="pull-right">@ViewBag.Wcount </span>
+                            </div>
+                        </div>
+                        <hr style="border-top: 1px solid #314146;border-bottom: 1px solid #253135;margin-top: 10px;margin-bottom: 10px;" />
+                    
+                   
+
+                  
+                        <div class="row @fade" style="margin-top:10px;cursor:pointer" onclick="UserProfileActions('F')" id="favoritID">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;">
+                                <i class="pe-7s-like" style="margin-left:10%;color:#eb4d63; font-size:26px;"></i><span style="margin-left:5%; vertical-align:super; color:white">Favorites</span>
+                                <span style="color:white;" class="pull-right">@ViewBag.Fcount </span>
+                            </div>
+                        </div>
+                        <hr style="border-top: 1px solid #314146;border-bottom: 1px solid #253135;margin-top: 10px;margin-bottom: 10px;" />
+                   
+            
+
+                        <div class="row @fade" style="margin-top:10px;cursor:pointer" onclick="UserProfileActions('R')" id="reviewsID">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;">
+                                <i class="pe-7s-pen" style="margin-left:10%;color:white; font-size:24px;"></i><span style="margin-left:5%; vertical-align:super; color:white">Reviews</span>
+                                <span style="color:white;" class="pull-right">11 </span>
+                            </div>
+                        </div>
+                        <hr style="border-top: 1px solid #314146;border-bottom: 1px solid #253135;margin-top: 10px;margin-bottom: 10px;" />
+
+                        <div class="row @fade" style="margin-top:10px;cursor:pointer">
+                            <div class="col-lg-12 col-md-12 col-sm-112" style="right: 28px; padding-left: 44px;" id="othersID">
+                                <i class="pe-7s-more" style="margin-left:10%;color:white; font-size:24px;"></i><span style="margin-left:5%; vertical-align:super; color:white">More</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+    
+
+ 
+            @*<div class="logobarLoader" id=102 style="padding:0px !important; display:none; height:5px; position:absolute; z-index:98;"></div>*@
+
+            <div class="col-sm-6 col-md-9 col-lg-9" >
+
+
+                    <div id="partialDiv">
+
+
+                        @Html.Partial("~/Areas/Users/Views/UserProfile/_UserListContainer.cshtml", movies)
+                    </div>
+                </div>
+
+                
+             
+
+            </div>
+           
+
+
+
+            </div>
+    
+
+
+</section>
+
+
+<script>
+
+
+    UserProfileActions = function (by) {
+
+        $("#partialDiv").fadeOut(300);
+      //  $('#' + 102).fadeIn(300);
+        switch (by) {
+
+            case "T":
+               
+
+
+                var url = '@Url.Action("_UserProfile", "UserProfile")';
+                console.log(url);
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+
+                        //$('#' + 102).fadeOut(300);
+                        $("#partialDiv").fadeIn(300);
+                        console.log("SUCCESS By Latest", data)
+                        $('#partialDiv').html(data)
+                        $("#watchedID").addClass("fade")
+                        $("#toWatchID").removeClass("fade")
+                        $("#favoritID").addClass("fade")
+                        $("#reviewsID").addClass("fade")
+                        $("#othersID").addClass("fade")
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "W":
+                $("#thumbs").children().fadeOut(50);
+              //  $('#' + 100).fadeIn(300);
+                var url = '@Url.Action("_Watched", "UserProfile")';
+                console.log(url);
+
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+
+                        $("#partialDiv").fadeIn(300);
+                        $('#' + 100).fadeOut(300);
+                        console.log("SUCCESS By Rating", data)
+                        $('#partialDiv').html(data)
+                        $("#watchedID").removeClass("fade")
+                        $("#toWatchID").addClass("fade")
+                        $("#favoritID").addClass("fade")
+                        $("#reviewsID").addClass("fade")
+                        $("#othersID").addClass("fade")
+
+
+                        
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+
+                break;
+
+
+            case "F":
+
+                var url = '@Url.Action("_Fav", "UserProfile")';
+                                console.log(url);
+                $(".circleRandom").show();
+
+                $.ajax({
+
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        $("#partialDiv").fadeIn(300);
+
+                        $('#' + 100).fadeOut(300);
+                        console.log("SUCCESS By Rating", data)
+                        $('#partialDiv').html(data)
+
+                        $("#watchedID").addClass("fade")
+                        $("#toWatchID").addClass("fade")
+                        $("#favoritID").removeClass("fade")
+                        $("#reviewsID").addClass("fade")
+                        $("#othersID").addClass("fade")
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+                break;
+
+            case "R":
+                //  alert("hello from case M");
+
+                var url = '@Url.Action("HomeList_byMood", "HomeList")';
+                console.log(url);
+
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    cache: false,
+                    InsertionMode: 'InsertionMode.Replace',
+                    success: function (data) {
+                        console.log("suceesssss hereeeeeeeeeee")
+                        console.log(data);
+                        $('#filterContainer').html(data)
+                        $('#' + load).fadeOut(900);
+
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                    }
+
+                });
+
+        }
+    }
+</script>

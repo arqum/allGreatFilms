@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="980c8a3c544f43b6852f993b88c5e8f5" Name="Diagram1">
+        <EntityTypeShape EntityType="agf_namespace.actor" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.award" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.country" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.director" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.genre" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.language" Width="1.5" PointX="7.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.mood" Width="1.5" PointX="7.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.movie" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.movie_quotes" Width="1.5" PointX="12" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.rating" Width="1.5" PointX="16.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.user" Width="1.5" PointX="14.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.user_profile" Width="1.5" PointX="16.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="agf_namespace.writer" Width="1.5" PointX="7.5" PointY="14.5" IsExpanded="true" />
+        <AssociationConnector Association="agf_namespace.FK_actors_country" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.FK_movies_country" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.FK_movie_director" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.FK_movies_language" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.FK_movie_quotes_movies" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.FK_movie_writer" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.FK_ratings_movies" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.FK__ratings__reviewe__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.FK_user_profile_user" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.awards_actor" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.awards_director" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.awards_movie" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.movie_actor" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.movie_genre" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.movie_mood" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.user_fav_actors" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.user_fav_directors" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.user_fav_genre" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.user_fav_moods" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.user_fav_movies" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.user_fav_quotes" ManuallyRouted="false" />
+        <AssociationConnector Association="agf_namespace.user_to_watch_list" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="agf_namespace.user_watched_movies" Width="1.5" PointX="19.5" PointY="4.25" />
+        <AssociationConnector Association="agf_namespace.FK_user_watched_movies_movie" />
+        <AssociationConnector Association="agf_namespace.FK_user_watched_movies_user" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

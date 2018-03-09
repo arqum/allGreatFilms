@@ -1,0 +1,12 @@
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\bin\Debug\AllGreatFilms.DataAcessLayer.dll.config
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\bin\Debug\AllGreatFilms.DataAcessLayer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\bin\Debug\AllGreatFilms.DataAcessLayer.pdb
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\bin\Debug\AllGreatFilms.BusinessObjectLayer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\bin\Debug\EntityFramework.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\bin\Debug\AllGreatFilms.BusinessObjectLayer.pdb
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\bin\Debug\EntityFramework.xml
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\obj\Debug\AllGreatFilms.DataAcessLayer.csprojResolveAssemblyReference.cache
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\obj\Debug\AllGreatFilms.DataAcessLayer.dll
+E:\AGF_LATEST\AllGreatFilms\AllGreatFilms\AllGreatFilms.DataAcessLayer\obj\Debug\AllGreatFilms.DataAcessLayer.pdb
