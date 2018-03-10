@@ -1,102 +1,30 @@
-﻿@*@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
-
-    <div class="row">
-
-        <div class="moodsPanelHeading col-md-8">
-
-
-            <div class="col-md-4 pull-right">
-                <button class="btn btn-green" onclick="genreFilter('G')"> FILTER</button>
-
-
-            </div>
-            <hr />
-        </div>
-
-    </div>
-
-
-    @{int i = 0;
-    string gen = "";}
-    @foreach (var item in Model)
-    {
-        i = i + 1;
-
-
-        <div style="align-content:center; margin-left:10%; border-top:1px; border-bottom:1px;" class="animated fadeIn">
-            <ul style="list-style-type:none; list-style-position:outside; text-align:left;">
-                <li style="float:left; width: 30%">
-                    <input type="checkbox" name="checkbox" value="@Html.DisplayFor(modelItem => item.GenresIds)" id=@Html.DisplayFor(modelItem => item.GenresIds) class="css-checkbox" />
-                    <label for=@i class="css-label">@Html.DisplayFor(modelItem => item.Genres) </label>
-
-
-
-                </li>
-
-            </ul>
-
-
-        </div>
-
-
-
-    }*@
-
-
-
-@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
+﻿@model IEnumerable<AllGreatFilms.BusinessLayer.ViewModels.homeList_vm>
 
 
 @{int i = 0;
 string gen = "";}
-<div class="container">
 
-    <ul class="genres-list clearfix">
+<div class="animated fadeIn container">
+    <ul class="moods-list">
 
         @foreach (var item in Model)
         {
-            i = i + 1;
-
-
-
-
+            i = i + 100;
             <li class="col-md-3">
                 <input type="checkbox" name="checkbox" value="@Html.DisplayFor(modelItem => item.GenresIds)" id=@i class="css-checkbox" />
-                <label for=@i class="css-label">@Html.DisplayFor(modelItem => item.Genres) </label>
+                <label for=@i class="css-label">@Html.DisplayFor(modelItem => item.Genres) - @i </label>
 
             </li>
-
-
-
-
-
-
-
-
-
         }
 
     </ul>
-
-
-    <div class="actions">
-        <button class=" btn btn-default btn-circle" onclick="genreFilter('G')" style="margin-top:10px">
-            Apply
-        </button>
+    <div class="row" id="moodsPanel">
+        <div class="col-md-12" style="padding-left: 0px;">
+            <button class=" btn btn-default btn-circle" onclick="genreFilter('G')" style="margin-top:10px">Apply </button>
+        </div>
     </div>
 
 </div>
 
-@*<div class="row">
-
-        <div class="moodsPanelHeading col-md-8" style="padding-left: 0px;">
 
 
-            <div class="col-md-12" style="padding-left: 0px;">
-
-
-
-            </div>
-        </div>
-
-    </div*@
